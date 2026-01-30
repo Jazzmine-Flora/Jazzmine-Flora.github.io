@@ -50,12 +50,24 @@ Output goes to the `dist/` folder (e.g. `index.html`, `404.html`, `bundle.js`, a
 
 ## Deploying to GitHub Pages
 
-1. Build the project: `npm run build`
+**Why did the site show the README instead of the app?**  
+GitHub Pages serves whatever is at the **root** of the branch you publish from. If that branch has your **source code** (README, `src/`, `package.json`) and no `index.html`, GitHub can render the README as the page. The **app** lives in the **built** output (`dist/`: `index.html`, `bundle.js`, etc.). So the site must be deployed from that built output, not from the repo source.
+
+### Option 1: GitHub Actions (recommended)
+
+This repo includes a workflow that builds the project and deploys the `dist/` folder on every push to `main`.
+
+1. **One-time setup:** On GitHub, go to **Settings** → **Pages**. Under **Build and deployment**, set **Source** to **GitHub Actions** (not “Deploy from a branch”). Save.
+2. Push your code to `main`. The workflow runs automatically and deploys the built site. The live site will serve `index.html` (your app) at **https://jazzmine-flora.github.io**.
+
+You can also run the workflow manually: **Actions** → **Deploy to GitHub Pages** → **Run workflow**.
+
+### Option 2: Deploy from your machine
+
+1. Build: `npm run build`
 2. Deploy: `npm run deploy`
 
-The deploy script pushes the contents of `dist/` to the `main` branch. The site will be available at **https://jazzmine-flora.github.io** (GitHub uses lowercase in the URL).
-
-**Tip:** If you want to keep your source code on GitHub too, use a separate branch (e.g. `source`) for development and let `main` hold only the built files, or set up a [GitHub Action](https://github.com/peaceiris/actions-gh-pages) to build and deploy automatically.
+The deploy script pushes the contents of `dist/` to the `main` branch. For the site to show the app (not the README), GitHub Pages must be set to **Deploy from a branch** and the branch must contain **only** the built files (so after deploy, `main` would have only `index.html`, `bundle.js`, etc.). Your source code would then live on another branch (e.g. `source`).
 
 ### Deploy troubleshooting: "Permission denied" (403)
 
@@ -91,7 +103,7 @@ src/
 ├── assets/              # Images (profile, icons)
 └── styles/              # Global CSS
 public/
-└── template.html        # HTML template
+└── index.html           # HTML template (webpack builds from this)
 ```
 
 ---
