@@ -6,7 +6,7 @@ const projects = [
     title: "News Explorer",
     description: "A comprehensive full-stack news aggregation platform that allows users to search, save, and manage news articles from various sources. Features user authentication, personalized article collections, and seamless API integration.",
     longDescription: "Built with React for the front-end and Node.js/Express for the back-end, this application demonstrates advanced state management, RESTful API design, and MongoDB database operations. Users can search articles, save favorites, and manage their reading lists with a clean, intuitive interface.",
-    link: "https://jazzmine-flora.github.io/final-project-frontend/",
+    link: "https://jazzmine-flora.github.io/news-explorer/",
     tech: ["React", "JavaScript", "CSS", "Node.js", "Express", "MongoDB", "REST API", "News API", "Authentication"],
     highlights: ["User authentication & authorization", "Article search & filtering", "Saved articles management", "Responsive design"]
   },
