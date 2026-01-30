@@ -57,6 +57,27 @@ The deploy script pushes the contents of `dist/` to the `main` branch. The site 
 
 **Tip:** If you want to keep your source code on GitHub too, use a separate branch (e.g. `source`) for development and let `main` hold only the built files, or set up a [GitHub Action](https://github.com/peaceiris/actions-gh-pages) to build and deploy automatically.
 
+### Deploy troubleshooting: "Permission denied" (403)
+
+`npm run deploy` uses your **current Git/GitHub login**. If you see:
+
+```text
+Permission to Jazzmine-Flora/Jazzmine-Flora.github.io.git denied to <username>.
+```
+
+then the account you’re logged in as (`<username>`) doesn’t have push access to this repo. Fix it in one of these ways:
+
+1. **Push as the repo owner (Jazzmine-Flora)**  
+   Sign in to GitHub as the Jazzmine-Flora account on this machine:
+   - **HTTPS:** Sign out of GitHub in Git Credential Manager, then run `npm run deploy` again and sign in as Jazzmine-Flora when prompted. Or use a [Personal Access Token](https://github.com/settings/tokens) for Jazzmine-Flora and use it as the password when Git asks.
+   - **SSH:** [Add an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) to the Jazzmine-Flora account and change the deploy remote to SSH (see `package.json` → `scripts.deploy`).
+
+2. **Push as a collaborator**  
+   If you use a different account (e.g. khdev808): on GitHub, go to **Jazzmine-Flora/Jazzmine-Flora.github.io** → **Settings** → **Collaborators** and add that account with write access. Then ensure you’re logged in as that account (HTTPS or SSH) and run `npm run deploy` again.
+
+3. **Use GitHub Actions**  
+   To avoid using your local credentials, use a [GitHub Action](https://github.com/peaceiris/actions-gh-pages) that builds and deploys from the repo; it uses a token that you configure in the repo’s secrets.
+
 ---
 
 ## Project structure

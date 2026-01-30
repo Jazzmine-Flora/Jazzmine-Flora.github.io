@@ -35,11 +35,11 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: "./public/template.html",
+        template: "./public/index.html",
         filename: "index.html",
       }),
       new HtmlWebpackPlugin({
-        template: "./public/template.html",
+        template: "./public/index.html",
         filename: "404.html",
         inject: true,
       }),
