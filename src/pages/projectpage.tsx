@@ -14,7 +14,7 @@ const projects = [
     title: "Portfolio Website",
     description: "A modern, responsive portfolio website showcasing projects, skills, and professional experience. Built with React and TypeScript, featuring a clean design system and smooth animations.",
     longDescription: "This portfolio demonstrates proficiency in React, TypeScript, and modern CSS practices. Features include responsive design, smooth page transitions, and a component-based architecture. The site showcases technical skills while maintaining excellent performance and accessibility standards.",
-    link: "https://jazzmine-flora.github.io/my-portfolio/",
+    link: "https://jazzmine-flora.github.io",
     tech: ["React", "TypeScript", "JavaScript", "CSS", "Webpack", "React Router"],
     highlights: ["Responsive design", "Component architecture", "TypeScript implementation", "Modern UI/UX"]
   },
