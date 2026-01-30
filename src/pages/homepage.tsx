@@ -5,10 +5,68 @@ import profilePic from "../assets/profile.png";
 import "../styles/main.css";
 
 const skills = {
-  frontend: ["React", "TypeScript", "JavaScript", "HTML5", "CSS3", "SASS", "Webpack", "Responsive Design"],
-  backend: ["Node.js", "Express", "REST APIs", "MongoDB", "Mongoose", "Postman"],
-  tools: ["Git", "GitHub", "VS Code", "Figma", "Chrome DevTools", "npm/yarn"],
-  concepts: ["Component Architecture", "State Management", "API Integration", "Authentication", "Database Design"]
+  frontend: [
+    "React",
+    "TypeScript",
+    "JavaScript (ES6+)",
+    "Next.js",
+    "HTML5",
+    "CSS3",
+    "SASS / SCSS",
+    "Tailwind CSS",
+    "Redux / Zustand",
+    "React Query",
+    "Webpack",
+    "Vite",
+    "Responsive Design",
+    "Accessibility (a11y)",
+    "Performance Optimization",
+  ],
+  backend: [
+    "Node.js",
+    "Express",
+    "REST APIs",
+    "GraphQL",
+    "PostgreSQL",
+    "MongoDB",
+    "Mongoose",
+    "Prisma",
+    "JWT & OAuth",
+    "WebSockets",
+    "Server-Sent Events",
+    "API Design",
+  ],
+  tools: [
+    "Git",
+    "GitHub",
+    "GitHub Actions",
+    "VS Code",
+    "Figma",
+    "Chrome DevTools",
+    "npm / yarn / pnpm",
+    "Postman",
+    "Jest",
+    "React Testing Library",
+    "Docker",
+  ],
+  deployment: [
+    "Vercel",
+    "Netlify",
+    "GitHub Pages",
+    "AWS (Basics)",
+    "CI/CD",
+    "Linux / Bash",
+  ],
+  concepts: [
+    "Component Architecture",
+    "State Management",
+    "API Integration",
+    "Authentication & Authorization",
+    "Database Design",
+    "Security Best Practices",
+    "Agile / Scrum",
+    "Clean Code & DRY",
+  ],
 };
 
 const HomePage: React.FC = () => (
@@ -70,7 +128,7 @@ const HomePage: React.FC = () => (
       <div className="container">
         <h2 className="skills-showcase__title">Technical Skills</h2>
         <p className="skills-showcase__lead">
-          A comprehensive toolkit for building modern web applications
+          A full-stack toolkit for building modern, scalable web applications
         </p>
         <div className="skills-showcase__grid">
           <div className="skill-category">
@@ -93,6 +151,14 @@ const HomePage: React.FC = () => (
             <h3 className="skill-category__title">Tools & Workflow</h3>
             <div className="skill-category__tags">
               {skills.tools.map((skill) => (
+                <span key={skill} className="skill-tag">{skill}</span>
+              ))}
+            </div>
+          </div>
+          <div className="skill-category">
+            <h3 className="skill-category__title">Deployment & DevOps</h3>
+            <div className="skill-category__tags">
+              {skills.deployment.map((skill) => (
                 <span key={skill} className="skill-tag">{skill}</span>
               ))}
             </div>
