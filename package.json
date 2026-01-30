@@ -1,0 +1,44 @@
+{
+  "name": "my-portfolio",
+  "homepage": "https://jazzmine-flora.github.io",
+  "version": "1.0.0",
+  "description": "A personal portfolio website showcasing projects and skills.",
+  "main": "src/index.tsx",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "test": "jest",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist -r https://github.com/Jazzmine-Flora/Jazzmine-Flora.github.io.git -b main"
+  },
+  "keywords": [
+    "portfolio",
+    "website",
+    "projects",
+    "personal"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.6.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.6",
+    "@types/react-router-dom": "^5.3.3",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^7.1.2",
+    "gh-pages": "^6.3.0",
+    "html-webpack-plugin": "^5.6.3",
+    "jest": "^27.0.6",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.9.5",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  }
+}
