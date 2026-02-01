@@ -53,16 +53,16 @@ Output goes to the `dist/` folder (e.g. `index.html`, `404.html`, `bundle.js`, a
 **Why did the site show the README instead of the app?**  
 GitHub Pages serves whatever is at the **root** of the branch you publish from. If that branch has your **source code** (README, `src/`, `package.json`) and no `index.html`, GitHub can render the README as the page. The **app** lives in the **built** output (`dist/`: `index.html`, `bundle.js`, etc.). So the site must be deployed from that built output, not from the repo source.
 
-### Option 1: GitHub Actions (recommended)
+### Deploy from main (GitHub Actions)
 
-This repo includes a workflow that builds the project and deploys the `dist/` folder on every push to `main`.
+This repo deploys from the **main** branch only. A GitHub Actions workflow runs on every push to `main`: it builds the project and copies the built files (`index.html`, `404.html`, `bundle.js`, assets) to the **root** of `main`. Your source code stays in the repo; the built files are added at root so GitHub Pages serves the app.
 
-1. **One-time setup:** On GitHub, go to **Settings** → **Pages**. Under **Build and deployment**, set **Source** to **GitHub Actions** (not “Deploy from a branch”). Save.
-2. Push your code to `main`. The workflow runs automatically and deploys the built site. The live site will serve `index.html` (your app) at **https://jazzmine-flora.github.io**.
+1. **One-time setup:** On GitHub, go to **Settings** → **Pages**. Under **Build and deployment**, set **Source** to **Deploy from a branch**. Set **Branch** to **main** and **Folder** to **/ (root)**. Save.
+2. Push your code to `main`. The workflow runs, adds the built site to the root of `main`, and pushes. The live site at **https://jazzmine-flora.github.io** will then serve `index.html` (your app).
 
 You can also run the workflow manually: **Actions** → **Deploy to GitHub Pages** → **Run workflow**.
 
-### Option 2: Deploy from your machine
+### Deploy from your machine (optional)
 
 1. Build: `npm run build`
 2. Deploy: `npm run deploy`
