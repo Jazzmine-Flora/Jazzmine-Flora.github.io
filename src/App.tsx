@@ -6,6 +6,7 @@ import AboutPage from "./pages/about";
 import ContactPage from "./pages/contact";
 import Footer from "./components/Footer";
 import ProjectPage from "./pages/projectpage";
+import ReviewsPage from "./pages/reviews";
 
 const App = () => (
   <>
@@ -15,10 +16,10 @@ const App = () => (
         <Route path="/" element={<HomePage />} />
         <Route path="/projects" element={<ProjectPage />} />
         <Route path="/about" element={<AboutPage />} />
-        
+        <Route path="/reviews" element={<ReviewsPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
-    </main> 
+    </main>
     <Footer />
   </>
 );
