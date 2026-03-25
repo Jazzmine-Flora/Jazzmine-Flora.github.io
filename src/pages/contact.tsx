@@ -68,7 +68,7 @@ const ContactPage: React.FC = () => {
           name,
           email,
           ...(phone ? { phone } : {}),
-          subject: `Portfolio inquiry — ${projectType || "Project"} — ${name}`,
+          subject: `Portfolio inquiry: ${projectType || "Project"} (${name})`,
           message: messageBody,
         }),
       });
@@ -95,25 +95,25 @@ const ContactPage: React.FC = () => {
       <section className="contact-shell section">
         <div className="container contact-shell__inner">
           <header className="contact-shell__intro">
-            <p className="contact-shell__eyebrow">Project inquiry</p>
-            <h1 className="contact-shell__title">Tell me about your project</h1>
+            <p className="contact-shell__eyebrow">Contact</p>
+            <h1 className="contact-shell__title">Write me a note</h1>
             <p className="contact-shell__lead">
-              Share scope, constraints, and what success looks like. I reply within one business day—often sooner for
-              well-defined briefs.
+              A few fields so I know who you are and what you want to ship. I read every message; I usually reply within
+              a day.
             </p>
             <ul className="contact-shell__trust">
-              <li>Structured intake — fewer back-and-forth threads</li>
-              <li>NDA-friendly — mention if you need one before details</li>
-              <li>No recruiters — product teams and founders only</li>
+              <li>Specific questions get faster answers</li>
+              <li>Say in the details if you need an NDA first</li>
+              <li>Project inquiries only (no recruiter blasts)</li>
             </ul>
           </header>
 
           <div className="contact-form-panel">
             {status === "success" ? (
               <div className="contact-form-panel__success" role="status">
-                <h2 className="contact-form-panel__success-title">Message sent</h2>
+                <h2 className="contact-form-panel__success-title">Got it</h2>
                 <p className="contact-form-panel__success-text">
-                  Thanks for the brief. I&apos;ll review it and get back to you by email shortly.
+                  Your note is in my inbox. I&apos;ll reply in the same thread.
                 </p>
                 <button
                   type="button"
@@ -181,8 +181,8 @@ const ContactPage: React.FC = () => {
                       <option value="" disabled>
                         Select…
                       </option>
-                      <option value="New build — web app">New build — web app</option>
-                      <option value="New build — marketing / site">New build — marketing / site</option>
+                      <option value="New build: web app">New build: web app</option>
+                      <option value="New build: marketing site">New build: marketing site</option>
                       <option value="Refactor / stabilize codebase">Refactor / stabilize codebase</option>
                       <option value="Performance / reliability">Performance / reliability</option>
                       <option value="Architecture / technical review">Architecture / technical review</option>
@@ -195,8 +195,8 @@ const ContactPage: React.FC = () => {
                     <select className="contact-form__input contact-form__select" name="timeline" defaultValue="">
                       <option value="">Optional</option>
                       <option value="ASAP / under 2 weeks">ASAP / under 2 weeks</option>
-                      <option value="2–4 weeks">2–4 weeks</option>
-                      <option value="1–2 months">1–2 months</option>
+                      <option value="2-4 weeks">2-4 weeks</option>
+                      <option value="1-2 months">1-2 months</option>
                       <option value="2+ months / flexible">2+ months / flexible</option>
                     </select>
                   </label>
@@ -219,7 +219,7 @@ const ContactPage: React.FC = () => {
                     name="details"
                     required
                     rows={6}
-                    placeholder="Stack (if any), goals, constraints, links to briefs or repos (if shareable), and what “done” looks like."
+                    placeholder="Stack, goals, constraints, links, and what done looks like."
                   />
                 </label>
 
