@@ -1,5 +1,5 @@
-import React, { useLayoutEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useCallback, useLayoutEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import ContactSection from "../components/ContactSection";
 import HeroCanvas from "../components/HeroCanvas";
 import TypingText from "../components/TypingText";
@@ -92,8 +92,18 @@ const skills = {
 
 const HomePage: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   useRevealOnScroll();
+
+  const scrollTo = useCallback((id: string, path: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate(path);
+    }
+  }, [navigate]);
 
   useLayoutEffect(() => {
     const id = PATH_TO_SECTION[location.pathname];
@@ -109,7 +119,7 @@ const HomePage: React.FC = () => {
       <section className="section section--home hero hero--3d" id="home" aria-labelledby="hero-heading">
         <HeroCanvas />
         <div className="container hero__centered">
-          <img src={avatarImg} alt="Taliba Sadiq" className="hero__avatar" />
+          <img src={avatarImg} alt="Taliba Sadiq" className="hero__avatar" draggable={false} />
           <p className="hero__eyebrow hero__eyebrow--glow">Available for projects</p>
           <h1 id="hero-heading" className="hero__title hero__title--3d">
             Taliba Sadiq
@@ -122,12 +132,12 @@ const HomePage: React.FC = () => {
             code that keeps working as your product grows. Not just launch-day demos, but lasting solutions.
           </p>
           <div className="hero__actions hero__actions--center">
-            <Link to="/projects" className="btn btn--primary btn--glow">
+            <button type="button" className="btn btn--primary btn--glow" onClick={() => scrollTo("work", "/projects")}>
               See my work
-            </Link>
-            <Link to="/contact" className="btn btn--ghost btn--ghost-dark">
+            </button>
+            <button type="button" className="btn btn--ghost btn--ghost-dark" onClick={() => scrollTo("contact", "/contact")}>
               Let&apos;s talk
-            </Link>
+            </button>
           </div>
         </div>
       </section>
@@ -326,9 +336,9 @@ const HomePage: React.FC = () => {
             ))}
           </div>
           <div className="testimonials__cta">
-            <Link to="/contact" className="btn btn--primary">
+            <button type="button" className="btn btn--primary" onClick={() => scrollTo("contact", "/contact")}>
               Start a conversation
-            </Link>
+            </button>
           </div>
         </div>
       </section>
