@@ -235,8 +235,18 @@ const HomePage: React.FC = () => {
                   </div>
                 )}
                 <div className="project-card__body">
-                  <div className="project-card__meta">
-                    <span className="project-card__badge">{project.badge}</span>
+                  <div className="project-card__types">
+                    <p className="project-card__types-label">Project type</p>
+                    <ul className="project-card__type-list" role="list">
+                      {project.types.map((typeLabel, typeIndex) => (
+                        <li
+                          key={`${project.title}-type-${typeIndex}`}
+                          className={`project-card__type-chip${typeIndex === 0 ? " project-card__type-chip--primary" : ""}`}
+                        >
+                          {typeLabel}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                   <h3 className="project-card__title">{project.title}</h3>
                   <p className="project-card__desc">{project.description}</p>

@@ -8,7 +8,8 @@ import thumbGirlyBlog from "../assets/projects/girly-blog.png";
 
 export type Project = {
   title: string;
-  badge: string;
+  /** Short labels shown as chips (e.g. primary focus + format). */
+  types: string[];
   description: string;
   longDescription: string;
   link: string;
@@ -20,7 +21,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Zenius",
-    badge: "AI development · Full-stack web",
+    types: ["AI & product", "Full-stack web"],
     description:
       "Support by text, voice, or video, with profiles so people can find a fit. Not a generic chatbot wrapper.",
     longDescription:
@@ -48,7 +49,7 @@ export const projects: Project[] = [
   },
   {
     title: "News Explorer",
-    badge: "Web development · APIs & auth",
+    types: ["Full-stack web", "APIs & auth"],
     description:
       "Search news, save articles, sign in so your list follows you. Search, auth, and a third-party API without a mess.",
     longDescription:
@@ -60,7 +61,7 @@ export const projects: Project[] = [
   },
   {
     title: "TMI Worldwide",
-    badge: "Design update · Marketing website",
+    types: ["Design refresh", "Marketing site"],
     description:
       "Luxury travel concierge: premium positioning, clear services, and a marketing site that reads high-end without noisy clutter.",
     longDescription:
@@ -72,7 +73,7 @@ export const projects: Project[] = [
   },
   {
     title: "Time Keeper",
-    badge: "Web app · Mobile-ready UX",
+    types: ["Web app", "Product UX"],
     description:
       "Crafted time and productivity experience: focused flows, clear UI, and a cohesive product feel in the browser.",
     longDescription:
@@ -84,7 +85,7 @@ export const projects: Project[] = [
   },
   {
     title: "This portfolio",
-    badge: "Web development · Design & deploy",
+    types: ["Portfolio site", "Design & deploy"],
     description:
       "React, TypeScript, webpack, HashRouter for GitHub Pages. Copy I rewrote until it sounded right.",
     longDescription: "Custom components and CSS. Deploy is automated.",
@@ -95,7 +96,7 @@ export const projects: Project[] = [
   },
   {
     title: "Expense Tracker",
-    badge: "Web development · Bug fixes & dashboards",
+    types: ["Web app", "Dashboards & data"],
     description:
       "Track spending, categorize, chart it. TypeScript when the data shapes get awkward.",
     longDescription: "Forms, validation, charts. Straight CRUD and dashboards.",
@@ -106,7 +107,7 @@ export const projects: Project[] = [
   },
   {
     title: "Girls Blog",
-    badge: "Full-stack web · Content platform",
+    types: ["Full-stack web", "Blog & CMS"],
     description:
       "Full-stack blog: accounts, posts, MongoDB. Slugs, soft deletes, the usual lessons.",
     longDescription:
