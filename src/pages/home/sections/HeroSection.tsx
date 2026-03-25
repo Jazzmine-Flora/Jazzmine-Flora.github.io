@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import HeroCanvas from "@/components/HeroCanvas";
 import TypingText from "@/components/TypingText";
-import heroAvatar from "@/assets/avatar.png";
 import { TYPING_ROLES } from "@/pages/home/content/typingRoles";
 import type { ScrollToHandler } from "@/pages/home/types";
 
@@ -15,7 +14,15 @@ const HeroSection: React.FC<Props> = ({ scrollTo }) => (
   <section className="section section--home hero hero--3d" id="home" aria-labelledby="hero-heading">
     <HeroCanvas />
     <div className="container hero__centered">
-      <img src={heroAvatar} alt="Taliba Sadiq" className="hero__avatar" draggable={false} />
+      <img
+        src={`${import.meta.env.BASE_URL}avatar.png`}
+        alt="Taliba Sadiq"
+        className="hero__avatar"
+        draggable={false}
+        width={150}
+        height={150}
+        decoding="async"
+      />
       <p className="hero__eyebrow hero__eyebrow--glow">Available for projects</p>
       <h1 id="hero-heading" className="hero__title hero__title--3d">
         Taliba Sadiq
