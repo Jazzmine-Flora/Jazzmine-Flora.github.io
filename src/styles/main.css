@@ -11,7 +11,7 @@
   --text: #181116;
   --text-muted: #4a444e;
   --text-on-dark: #faf7f9;
-  --text-muted-on-dark: #b8aeba;
+  --text-muted-on-dark: #cdc4d0;
 
   --accent: #b8456e;
   --accent-deep: #8a3050;
@@ -307,6 +307,16 @@ p:last-child {
   text-align: center;
   padding-top: var(--space-3xl);
   padding-bottom: var(--space-3xl);
+  position: relative;
+}
+
+.hero__centered::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10%;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(10, 8, 18, 0.75) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
 }
 
 .hero__avatar {
@@ -320,23 +330,24 @@ p:last-child {
 }
 
 .hero__eyebrow--glow {
-  color: var(--accent-warm);
-  background: rgba(232, 160, 144, 0.1);
-  border-color: rgba(232, 160, 144, 0.2);
+  color: #f0b8a4;
+  background: rgba(232, 160, 144, 0.14);
+  border-color: rgba(232, 160, 144, 0.28);
 }
 
 .hero__title--3d {
-  color: var(--text-on-dark);
+  color: #ffffff;
   font-size: clamp(2.75rem, 6vw, 4.5rem);
   letter-spacing: -0.04em;
   margin-bottom: var(--space-sm);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
 }
 
 .hero__typing-wrap {
   font-family: var(--font-body);
   font-size: clamp(1rem, 2vw, 1.3rem);
   font-weight: 600;
-  color: var(--accent);
+  color: #e898b4;
   min-height: 1.8em;
   margin: 0 0 var(--space-lg);
 }
@@ -345,7 +356,7 @@ p:last-child {
   display: inline-block;
   width: 2px;
   height: 1.1em;
-  background: var(--accent);
+  background: #e898b4;
   margin-left: 2px;
   vertical-align: text-bottom;
   animation: blink 1s step-end infinite;
@@ -357,10 +368,12 @@ p:last-child {
 }
 
 .hero__intro--3d {
-  color: var(--text-muted-on-dark);
+  color: #d0c8d4;
   max-width: 580px;
   margin-left: auto;
   margin-right: auto;
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
 }
 
 .hero__actions--center {
@@ -376,19 +389,19 @@ p:last-child {
 }
 
 .btn--ghost-dark {
-  background: rgba(255, 255, 255, 0.06) !important;
-  color: var(--text-on-dark) !important;
-  border-color: rgba(255, 255, 255, 0.12) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #fff !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
 }
 
 .btn--ghost-dark:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.14) !important;
   color: #fff !important;
-  border-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
 }
 
 .hero__social--dark .hero__social-link {
-  color: var(--text-muted-on-dark) !important;
+  color: #d0c8d4 !important;
 }
 
 .hero__social--dark .hero__social-link:hover {
@@ -1356,6 +1369,7 @@ p:last-child {
   font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   letter-spacing: -0.03em;
   margin: 0 0 var(--space-md);
+  color: var(--text);
 }
 
 .section__lead {
@@ -1441,13 +1455,13 @@ p:last-child {
 .philosophy__closing-text {
   font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
-  color: var(--text-muted-on-dark);
+  color: #d0c8d4;
   max-width: 580px;
   margin: 0 auto var(--space-lg);
 }
 
 .philosophy__closing-text strong {
-  color: var(--text-on-dark);
+  color: #ffffff;
 }
 
 .philosophy__traits {
