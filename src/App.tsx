@@ -1,9 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import ScrollToTop from "./components/ScrollToTop";
-import Header from "./components/Header";
-import HomePage from "./pages/homepage";
-import Footer from "./components/Footer";
+import ScrollToTop from "./components/layout/ScrollToTop";
+import Header from "./components/layout/Header";
+import HomePage from "./pages/home";
+import Footer from "./components/layout/Footer";
 import { useContentProtection } from "./hooks/useContentProtection";
 
 const App = () => {

@@ -3,19 +3,19 @@
   "homepage": "https://jazzmine-flora.github.io",
   "version": "1.0.2",
   "description": "Personal portfolio site.",
-  "main": "src/index.tsx",
   "scripts": {
+    "dev": "vite",
+    "predev": "npm run generate:favicon",
+    "build": "vite build",
+    "prebuild": "npm run generate:favicon",
+    "postbuild": "node scripts/copy-404-html.js",
+    "preview": "vite preview",
+    "start": "npm run dev",
+    "dev:8081": "npm run dev -- --port 8081",
     "generate:favicon": "node scripts/generate-favicon.js",
     "capture:projects": "node scripts/capture-project-screenshots.js",
-    "prestart": "npm run generate:favicon",
-    "start": "webpack serve --mode development",
-    "start:8081": "set PORT=8081&& npm run start",
-    "prebuild": "npm run generate:favicon",
-    "build": "webpack --mode production",
-    "preview": "npx --yes serve dist -l 4173",
-    "test": "jest",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -r https://github.com/Jazzmine-Flora/Jazzmine-Flora.github.io.git -b main"
+    "deploy": "gh-pages -d dist -r https://github.com/Jazzmine-Flora/Jazzmine-Flora.github.io.git -b main",
+    "predeploy": "npm run build"
   },
   "keywords": [
     "portfolio",
@@ -28,28 +28,18 @@
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-icons": "^5.5.0",
     "react-router-dom": "^7.6.2",
     "three": "^0.183.2"
   },
   "devDependencies": {
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.6",
-    "@types/react-router-dom": "^5.3.3",
-    "babel-loader": "^8.2.2",
-    "copy-webpack-plugin": "^14.0.0",
-    "css-loader": "^7.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
     "gh-pages": "^6.3.0",
-    "html-webpack-plugin": "^5.6.3",
-    "jest": "^27.0.6",
     "playwright": "^1.49.1",
     "png-to-ico": "^3.0.1",
     "sharp": "^0.34.5",
-    "style-loader": "^4.0.0",
-    "ts-loader": "^9.2.6",
-    "typescript": "^4.9.5",
-    "webpack": "^5.99.9",
-    "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.2"
+    "typescript": "^5.7.3",
+    "vite": "^6.2.4"
   }
 }

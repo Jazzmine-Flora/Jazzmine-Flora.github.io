@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { WEB3FORMS_ACCESS_KEY } from "../config/contact";
-import "../styles/main.css";
-import "../pages/ContactPage.css";
+import "./ContactSection.css";
 
 type FormStatus = "idle" | "sending" | "success" | "error";
 

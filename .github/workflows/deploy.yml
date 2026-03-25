@@ -27,17 +27,21 @@ jobs:
       - name: Build
         run: npm run build
 
-      # Copy built files to repo root so Pages (serving from main) serves index.html
+      # Copy dist/ to repo root for GitHub Pages. Remove assets/ first so old Vite chunk hashes
+      # are not left behind (plain cp merges and would accumulate stale files).
       - name: Copy built site to root
-        run: cp -r dist/. .
+        run: |
+          rm -rf assets
+          cp -r dist/. .
 
       - name: Commit and push to main
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add index.html 404.html bundle.js bundle.js.LICENSE.txt
+          git add index.html 404.html
+          git add -A assets/ 2>/dev/null || true
           git add favicon.ico favicon.png apple-touch-icon.png .nojekyll 2>/dev/null || true
-          # Webpack emits hashed filenames for project screenshots, etc.
+          # Loose images at repo root (if any); Vite puts hashed files under assets/
           git add *.png *.jpg *.jpeg *.ico *.gif *.svg *.webp 2>/dev/null || true
           git status
           if ! git diff --staged --quiet; then
