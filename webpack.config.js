@@ -55,6 +55,11 @@ module.exports = (env, argv) => {
         },
       ],
     },
+    // Full-size project screenshots + hero PNG exceed webpack's default ~244 KiB budget.
+    performance: {
+      maxAssetSize: 2 * 1024 * 1024,
+      maxEntrypointSize: 2 * 1024 * 1024,
+    },
     plugins: [
       new HtmlWebpackPlugin({
         ...htmlPluginOptions,
