@@ -8,11 +8,10 @@ const ReviewsPage: React.FC = () => (
     <section className="section">
       <div className="container">
         <div className="testimonials__head">
-          <h1 className="testimonials__title">Reviews &amp; references</h1>
+          <h1 className="testimonials__title">Reviews</h1>
           <p className="testimonials__lead">
-            Feedback from product leaders and collaborators on freelance and contract engagements. Names and
-            organizations are abbreviated where confidentiality applies—full references available in conversation for
-            serious engagements.
+            Short quotes people agreed to share. Initials only when they asked. Ask me for a full reference if we work
+            together.
           </p>
         </div>
         <div className="testimonials__grid">
@@ -28,7 +27,7 @@ const ReviewsPage: React.FC = () => (
         </div>
         <div className="testimonials__cta">
           <Link to="/contact" className="btn btn--primary">
-            Discuss your project
+            Tell me what you&apos;re building
           </Link>
         </div>
       </div>
