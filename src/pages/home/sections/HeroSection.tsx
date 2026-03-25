@@ -1,4 +1,5 @@
 import React from "react";
+import avatar from "@/assets/avatar.png";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import HeroCanvas from "@/components/HeroCanvas";
@@ -15,7 +16,7 @@ const HeroSection: React.FC<Props> = ({ scrollTo }) => (
     <HeroCanvas />
     <div className="container hero__centered">
       <img
-        src={`${import.meta.env.BASE_URL}avatar.png`}
+        src={avatar}
         alt="Taliba Sadiq"
         className="hero__avatar"
         draggable={false}
