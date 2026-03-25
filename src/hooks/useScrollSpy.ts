@@ -6,8 +6,8 @@ import { useEffect, useState } from "react";
  */
 export const SECTION_NAV: readonly { id: string; path: string }[] = [
   { id: "home", path: "/" },
+  { id: "services", path: "/" },
   { id: "philosophy", path: "/" },
-  { id: "execution", path: "/" },
   { id: "work", path: "/projects" },
   { id: "reviews", path: "/reviews" },
   { id: "skills", path: "/reviews" },
