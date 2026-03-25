@@ -3,99 +3,105 @@ import { Link } from "react-router-dom";
 import "../styles/main.css";
 
 const AboutPage: React.FC = () => (
-  <div className="about-page page-content">
+  <div className="about-page about-page--premium page-content">
     <section className="section">
       <div className="container about__inner">
-        <h1 className="about__title">About Me</h1>
-        
+        <h1 className="about__title">About</h1>
+
+        <p className="about__lead">
+          I&apos;m <strong className="about__name">Taliba Sadiq</strong>—a software architect and senior full stack
+          engineer focused on React, Next.js, Node, and systems that stay maintainable as they scale.
+        </p>
+
         <div className="about__grid">
           <div className="about__block">
-            <p className="about__lead">
-              Hello! I'm <strong className="about__name">Taliba Sadiq</strong>, a full-stack front-end developer
-              with a unique blend of technical expertise and business acumen.
+            <p>
+              I build software that holds up under real use: full stack applications across modern web and
+              AI-adjacent products, with emphasis on architecture, APIs, and backends that support real-world
+              traffic—not just demos.
             </p>
             <p>
-              I completed my software engineering training at <strong>TripleTen</strong>, where I mastered modern
-              web development technologies and best practices. Combined with my bachelor's degree in business,
-              I bring a strategic perspective to every project, ensuring solutions are not only technically sound
-              but also aligned with user needs and business goals.
+              My background combines rigorous engineering practice with a business-oriented lens. I completed
+              intensive software engineering training at <strong>TripleTen</strong>, and hold a bachelor&apos;s
+              degree in business—so technical decisions are grounded in product outcomes, not only code aesthetics.
             </p>
           </div>
           <div className="about__block">
             <p>
-              Beyond coding, I have a passion for <strong>animation</strong>, which fuels my creativity and
-              attention to detail. This artistic background influences how I approach UI/UX design, always striving
-              for smooth interactions, engaging animations, and visually appealing interfaces.
+              I&apos;m often engaged when a product is outgrowing its structure, when a codebase needs refactoring
+              toward stability, when a prototype must harden for production, or when performance and reliability need a
+              systematic fix—not a superficial patch.
             </p>
             <p>
-              I'm passionate about writing clean, maintainable code and staying current with the latest web
-              technologies. Whether it's optimizing performance, implementing responsive designs, or building
-              robust APIs, I approach every challenge with enthusiasm and precision.
+              Animation and motion inform how I think about interfaces: clarity, timing, and polish—but the core of my
+              work is engineering judgment, clear communication, and delivery you can build a roadmap on.
             </p>
           </div>
         </div>
 
-        <div className="about__expertise">
-          <h2 className="about__subtitle">What I Do</h2>
-          <div className="expertise-grid">
-            <div className="expertise-item">
-              <h3 className="expertise-item__title">Front-End Development</h3>
-              <p>
-                Building responsive, interactive user interfaces with React, TypeScript, and modern CSS.
-                I focus on component architecture, state management, and creating seamless user experiences.
-              </p>
-            </div>
-            <div className="expertise-item">
-              <h3 className="expertise-item__title">Back-End Integration</h3>
-              <p>
-                Developing RESTful APIs with Node.js and Express, designing database schemas with MongoDB,
-                and implementing authentication and authorization systems.
-              </p>
-            </div>
-            <div className="expertise-item">
-              <h3 className="expertise-item__title">Full-Stack Solutions</h3>
-              <p>
-                Creating end-to-end applications from database design to deployment, ensuring scalability,
-                security, and optimal performance across the entire stack.
-              </p>
-            </div>
-            <div className="expertise-item">
-              <h3 className="expertise-item__title">UI/UX Design</h3>
-              <p>
-                Combining technical skills with design sensibility to create intuitive, accessible,
-                and visually appealing interfaces that users love to interact with.
-              </p>
-            </div>
+        <h2 className="about__section-title">How I work</h2>
+        <div className="expertise-grid">
+          <div className="expertise-item">
+            <h3 className="expertise-item__title">Architecture &amp; systems</h3>
+            <p>
+              End-to-end thinking: boundaries between frontend, APIs, and data; scalability; refactoring paths; and
+              how the system will evolve as features and users grow.
+            </p>
+          </div>
+          <div className="expertise-item">
+            <h3 className="expertise-item__title">React &amp; Next.js</h3>
+            <p>
+              Production-grade frontends: performance, routing, data fetching, and patterns that keep large codebases
+              navigable for the next developer—including you, six months later.
+            </p>
+          </div>
+          <div className="expertise-item">
+            <h3 className="expertise-item__title">APIs &amp; backends</h3>
+            <p>
+              Node.js ecosystems, REST and GraphQL, authentication, databases (SQL and document), and APIs designed for
+              clarity and safe evolution.
+            </p>
+          </div>
+          <div className="expertise-item">
+            <h3 className="expertise-item__title">AI integration</h3>
+            <p>
+              Practical integration of AI-driven features into web products—where they add value, how to structure
+              prompts and services, and how to keep behavior observable and maintainable.
+            </p>
           </div>
         </div>
 
-        <h2 className="about__subtitle">Featured Projects</h2>
+        <h2 className="about__subtitle">Representative projects</h2>
         <ul className="about__list">
           <li className="about__item">
-            <strong>News Explorer:</strong> A full-stack news aggregation platform built with React and Node.js.
-            Features include article search, user authentication, saved articles management, and integration
-            with the News API. Demonstrates advanced state management, API integration, and database operations.
+            <strong>News Explorer</strong> — Full-stack news aggregation: search, auth, saved articles, News API
+            integration; demonstrates state management and secure API usage at scale.
           </li>
           <li className="about__item">
-            <strong>Expense Tracker:</strong> A comprehensive financial management application built with React
-            and TypeScript. Features include expense categorization, data visualization with charts, and
-            persistent data storage. Showcases TypeScript best practices, form handling, and data visualization.
+            <strong>Expense Tracker</strong> — TypeScript-first financial app with categorization, visualization, and
+            robust form and data flows.
           </li>
           <li className="about__item">
-            <strong>Girly Blog:</strong> A full-stack blogging platform with React front-end and Node.js/Express/MongoDB
-            back-end. Includes user authentication, CRUD operations for posts, and a modern, responsive design.
-            Demonstrates full-stack development capabilities and database design.
+            <strong>WTWR (What to Wear)</strong> — Weather-driven recommendations with external APIs and full-stack
+            persistence.
+          </li>
+          <li className="about__item">
+            <strong>Girls Blog</strong> — Full-stack CMS-style blogging with auth, CRUD, and production-minded MongoDB
+            usage.
           </li>
         </ul>
-        
+
         <p className="about__closing">
-          Each project represents a learning journey and showcases my ability to work across the entire
-          development stack, from designing user interfaces to implementing robust back-end systems.
+          If you&apos;re looking for someone who can think through your system end-to-end and help it scale properly,
+          I&apos;d be glad to connect.
         </p>
-        
+
         <div className="about__cta">
           <Link to="/projects" className="btn btn--primary">
-            Explore All Projects
+            View projects
+          </Link>
+          <Link to="/reviews" className="btn btn--ghost">
+            Client reviews
           </Link>
         </div>
       </div>
