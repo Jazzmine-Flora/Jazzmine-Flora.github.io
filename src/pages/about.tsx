@@ -9,99 +9,97 @@ const AboutPage: React.FC = () => (
         <h1 className="about__title">About</h1>
 
         <p className="about__lead">
-          I&apos;m <strong className="about__name">Taliba Sadiq</strong>—a software architect and senior full stack
-          engineer focused on React, Next.js, Node, and systems that stay maintainable as they scale.
+          I&apos;m <strong className="about__name">Taliba Sadiq</strong>. I build full stack software on the web, mostly
+          with React, Next.js, and Node. I try to leave codebases easier to work in than I found them.
         </p>
 
         <div className="about__grid">
           <div className="about__block">
             <p>
-              I build software that holds up under real use: full stack applications across modern web and
-              AI-adjacent products, with emphasis on architecture, APIs, and backends that support real-world
-              traffic—not just demos.
+              I trained at <strong>TripleTen</strong> and have a business degree. That helps when scope and priorities
+              need a clear discussion with founders.
             </p>
             <p>
-              My background combines rigorous engineering practice with a business-oriented lens. I completed
-              intensive software engineering training at <strong>TripleTen</strong>, and hold a bachelor&apos;s
-              degree in business—so technical decisions are grounded in product outcomes, not only code aesthetics.
+              I like problems where the UI looks fine but metrics or logs show something else. I usually sit between UI,
+              API, and database to find the cause and fix it without breaking what works.
             </p>
           </div>
           <div className="about__block">
             <p>
-              I&apos;m often engaged when a product is outgrowing its structure, when a codebase needs refactoring
-              toward stability, when a prototype must harden for production, or when performance and reliability need a
-              systematic fix—not a superficial patch.
+              I care about motion and small UI details: transitions, loading states, and respect for the user&apos;s
+              time.
             </p>
             <p>
-              Animation and motion inform how I think about interfaces: clarity, timing, and polish—but the core of my
-              work is engineering judgment, clear communication, and delivery you can build a roadmap on.
+              I wrote this site myself so it reads like a person, not a brochure. I write commits the same way: clear
+              enough for later.
             </p>
           </div>
         </div>
 
-        <h2 className="about__section-title">How I work</h2>
+        <h2 className="about__section-title">Where I’m useful</h2>
         <div className="expertise-grid">
           <div className="expertise-item">
-            <h3 className="expertise-item__title">Architecture &amp; systems</h3>
+            <h3 className="expertise-item__title">Structure &amp; tradeoffs</h3>
             <p>
-              End-to-end thinking: boundaries between frontend, APIs, and data; scalability; refactoring paths; and
-              how the system will evolve as features and users grow.
+              Boundaries between UI, APIs, and data; what to refactor now vs later; saying no to shortcuts that cost
+              more later.
             </p>
           </div>
           <div className="expertise-item">
-            <h3 className="expertise-item__title">React &amp; Next.js</h3>
+            <h3 className="expertise-item__title">React &amp; Next</h3>
             <p>
-              Production-grade frontends: performance, routing, data fetching, and patterns that keep large codebases
-              navigable for the next developer—including you, six months later.
+              Real apps: routing, data loading, forms that fail clearly, components that do not turn into copy-paste.
             </p>
           </div>
           <div className="expertise-item">
-            <h3 className="expertise-item__title">APIs &amp; backends</h3>
+            <h3 className="expertise-item__title">Servers &amp; data</h3>
             <p>
-              Node.js ecosystems, REST and GraphQL, authentication, databases (SQL and document), and APIs designed for
-              clarity and safe evolution.
+              Node services, REST and some GraphQL, sensible auth, databases chosen for the job.
             </p>
           </div>
           <div className="expertise-item">
-            <h3 className="expertise-item__title">AI integration</h3>
+            <h3 className="expertise-item__title">AI when it fits</h3>
             <p>
-              Practical integration of AI-driven features into web products—where they add value, how to structure
-              prompts and services, and how to keep behavior observable and maintainable.
+              LLMs in the product where they help, without turning the codebase into hard-to-debug prompts. Reliability
+              over demos.
             </p>
           </div>
         </div>
 
-        <h2 className="about__subtitle">Representative projects</h2>
+        <h2 className="about__subtitle">Projects I’m proud to point at</h2>
         <ul className="about__list">
           <li className="about__item">
-            <strong>News Explorer</strong> — Full-stack news aggregation: search, auth, saved articles, News API
-            integration; demonstrates state management and secure API usage at scale.
+            <strong>Zenius</strong>. Anonymous entry to mental-health support with AI in the loop (
+            <a href="https://zenius.ia.br" target="_blank" rel="noopener noreferrer">
+              zenius.ia.br
+            </a>
+            ). Sensitive product; speed and trust matter.
           </li>
           <li className="about__item">
-            <strong>Expense Tracker</strong> — TypeScript-first financial app with categorization, visualization, and
-            robust form and data flows.
+            <strong>News Explorer</strong>. News search, accounts, saved articles, News API. Practice in state, auth, and
+            honest errors.
           </li>
           <li className="about__item">
-            <strong>WTWR (What to Wear)</strong> — Weather-driven recommendations with external APIs and full-stack
-            persistence.
+            <strong>Expense tracker</strong>. Numbers, charts, TypeScript, forms.
           </li>
           <li className="about__item">
-            <strong>Girls Blog</strong> — Full-stack CMS-style blogging with auth, CRUD, and production-minded MongoDB
-            usage.
+            <strong>WTWR (“What to Wear”)</strong>. Weather APIs, outfits, external data edge cases.
+          </li>
+          <li className="about__item">
+            <strong>Girls Blog</strong>. Auth, posts, MongoDB, CRUD, hashed passwords.
           </li>
         </ul>
 
         <p className="about__closing">
-          If you&apos;re looking for someone who can think through your system end-to-end and help it scale properly,
-          I&apos;d be glad to connect.
+          If that matches what you need or want to build, tell me what you are working on.
         </p>
 
         <div className="about__cta">
           <Link to="/projects" className="btn btn--primary">
-            View projects
+            Project write-ups
           </Link>
           <Link to="/reviews" className="btn btn--ghost">
-            Client reviews
+            Short reviews
           </Link>
         </div>
       </div>
