@@ -1,10 +1,10 @@
-import thumbZenius from "../assets/projects/zenius.png";
-import thumbNewsExplorer from "../assets/projects/news-explorer.png";
-import thumbTmi from "../assets/projects/tmi-worldwide.png";
-import thumbTimeKeeper from "../assets/projects/time-keeper.png";
-import thumbPortfolio from "../assets/projects/portfolio.png";
-import thumbExpense from "../assets/projects/expense-tracker.png";
-import thumbGirlyBlog from "../assets/projects/girly-blog.png";
+import thumbZenius from "@/assets/projects/zenius.png";
+import thumbNewsExplorer from "@/assets/projects/news-explorer.png";
+import thumbTmi from "@/assets/projects/tmi-worldwide.png";
+import thumbTimeKeeper from "@/assets/projects/time-keeper.png";
+import thumbPortfolio from "@/assets/projects/portfolio.png";
+import thumbExpense from "@/assets/projects/expense-tracker.png";
+import thumbGirlyBlog from "@/assets/projects/girly-blog.png";
 
 export type Project = {
   title: string;
@@ -68,16 +68,17 @@ export const projects: Project[] = [
     title: "My Portfolio",
     types: ["Portfolio site", "Design & deploy"],
     description:
-      "Single-page site: React, TypeScript, Vite, and HashRouter for GitHub Pages. Copy and styles hand-tuned.",
+      "Personal portfolio on a single page: intro, services, selected work, toolkit, client feedback, and a contact form.",
     link: "https://jazzmine-flora.github.io",
     screenshot: thumbPortfolio,
     tech: [
       "React",
       "TypeScript",
       "Vite",
+      "Tailwind CSS",
+      "shadcn/ui",
       "React Router",
       "Three.js",
-      "React Icons",
       "GitHub Actions",
     ],
   },
