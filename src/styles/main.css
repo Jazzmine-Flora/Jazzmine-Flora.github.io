@@ -1,4 +1,4 @@
-/* Studio portfolio — modern neutral base, rose accent, DM Sans + Playfair */
+/* Studio portfolio: modern neutral base, rose accent, Inter + Playfair */
 :root {
   --bg: #f8f6f9;
   --bg-elevated: #fefefe;
@@ -193,7 +193,7 @@ p:last-child {
   padding-right: var(--space-lg);
 }
 
-/* All page sections: equal top/bottom padding (hero must not use padding shorthand — it overrides this) */
+/* All page sections: equal top/bottom padding (hero must not use padding shorthand; it overrides this) */
 .section {
   padding-top: var(--section-padding);
   padding-bottom: var(--section-padding);
@@ -284,7 +284,7 @@ p:last-child {
 }
 
 /* ===== Hero (Homepage) ===== */
-/* Do not set `padding` shorthand on .hero — it overrides .section’s top/bottom on the same <section> */
+/* Do not set `padding` shorthand on .hero; it overrides .section’s top/bottom on the same <section> */
 .hero {
   min-height: 0;
 }

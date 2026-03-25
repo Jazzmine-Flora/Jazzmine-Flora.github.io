@@ -102,12 +102,12 @@ const ContactSection: React.FC = () => {
           </h2>
           <p className="contact-shell__lead">
             Have a product that needs architecture, AI integration, or full-stack development? Tell me what
-            you&apos;re working on &mdash; I&apos;ll reply within one business day.
+            you&apos;re working on. I&apos;ll reply within one business day.
           </p>
           <ul className="contact-shell__trust">
             <li>Specific questions get faster answers</li>
             <li>Mention in the details if you need an NDA first</li>
-            <li>Project inquiries only &mdash; no recruiter blasts</li>
+            <li>Project inquiries only (no recruiter blasts)</li>
           </ul>
         </header>
 

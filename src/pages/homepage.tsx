@@ -26,7 +26,7 @@ const TYPING_ROLES = [
 const services = [
   {
     title: "Architecture & Scalable Systems",
-    desc: "Systems designed to grow. I structure codebases, design APIs, and build foundations that support real-world scale \u2014 not just launch-day demos.",
+    desc: "Systems designed to grow. I structure codebases, design APIs, and build foundations that support real-world scale, not just launch-day demos.",
     tags: ["System Design", "Scalability", "Refactoring", "API Design", "Microservices"],
   },
   {
@@ -36,7 +36,7 @@ const services = [
   },
   {
     title: "AI Integration & Automation",
-    desc: "GPT, Claude, and custom AI models woven into your product \u2014 chatbots, intelligent features, and workflow automation that actually works in production.",
+    desc: "GPT, Claude, and custom AI models woven into your product: chatbots, intelligent features, and workflow automation that actually works in production.",
     tags: ["OpenAI API", "Claude", "Prompt Engineering", "AI Agents", "Automation"],
   },
 ];
@@ -128,7 +128,7 @@ const HomePage: React.FC = () => {
             <TypingText words={TYPING_ROLES} className="hero__typing" />
           </p>
           <p className="hero__intro hero__intro--3d">
-            I build software that holds up under real use &mdash; scalable systems, intelligent features, and
+            I build software that holds up under real use: scalable systems, intelligent features, and
             code that keeps working as your product grows. Not just launch-day demos, but lasting solutions.
           </p>
           <div className="hero__actions hero__actions--center">
@@ -270,7 +270,7 @@ const HomePage: React.FC = () => {
           </h2>
           <p className="skills-showcase__lead">
             AI, web, mobile, cloud, and databases. If something is missing, it probably means I just haven&apos;t
-            listed it yet &mdash; ask me.
+            listed it yet. Ask me.
           </p>
           <div className="skills-showcase__grid">
             <div className="skill-category skill-category--highlight">
