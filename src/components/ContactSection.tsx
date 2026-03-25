@@ -98,16 +98,16 @@ const ContactSection: React.FC = () => {
         <header className="contact-shell__intro">
           <p className="contact-shell__eyebrow">Contact</p>
           <h2 id="contact-heading" className="contact-shell__title">
-            Let&apos;s connect
+            Let&apos;s build something together
           </h2>
           <p className="contact-shell__lead">
-            Have a project in mind or just want to say hi? Fill out the form and I&apos;ll get back to you
-            within one business day.
+            Have a product that needs architecture, AI integration, or full-stack development? Tell me what
+            you&apos;re working on. I&apos;ll reply within one business day.
           </p>
           <ul className="contact-shell__trust">
             <li>Specific questions get faster answers</li>
             <li>Mention in the details if you need an NDA first</li>
-            <li>Project inquiries only &mdash; no recruiter blasts</li>
+            <li>Project inquiries only (no recruiter blasts)</li>
           </ul>
         </header>
 
@@ -208,6 +208,8 @@ const ContactSection: React.FC = () => {
                         <option value="">Select...</option>
                         <option value="New build: web app">New build: web app</option>
                         <option value="New build: marketing site">New build: marketing site</option>
+                        <option value="New build: mobile app">New build: mobile app</option>
+                        <option value="New build: mobile & web">New build: mobile & web</option>
                         <option value="Refactor / stabilize codebase">Refactor / stabilize codebase</option>
                         <option value="Performance / reliability">Performance / reliability</option>
                         <option value="Architecture / technical review">Architecture / technical review</option>
@@ -219,10 +221,13 @@ const ContactSection: React.FC = () => {
                       <span className="contact-form__label">Ideal timeline</span>
                       <select className="contact-form__input contact-form__select" name="timeline" defaultValue="">
                         <option value="">Optional</option>
-                        <option value="ASAP / under 2 weeks">ASAP / under 2 weeks</option>
+                        <option value="Planning phase / TBD">Planning phase / TBD</option>
+                        <option value="Rush (under 2 weeks)">Rush (under 2 weeks)</option>
                         <option value="2-4 weeks">2-4 weeks</option>
-                        <option value="1-2 months">1-2 months</option>
-                        <option value="2+ months / flexible">2+ months / flexible</option>
+                        <option value="1-3 months">1-3 months</option>
+                        <option value="3-6 months">3-6 months</option>
+                        <option value="6+ months or ongoing">6+ months or ongoing</option>
+                        <option value="Flexible / open schedule">Flexible / open schedule</option>
                       </select>
                     </label>
                   </div>

@@ -14,13 +14,27 @@ const Header: React.FC = () => {
   const location = useLocation();
   const scrollActivePath = useScrollSpy();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [overDark, setOverDark] = useState(true);
 
   useEffect(() => {
     setMenuOpen(false);
   }, [location.pathname]);
 
+  useEffect(() => {
+    const hero = document.querySelector<HTMLElement>(".hero--3d");
+    if (!hero) { setOverDark(false); return; }
+
+    const check = () => {
+      const bottom = hero.getBoundingClientRect().bottom;
+      setOverDark(bottom > 48);
+    };
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    return () => window.removeEventListener("scroll", check);
+  }, [location.pathname]);
+
   return (
-    <header className="header">
+    <header className={`header${overDark ? " header--dark" : ""}`}>
       <div className="header__inner container">
         <Link
           to="/"
@@ -28,7 +42,7 @@ const Header: React.FC = () => {
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           <span className="header__brand-name">Taliba Sadiq</span>
-          <span className="header__brand-tag">Software Engineer</span>
+          <span className="header__brand-tag">Software Architect &amp; AI Engineer</span>
         </Link>
         <button
           className={`header__burger${menuOpen ? " header__burger--open" : ""}`}

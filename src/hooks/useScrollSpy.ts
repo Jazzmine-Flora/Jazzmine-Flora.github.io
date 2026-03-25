@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 
 /**
  * Section order in the document → hash route used by the header nav.
- * Philosophy & execution sit under “Home”; skills has no nav item — keep “Reviews” until Contact.
+ * Philosophy & execution sit under “Home”; skills has no nav item. Keep “Reviews” until Contact.
  */
 export const SECTION_NAV: readonly { id: string; path: string }[] = [
   { id: "home", path: "/" },
+  { id: "services", path: "/" },
   { id: "philosophy", path: "/" },
-  { id: "execution", path: "/" },
   { id: "work", path: "/projects" },
   { id: "reviews", path: "/reviews" },
   { id: "skills", path: "/reviews" },

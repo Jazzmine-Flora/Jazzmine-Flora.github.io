@@ -28,7 +28,7 @@ const Footer: React.FC = () => (
         </a>
       </div>
       <p className="footer__copy">
-        &copy; {new Date().getFullYear()} Taliba Sadiq &middot; Designed &amp; built by hand
+        Copyright &copy; {new Date().getFullYear()} Taliba Sadiq. All rights reserved.
       </p>
     </div>
   </footer>

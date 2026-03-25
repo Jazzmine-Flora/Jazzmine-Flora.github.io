@@ -1,7 +1,8 @@
-import React, { useLayoutEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { GitHubIcon, LinkedInIcon } from "../components/SocialIcons";
+import React, { useCallback, useLayoutEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import ContactSection from "../components/ContactSection";
+import HeroCanvas from "../components/HeroCanvas";
+import TypingText from "../components/TypingText";
 import { useRevealOnScroll } from "../hooks/useRevealOnScroll";
 import avatarImg from "../assets/avatar.jpg";
 import { testimonials } from "../data/testimonials";
@@ -15,98 +16,94 @@ const PATH_TO_SECTION: Record<string, string> = {
   "/contact": "contact",
 };
 
-const skills = {
-  frontend: [
-    "HTML5",
-    "CSS3",
-    "JavaScript (ES6+)",
-    "TypeScript",
-    "React",
-    "Next.js",
-    "SASS / SCSS",
-    "Tailwind CSS",
-    "Redux / Zustand",
-    "React Query",
-    "Webpack",
-    "Vite",
-    "Responsive UI",
-    "Accessibility (WCAG)",
-    "Web performance",
-  ],
-  backend: [
-    "Node.js",
-    "Express",
-    "REST APIs",
-    "GraphQL",
-    "PostgreSQL",
-    "MongoDB",
-    "Mongoose",
-    "Prisma",
-    "JWT & OAuth",
-    "WebSockets",
-    "API design",
-    "Server-side validation",
-  ],
-  tools: [
-    "Git",
-    "GitHub",
-    "GitHub Actions",
-    "Docker",
-    "VS Code",
-    "Figma",
-    "Chrome DevTools",
-    "npm / yarn / pnpm",
-    "Postman",
-    "Jest",
-    "React Testing Library",
-    "ESLint",
-    "Prettier",
-  ],
-  deployment: [
-    "Vercel",
-    "Netlify",
-    "GitHub Pages",
-    "AWS (basics)",
-    "CI/CD",
-    "Linux / Bash",
-    "Environment & secrets",
-  ],
-  concepts: [
-    "System design",
-    "Scalability & refactoring",
-    "Authentication & authorization",
-    "Database modeling",
-    "Security practices",
-    "Testing strategy",
-    "Observability & debugging",
-    "Clean code & reviews",
-    "Integrations (incl. AI APIs)",
-  ],
-};
+const TYPING_ROLES = [
+  "Software Architect",
+  "AI Engineer",
+  "Full Stack Developer",
+  "Mobile App Developer",
+];
 
-const pillars = [
+const services = [
   {
-    title: "Untangling complexity",
-    body: "The app works, but new features take longer and the code is hard to follow. I help untangle without a full rewrite.",
+    title: "Architecture & Scalable Systems",
+    desc: "Systems designed to grow. I structure codebases, design APIs, and build foundations that support real-world scale, not just launch-day demos.",
+    tags: ["System Design", "Scalability", "Refactoring", "API Design", "Microservices"],
   },
   {
-    title: "Making fragile code resilient",
-    body: "When people avoid changing certain files or bugs keep returning, I bring clearer patterns and safer refactors.",
+    title: "Full-Stack Web & Mobile",
+    desc: "End-to-end applications built with React, Next.js, Node.js, React Native, and modern stacks. Clean frontend, solid backend, and everything wired together properly.",
+    tags: ["React", "Next.js", "Node.js", "React Native", "TypeScript", "PostgreSQL"],
   },
   {
-    title: "Growing prototypes into products",
-    body: "The demo worked. Now it needs to hold up for real users, real errors, and the next round of releases.",
-  },
-  {
-    title: "Diagnosing speed & reliability",
-    body: "Slow pages, odd failures, or repeat issues. I find the root cause and fix it properly, not just mask it.",
+    title: "AI Integration & Automation",
+    desc: "GPT, Claude, and custom AI models woven into your product: chatbots, intelligent features, and workflow automation that actually works in production.",
+    tags: ["OpenAI API", "Claude", "Prompt Engineering", "AI Agents", "Automation"],
   },
 ];
 
+const pillars = [
+  {
+    title: "A product outgrowing its structure",
+    body: "The app works, but every new feature takes longer. You need architecture that scales instead of a patchwork of workarounds.",
+  },
+  {
+    title: "A codebase that's becoming fragile",
+    body: "People avoid touching certain files. Bugs keep returning. I bring clearer patterns, proper tests, and refactors that stick.",
+  },
+  {
+    title: "A prototype that needs to grow up",
+    body: "The demo impressed everyone. Now it needs to handle real users, real errors, edge cases, and the next round of features.",
+  },
+  {
+    title: "AI that needs to actually work",
+    body: "Most AI features fail from poor integration, not the model itself. I build the full system around the AI so it's reliable and predictable.",
+  },
+];
+
+const skills = {
+  ai: [
+    "OpenAI / GPT API", "Claude / Anthropic", "Gemini", "Generative AI",
+    "Prompt Engineering", "AI Agents", "Chatbot Development", "AI Model Integration",
+    "Machine Learning", "Automation Workflows",
+  ],
+  frontend: [
+    "React", "Next.js", "Angular", "Vue.js", "Nuxt.js", "TypeScript", "JavaScript",
+    "HTML5", "CSS3", "Tailwind CSS", "SASS / SCSS", "CSS Grid", "Responsive Design",
+    "Figma", "Webflow", "Elementor",
+  ],
+  backend: [
+    "Node.js", "Express", "REST APIs", "GraphQL", "FastAPI", "Laravel", "PHP",
+    "Python", "API Integration", "Payment Gateway (Stripe)", "Twilio API",
+    "Authentication & Authorization", "WebSockets",
+  ],
+  mobile: [
+    "React Native", "Hybrid Apps", "iOS", "Android",
+    "Offline Functionality", "In-App Purchases", "Mobile UI/UX",
+  ],
+  cloud: [
+    "AWS", "Google Cloud", "Microsoft Azure", "Docker", "Vercel", "Netlify",
+    "Firebase", "Supabase", "CI/CD", "GitHub Actions", "Website Security",
+  ],
+  databases: [
+    "PostgreSQL", "MongoDB", "MySQL", "Microsoft SQL Server",
+    "Firebase Realtime DB", "Prisma", "Mongoose", "Database Modeling",
+  ],
+};
+
 const HomePage: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   useRevealOnScroll();
+
+  const scrollTo = useCallback((id: string, path: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate(path);
+    }
+  }, [navigate]);
 
   useLayoutEffect(() => {
     const id = PATH_TO_SECTION[location.pathname];
@@ -118,93 +115,56 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="homepage homepage--studio page-content">
-      {/* ── Home ── */}
-      <section className="section section--home hero hero--premium" id="home" aria-labelledby="hero-heading">
-        <div className="container">
-          <div className="hero__inner">
-            <div className="hero__content">
-              <p className="hero__eyebrow">Full-Stack Engineer &amp; Builder</p>
-              <h1 id="hero-heading" className="hero__title">
-                Taliba Sadiq
-              </h1>
-              <p className="hero__intro">
-                I design and build web experiences from the ground up&mdash;thoughtful interfaces, reliable
-                APIs, and systems that stay clean long after launch.
-              </p>
-              <div className="hero__actions">
-                <Link to="/projects" className="btn btn--primary">
-                  See my work
-                </Link>
-                <Link to="/contact" className="btn btn--ghost">
-                  Say hello
-                </Link>
-              </div>
-              <div className="hero__social">
-                <a
-                  href="https://github.com/Jazzmine-Flora"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hero__social-link"
-                  aria-label="GitHub"
-                >
-                  <GitHubIcon className="hero__social-icon" title="GitHub" />
-                  <span>GitHub</span>
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/taliba-sadiq"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hero__social-link"
-                  aria-label="LinkedIn"
-                >
-                  <LinkedInIcon className="hero__social-icon" title="LinkedIn" />
-                  <span>LinkedIn</span>
-                </a>
-              </div>
-            </div>
-            <div className="hero__media">
-              <img src={avatarImg} alt="Taliba Sadiq" className="hero__image" />
-            </div>
+      {/* ── Hero (dark, 3D canvas) ── */}
+      <section className="section section--home hero hero--3d" id="home" aria-labelledby="hero-heading">
+        <HeroCanvas />
+        <div className="container hero__centered">
+          <img src={avatarImg} alt="Taliba Sadiq" className="hero__avatar" draggable={false} />
+          <p className="hero__eyebrow hero__eyebrow--glow">Available for projects</p>
+          <h1 id="hero-heading" className="hero__title hero__title--3d">
+            Taliba Sadiq
+          </h1>
+          <p className="hero__typing-wrap">
+            <TypingText words={TYPING_ROLES} className="hero__typing" />
+          </p>
+          <p className="hero__intro hero__intro--3d">
+            I build software that holds up under real use: scalable systems, intelligent features, and
+            code that keeps working as your product grows. Not just launch-day demos, but lasting solutions.
+          </p>
+          <div className="hero__actions hero__actions--center">
+            <button type="button" className="btn btn--primary btn--glow" onClick={() => scrollTo("work", "/projects")}>
+              See my work
+            </button>
+            <button type="button" className="btn btn--ghost btn--ghost-dark" onClick={() => scrollTo("contact", "/contact")}>
+              Let&apos;s talk
+            </button>
           </div>
+        </div>
+      </section>
 
-          <div className="hero__about about__inner reveal" aria-labelledby="home-about-heading">
-            <h2 id="home-about-heading" className="about__title">
-              A bit about me
-            </h2>
-            <div className="about__grid">
-              <div className="about__block">
-                <p>
-                  I trained at <strong>TripleTen</strong> and hold a business degree, which helps when scope,
-                  risk, and priorities need a clear conversation with stakeholders.
-                </p>
-                <p>
-                  I gravitate toward problems where the UI looks fine but metrics, logs, or user reports tell a
-                  different story. I usually work across the UI, API layer, and database to find root causes and
-                  fix them without breaking what already works.
-                </p>
+      {/* ── Services ── */}
+      <section className="section section--services reveal" id="services" aria-labelledby="services-heading">
+        <div className="container">
+          <span className="section__label">What I do</span>
+          <h2 id="services-heading" className="section__heading">
+            Three things I do really well
+          </h2>
+          <p className="section__lead">
+            Architecture, full-stack development, and AI integration. I bring clarity to complex problems
+            and build systems that are easier to grow.
+          </p>
+          <div className="services__grid">
+            {services.map((s) => (
+              <div key={s.title} className="service-card reveal reveal--delay-1">
+                <h3 className="service-card__title">{s.title}</h3>
+                <p className="service-card__desc">{s.desc}</p>
+                <div className="service-card__tags">
+                  {s.tags.map((t) => (
+                    <span key={t} className="service-card__tag">{t}</span>
+                  ))}
+                </div>
               </div>
-              <div className="about__block">
-                <p>
-                  I care about clear loading and error states, sensible validation, and interfaces that respect
-                  the user&apos;s time.
-                </p>
-                <p>
-                  I built this site by hand&mdash;one page, lots of love in the details. I write commits and
-                  tickets the same way: precise enough for the next engineer or my future self.
-                </p>
-              </div>
-            </div>
-            <p className="about__closing">
-              If that sounds like what you need or want to build, I&apos;d love to hear what you&apos;re working on.
-            </p>
-            <div className="about__cta">
-              <Link to="/projects" className="btn btn--primary">
-                View work
-              </Link>
-              <Link to="/reviews" className="btn btn--ghost">
-                Read reviews
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -213,13 +173,13 @@ const HomePage: React.FC = () => {
       <section className="section section--philosophy reveal" id="philosophy" aria-labelledby="philosophy-heading">
         <div className="container">
           <div className="philosophy__head">
-            <span className="section__label">My approach</span>
+            <span className="section__label">When I get involved</span>
             <h2 id="philosophy-heading" className="philosophy__title">
-              Code that still makes sense in six months
+              I focus on what happens after launch
             </h2>
             <p className="philosophy__lead">
-              First demos are easy. I focus on what happens after launch: more features, team changes, and
-              someone new opening the repo. Good structure is what keeps you from rewriting everything twice.
+              First demos are easy. I focus on the hard part: more features, team changes, and someone new
+              opening the repo. Good structure is what keeps you from rewriting everything twice.
             </p>
           </div>
           <div className="pillars__grid">
@@ -231,32 +191,16 @@ const HomePage: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── Execution ── */}
-      <section className="section section--execution reveal" id="execution" aria-labelledby="execution-heading">
-        <div className="container execution__inner">
-          <span className="section__label">What I do</span>
-          <h2 id="execution-heading" className="execution__title">
-            End to end, from idea to production
-          </h2>
-          <div className="execution__body">
-            <p>
-              I ship new products and I fix inherited ones. The usual path: understand how it works today, agree
-              what &ldquo;better&rdquo; means, then change as little code as needed. That spans the browser,
-              network boundary, services, persistence, and deployment.
+          <div className="philosophy__closing reveal">
+            <p className="philosophy__closing-text">
+              What I bring is <strong>clarity</strong>. Clear structure, clear decisions, and systems that are
+              easier to build on as they grow.
             </p>
-            <ul className="execution__list">
-              <li>Web applications from a blank page through production deploys</li>
-              <li>Frontends with React &amp; Next.js: routing, data loading, forms, performance, accessibility</li>
-              <li>Backend services: REST and GraphQL, auth, validation, PostgreSQL &amp; MongoDB</li>
-              <li>Automated tests, CI pipelines, and environments that don&apos;t surprise the team</li>
-              <li>Refactors and incident-style debugging when behavior or latency is wrong</li>
-            </ul>
-            <p className="execution__skills-line">
-              Concrete tools and languages live in the <strong>Toolkit</strong> section below.
-            </p>
+            <div className="philosophy__traits">
+              <span className="philosophy__trait">Clear Communicator</span>
+              <span className="philosophy__trait">Detail Oriented</span>
+              <span className="philosophy__trait">Solution Oriented</span>
+            </div>
           </div>
         </div>
       </section>
@@ -264,11 +208,12 @@ const HomePage: React.FC = () => {
       {/* ── Work ── */}
       <section className="section section--work projects-page projects-page--premium reveal" id="work" aria-labelledby="work-heading">
         <div className="container">
+          <span className="section__label">Portfolio</span>
           <h2 id="work-heading" className="projects__title">
             Selected work
           </h2>
           <p className="projects__lead">
-            A mix of product UI, APIs, and data work. Thumbnails are live screenshots of each deployed site.
+            Full-stack products, AI features, and scalable systems.
           </p>
           <div className="projects__grid">
             {projects.map((project) => (
@@ -289,40 +234,83 @@ const HomePage: React.FC = () => {
                   </div>
                 )}
                 <div className="project-card__body">
-                  <div className="project-card__meta">
-                    <span className="project-card__badge">{project.badge}</span>
-                  </div>
-                  <h3 className="project-card__title">{project.title}</h3>
-                  <p className="project-card__desc">{project.description}</p>
-                  <p className="project-card__long-desc">{project.longDescription}</p>
-                  <ul className="project-card__highlights">
-                    {project.highlights.map((highlight) => (
-                      <li key={highlight} className="project-card__highlight">
-                        {highlight}
+                  <ul className="project-card__type-list" role="list" aria-label="Project types">
+                    {project.types.map((typeLabel, typeIndex) => (
+                      <li
+                        key={`${project.title}-type-${typeIndex}`}
+                        className={`project-card__type-chip${typeIndex === 0 ? " project-card__type-chip--primary" : ""}`}
+                      >
+                        {typeLabel}
                       </li>
                     ))}
                   </ul>
+                  <div className="project-card__about">
+                    <h3 className="project-card__title">{project.title}</h3>
+                    <p className="project-card__desc">{project.description}</p>
+                  </div>
                   <div className="project-card__tech">
                     {project.tech.map((t) => (
-                      <span key={t} className="project-card__tag">
-                        {t}
-                      </span>
+                      <span key={t} className="project-card__tag">{t}</span>
                     ))}
                   </div>
                 </div>
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-card__link"
-                >
-                  View project
-                  <span className="project-card__arrow" aria-hidden>
-                    &rarr;
-                  </span>
+                <a href={project.link} target="_blank" rel="noopener noreferrer" className="project-card__link">
+                  View project <span className="project-card__arrow" aria-hidden>&rarr;</span>
                 </a>
               </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Skills ── */}
+      <section className="section section--skills skills-showcase reveal" id="skills" aria-labelledby="skills-heading">
+        <div className="container">
+          <span className="section__label">Toolkit</span>
+          <h2 id="skills-heading" className="skills-showcase__title">
+            Technologies I work with
+          </h2>
+          <p className="skills-showcase__lead">
+            AI, web, mobile, cloud, and databases. If something is missing, it probably means I just haven&apos;t
+            listed it yet. Ask me.
+          </p>
+          <div className="skills-showcase__grid">
+            <div className="skill-category skill-category--highlight">
+              <h3 className="skill-category__title">AI &amp; Intelligence</h3>
+              <div className="skill-category__tags">
+                {skills.ai.map((s) => <span key={s} className="skill-tag">{s}</span>)}
+              </div>
+            </div>
+            <div className="skill-category">
+              <h3 className="skill-category__title">Frontend</h3>
+              <div className="skill-category__tags">
+                {skills.frontend.map((s) => <span key={s} className="skill-tag">{s}</span>)}
+              </div>
+            </div>
+            <div className="skill-category">
+              <h3 className="skill-category__title">Backend &amp; APIs</h3>
+              <div className="skill-category__tags">
+                {skills.backend.map((s) => <span key={s} className="skill-tag">{s}</span>)}
+              </div>
+            </div>
+            <div className="skill-category">
+              <h3 className="skill-category__title">Mobile</h3>
+              <div className="skill-category__tags">
+                {skills.mobile.map((s) => <span key={s} className="skill-tag">{s}</span>)}
+              </div>
+            </div>
+            <div className="skill-category">
+              <h3 className="skill-category__title">Cloud &amp; DevOps</h3>
+              <div className="skill-category__tags">
+                {skills.cloud.map((s) => <span key={s} className="skill-tag">{s}</span>)}
+              </div>
+            </div>
+            <div className="skill-category">
+              <h3 className="skill-category__title">Databases</h3>
+              <div className="skill-category__tags">
+                {skills.databases.map((s) => <span key={s} className="skill-tag">{s}</span>)}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -338,85 +326,23 @@ const HomePage: React.FC = () => {
               Short notes from people I&apos;ve worked with. Some names are initials only by request.
             </p>
           </div>
-          <div className="testimonials__grid">
+          <ul className="testimonials__list" role="list">
             {testimonials.map((t) => (
-              <blockquote key={t.name} className="testimonial-card">
-                <p className="testimonial-card__quote">{t.quote}</p>
-                <footer className="testimonial-card__meta">
-                  <p className="testimonial-card__name">{t.name}</p>
-                  <p className="testimonial-card__role">{t.role}</p>
+              <li key={`${t.name}-${t.role}`} className="testimonial-item">
+                <blockquote className="testimonial-item__quote">
+                  <p>{t.quote}</p>
+                </blockquote>
+                <footer className="testimonial-item__cite">
+                  <span className="testimonial-item__name">{t.name}</span>
+                  <span className="testimonial-item__role">{t.role}</span>
                 </footer>
-              </blockquote>
+              </li>
             ))}
-          </div>
+          </ul>
           <div className="testimonials__cta">
-            <Link to="/contact" className="btn btn--primary">
+            <button type="button" className="btn btn--primary" onClick={() => scrollTo("contact", "/contact")}>
               Start a conversation
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Skills ── */}
-      <section className="section section--skills skills-showcase reveal" id="skills" aria-labelledby="skills-heading">
-        <div className="container">
-          <h2 id="skills-heading" className="skills-showcase__title">
-            Toolkit
-          </h2>
-          <p className="skills-showcase__lead">
-            Languages, frameworks, data stores, tooling, and delivery. If something is missing, just ask.
-          </p>
-          <div className="skills-showcase__grid">
-            <div className="skill-category">
-              <h3 className="skill-category__title">Front-end</h3>
-              <div className="skill-category__tags">
-                {skills.frontend.map((skill) => (
-                  <span key={skill} className="skill-tag">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="skill-category">
-              <h3 className="skill-category__title">Back-end &amp; data</h3>
-              <div className="skill-category__tags">
-                {skills.backend.map((skill) => (
-                  <span key={skill} className="skill-tag">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="skill-category">
-              <h3 className="skill-category__title">Tooling &amp; quality</h3>
-              <div className="skill-category__tags">
-                {skills.tools.map((skill) => (
-                  <span key={skill} className="skill-tag">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="skill-category">
-              <h3 className="skill-category__title">Deployment &amp; ops</h3>
-              <div className="skill-category__tags">
-                {skills.deployment.map((skill) => (
-                  <span key={skill} className="skill-tag">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="skill-category">
-              <h3 className="skill-category__title">Engineering practice</h3>
-              <div className="skill-category__tags">
-                {skills.concepts.map((skill) => (
-                  <span key={skill} className="skill-tag">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
+            </button>
           </div>
         </div>
       </section>

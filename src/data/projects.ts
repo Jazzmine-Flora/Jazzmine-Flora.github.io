@@ -8,23 +8,20 @@ import thumbGirlyBlog from "../assets/projects/girly-blog.png";
 
 export type Project = {
   title: string;
-  badge: string;
+  /** Short labels shown as chips (e.g. primary focus + format). */
+  types: string[];
   description: string;
-  longDescription: string;
   link: string;
   tech: string[];
-  highlights: string[];
   screenshot?: string;
 };
 
 export const projects: Project[] = [
   {
     title: "Zenius",
-    badge: "Health · AI · Web",
+    types: ["AI & product", "Full-stack web"],
     description:
       "Support by text, voice, or video, with profiles so people can find a fit. Not a generic chatbot wrapper.",
-    longDescription:
-      "Focus on fast start, anonymity, and honest marketing. Stack: React, TypeScript, Node, APIs, real-time, privacy and performance work.",
     link: "https://zenius.ia.br",
     screenshot: thumbZenius,
     tech: [
@@ -39,92 +36,67 @@ export const projects: Project[] = [
       "Performance",
       "Accessibility",
     ],
-    highlights: [
-      "Guided flows that do not feel like a tax form",
-      "Personas users can choose",
-      "Anonymous-first onboarding",
-      "Copy and UI that match the topic",
-    ],
   },
   {
     title: "News Explorer",
-    badge: "Full stack",
+    types: ["Full-stack web", "APIs & auth"],
     description:
       "Search news, save articles, sign in so your list follows you. Search, auth, and a third-party API without a mess.",
-    longDescription:
-      "React front, Node/Express and MongoDB back. Rate limits and API boundaries taught a lot.",
     link: "https://jazzmine-flora.github.io/news-explorer/",
     screenshot: thumbNewsExplorer,
     tech: ["React", "Node.js", "Express", "MongoDB", "REST", "Auth", "News API"],
-    highlights: ["Sign-in and saved articles", "Search that works", "Clear error handling"],
   },
   {
     title: "TMI Worldwide",
-    badge: "Travel · Concierge",
+    types: ["Design refresh", "Marketing site"],
     description:
       "Luxury travel concierge: premium positioning, clear services, and a marketing site that reads high-end without noisy clutter.",
-    longDescription:
-      "Live app built and shipped on Lovable. Emphasis on brand tone, trust, and a strong first impression for travel clients.",
     link: "https://tmi-world-welcome.lovable.app/",
     screenshot: thumbTmi,
     tech: ["React", "Vite", "SPA", "Responsive UI", "Marketing / brand"],
-    highlights: ["Luxury travel narrative", "Concierge positioning", "Polished responsive layout"],
   },
   {
     title: "Time Keeper",
-    badge: "Product · Lovable",
+    types: ["Web app", "Product UX"],
     description:
       "Crafted time and productivity experience: focused flows, clear UI, and a cohesive product feel in the browser.",
-    longDescription:
-      "Live demo on Lovable. Built for quick interaction, readable layout, and a calm, product-first surface.",
     link: "https://time-keeper-crafted.lovable.app/",
     screenshot: thumbTimeKeeper,
     tech: ["React", "Vite", "SPA", "Responsive UI", "Product UI"],
-    highlights: ["Tight product flow", "Consistent UI", "Shipped live"],
   },
   {
-    title: "This portfolio",
-    badge: "This very site",
+    title: "My Portfolio",
+    types: ["Portfolio site", "Design & deploy"],
     description:
-      "React, TypeScript, webpack, HashRouter for GitHub Pages. Copy I rewrote until it sounded right.",
-    longDescription: "Custom components and CSS. Deploy is automated.",
+      "Single-page site: React, TypeScript, webpack, and HashRouter for GitHub Pages. Copy and styles hand-tuned.",
     link: "https://jazzmine-flora.github.io",
     screenshot: thumbPortfolio,
-    tech: ["React", "TypeScript", "Webpack", "React Router", "CI/CD"],
-    highlights: ["Hand-written content", "Static hosting friendly routing", "Favicon pipeline from my asset"],
-  },
-  {
-    title: "What to Wear (WTWR)",
-    badge: "Weather · Full stack",
-    description:
-      "Outfits from local weather. External APIs, persistence, UI that does not blame the user when the network fails.",
-    longDescription:
-      "React client, Node/Express/MongoDB. Good lesson on external APIs and honest loading states.",
-    link: "https://www.wat2wear.twilightparadox.com/",
-    tech: ["React", "Node.js", "Express", "MongoDB", "Weather API"],
-    highlights: ["API integration end to end", "Data survives refresh", "Calm UX on errors"],
+    tech: [
+      "React",
+      "TypeScript",
+      "Webpack",
+      "React Router",
+      "Three.js",
+      "React Icons",
+      "GitHub Actions",
+    ],
   },
   {
     title: "Expense Tracker",
-    badge: "TypeScript · Data",
+    types: ["Web app", "Dashboards & data"],
     description:
       "Track spending, categorize, chart it. TypeScript when the data shapes get awkward.",
-    longDescription: "Forms, validation, charts. Straight CRUD and dashboards.",
     link: "https://jazzmine-flora.github.io/expense-tracker/",
     screenshot: thumbExpense,
     tech: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Charts"],
-    highlights: ["Typed models", "Charts match the data", "Clear CRUD"],
   },
   {
     title: "Girls Blog",
-    badge: "Blog · Auth",
+    types: ["Full-stack web", "Blog & CMS"],
     description:
       "Full-stack blog: accounts, posts, MongoDB. Slugs, soft deletes, the usual lessons.",
-    longDescription:
-      "React client, Express and Mongo behind it. Validation, permissions, not losing posts on a bad tab close.",
     link: "https://girly-blogspot.vercel.app/",
     screenshot: thumbGirlyBlog,
     tech: ["React", "Node.js", "Express", "MongoDB", "Auth"],
-    highlights: ["Sensible auth", "Repeatable CRUD"],
   },
 ];

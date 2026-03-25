@@ -16,7 +16,6 @@ const jobs = [
   ["https://tmi-world-welcome.lovable.app/", "tmi-worldwide.png"],
   ["https://time-keeper-crafted.lovable.app/", "time-keeper.png"],
   ["https://jazzmine-flora.github.io", "portfolio.png"],
-  ["https://www.wat2wear.twilightparadox.com/", "wtwr.png"],
   ["https://jazzmine-flora.github.io/expense-tracker/", "expense-tracker.png"],
   ["https://girly-blogspot.vercel.app/", "girly-blog.png"],
 ];
