@@ -219,10 +219,13 @@ const ContactSection: React.FC = () => {
                       <span className="contact-form__label">Ideal timeline</span>
                       <select className="contact-form__input contact-form__select" name="timeline" defaultValue="">
                         <option value="">Optional</option>
-                        <option value="ASAP / under 2 weeks">ASAP / under 2 weeks</option>
+                        <option value="Planning phase / TBD">Planning phase / TBD</option>
+                        <option value="Rush (under 2 weeks)">Rush (under 2 weeks)</option>
                         <option value="2-4 weeks">2-4 weeks</option>
-                        <option value="1-2 months">1-2 months</option>
-                        <option value="2+ months / flexible">2+ months / flexible</option>
+                        <option value="1-3 months">1-3 months</option>
+                        <option value="3-6 months">3-6 months</option>
+                        <option value="6+ months or ongoing">6+ months or ongoing</option>
+                        <option value="Flexible / open schedule">Flexible / open schedule</option>
                       </select>
                     </label>
                   </div>
