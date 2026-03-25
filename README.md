@@ -128,7 +128,7 @@ src/
 
 scripts/
 ├── generate-favicon.js         # Build favicon files from src/assets/favicon.png
-├── copy-avatar-to-public.js    # Copy src/assets/avatar.png → public/avatar.png (stable /avatar.png URL for GitHub Pages)
+├── copy-static-assets-to-public.js  # Copy avatar + project screenshots to public/ (stable URLs for GitHub Pages)
 ├── copy-404-html.js            # Copy index.html → 404.html after build
 └── capture-project-screenshots.js  # Playwright screenshots of project URLs
 
@@ -136,7 +136,8 @@ public/                         # Static files copied to dist/ as-is
 ├── favicon.ico
 ├── favicon.png
 ├── apple-touch-icon.png
-├── avatar.png                  # Generated on predev/prebuild (gitignored; edit `src/assets/avatar.png`)
+├── avatar.png                  # Generated on predev/prebuild (gitignored)
+├── projects/                   # Project card screenshots (generated from src/assets/projects/, gitignored)
 └── .nojekyll
 ```
 

@@ -1,5 +1,6 @@
 node_modules
 dist
 
-# Generated from src/assets/avatar.png on predev/prebuild (stable /avatar.png for GitHub Pages)
+# Generated on predev/prebuild from src/assets (stable URLs for GitHub Pages)
 public/avatar.png
+public/projects/

@@ -1,10 +1,5 @@
-import thumbZenius from "@/assets/projects/zenius.png";
-import thumbNewsExplorer from "@/assets/projects/news-explorer.png";
-import thumbTmi from "@/assets/projects/tmi-worldwide.png";
-import thumbTimeKeeper from "@/assets/projects/time-keeper.png";
-import thumbPortfolio from "@/assets/projects/portfolio.png";
-import thumbExpense from "@/assets/projects/expense-tracker.png";
-import thumbGirlyBlog from "@/assets/projects/girly-blog.png";
+/** Stable paths under /projects/ (see scripts/copy-static-assets-to-public.js + public/). */
+const projectScreenshot = (file: string) => `${import.meta.env.BASE_URL}projects/${file}`;
 
 export type Project = {
   title: string;
@@ -23,7 +18,7 @@ export const projects: Project[] = [
     description:
       "Support by text, voice, or video, with profiles so people can find a fit. Not a generic chatbot wrapper.",
     link: "https://zenius.ia.br",
-    screenshot: thumbZenius,
+    screenshot: projectScreenshot("zenius.png"),
     tech: [
       "React",
       "TypeScript",
@@ -43,7 +38,7 @@ export const projects: Project[] = [
     description:
       "Search news, save articles, sign in so your list follows you. Search, auth, and a third-party API without a mess.",
     link: "https://jazzmine-flora.github.io/news-explorer/",
-    screenshot: thumbNewsExplorer,
+    screenshot: projectScreenshot("news-explorer.png"),
     tech: ["React", "Node.js", "Express", "MongoDB", "REST", "Auth", "News API"],
   },
   {
@@ -52,7 +47,7 @@ export const projects: Project[] = [
     description:
       "Luxury travel concierge: premium positioning, clear services, and a marketing site that reads high-end without noisy clutter.",
     link: "https://tmi-world-welcome.lovable.app/",
-    screenshot: thumbTmi,
+    screenshot: projectScreenshot("tmi-worldwide.png"),
     tech: ["React", "Vite", "SPA", "Responsive UI", "Marketing / brand"],
   },
   {
@@ -61,7 +56,7 @@ export const projects: Project[] = [
     description:
       "Crafted time and productivity experience: focused flows, clear UI, and a cohesive product feel in the browser.",
     link: "https://time-keeper-crafted.lovable.app/",
-    screenshot: thumbTimeKeeper,
+    screenshot: projectScreenshot("time-keeper.png"),
     tech: ["React", "Vite", "SPA", "Responsive UI", "Product UI"],
   },
   {
@@ -70,7 +65,7 @@ export const projects: Project[] = [
     description:
       "Personal portfolio on a single page: intro, services, selected work, toolkit, client feedback, and a contact form.",
     link: "https://jazzmine-flora.github.io",
-    screenshot: thumbPortfolio,
+    screenshot: projectScreenshot("portfolio.png"),
     tech: [
       "React",
       "TypeScript",
@@ -88,7 +83,7 @@ export const projects: Project[] = [
     description:
       "Track spending, categorize, chart it. TypeScript when the data shapes get awkward.",
     link: "https://jazzmine-flora.github.io/expense-tracker/",
-    screenshot: thumbExpense,
+    screenshot: projectScreenshot("expense-tracker.png"),
     tech: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Charts"],
   },
   {
@@ -97,7 +92,7 @@ export const projects: Project[] = [
     description:
       "Full-stack blog: accounts, posts, MongoDB. Slugs, soft deletes, the usual lessons.",
     link: "https://girly-blogspot.vercel.app/",
-    screenshot: thumbGirlyBlog,
+    screenshot: projectScreenshot("girly-blog.png"),
     tech: ["React", "Node.js", "Express", "MongoDB", "Auth"],
   },
 ];
