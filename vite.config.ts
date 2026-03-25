@@ -1,7 +1,12 @@
 import { readFileSync } from "fs";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { resolve } from "path";
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const pkg = JSON.parse(readFileSync(resolve(process.cwd(), "package.json"), "utf-8")) as {
   version: string;
@@ -22,7 +27,12 @@ const devPort = (() => {
 })();
 
 export default defineConfig({
-  plugins: [react(), faviconVersionPlugin()],
+  plugins: [react(), tailwindcss(), faviconVersionPlugin()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
   base: "/",
   build: {
     outDir: "dist",
