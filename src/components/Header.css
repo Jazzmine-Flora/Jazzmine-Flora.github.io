@@ -6,7 +6,12 @@
   backdrop-filter: blur(16px) saturate(1.2);
   -webkit-backdrop-filter: blur(16px) saturate(1.2);
   border-bottom: 1px solid var(--border);
-  transition: background var(--duration), border-color var(--duration), box-shadow var(--duration);
+  transition: background 0.4s, border-color 0.4s, box-shadow 0.4s;
+}
+
+.header--dark {
+  background: rgba(10, 8, 18, 0.7);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
 }
 
 .header__inner {
@@ -28,6 +33,11 @@
   color: var(--text) !important;
   letter-spacing: -0.03em;
   line-height: 1.15;
+  transition: color 0.4s;
+}
+
+.header--dark .header__brand {
+  color: #ffffff !important;
 }
 
 .header__brand-name {
@@ -42,6 +52,11 @@
   text-transform: uppercase;
   color: var(--text-muted) !important;
   font-family: var(--font-body);
+  transition: color 0.4s;
+}
+
+.header--dark .header__brand-tag {
+  color: rgba(255, 255, 255, 0.6) !important;
 }
 
 .header__brand:hover {
@@ -74,7 +89,7 @@
   font-weight: 600;
   color: var(--text-muted) !important;
   border-radius: var(--radius-full);
-  transition: color 0.2s, background 0.2s;
+  transition: color 0.3s, background 0.3s;
 }
 
 .header__link:hover {
@@ -86,6 +101,21 @@
   color: var(--accent-deep) !important;
   background: var(--accent-soft);
   box-shadow: 0 0 0 1px rgba(184, 69, 110, 0.12);
+}
+
+.header--dark .header__link {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+.header--dark .header__link:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.header--dark .header__link--active {
+  color: #ffffff !important;
+  background: rgba(184, 69, 110, 0.3);
+  box-shadow: 0 0 0 1px rgba(184, 69, 110, 0.4);
 }
 
 /* Hamburger */
@@ -109,14 +139,22 @@
   background: rgba(24, 18, 28, 0.05);
 }
 
+.header--dark .header__burger:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
 .header__burger span {
   display: block;
   width: 20px;
   height: 2px;
   background: var(--text);
   border-radius: 2px;
-  transition: transform 0.3s ease, opacity 0.25s ease;
+  transition: transform 0.3s ease, opacity 0.25s ease, background 0.4s;
   transform-origin: center;
+}
+
+.header--dark .header__burger span {
+  background: #ffffff;
 }
 
 .header__burger--open span:nth-child(1) {
