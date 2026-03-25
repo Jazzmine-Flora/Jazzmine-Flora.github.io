@@ -15,6 +15,9 @@ if (!fs.existsSync(faviconSource)) {
 
 const pkg = require("./package.json");
 
+const devServerPort = Number.parseInt(process.env.PORT || "", 10);
+const devPort = Number.isFinite(devServerPort) && devServerPort > 0 ? devServerPort : 8080;
+
 module.exports = (env, argv) => {
   const isProd = argv.mode === "production";
   // Pass faviconV on plugin options (htmlWebpackPlugin.options), not templateParameters.
@@ -64,7 +67,7 @@ module.exports = (env, argv) => {
       }),
       new CopyWebpackPlugin({
         patterns: [
-          { from: "src/assets/avatar.png", to: "avatar.png" },
+          { from: "src/assets/avatar1.png", to: "avatar1.png" },
           { from: "public/favicon.png", to: "favicon.png" },
           { from: "public/favicon.ico", to: "favicon.ico" },
           { from: "public/apple-touch-icon.png", to: "apple-touch-icon.png" },
@@ -111,7 +114,7 @@ module.exports = (env, argv) => {
         middlewares.unshift(servePublicIcons);
         return middlewares;
       },
-      port: 8080,
+      port: devPort,
       open: true,
     },
   };
