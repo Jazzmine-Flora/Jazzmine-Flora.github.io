@@ -246,9 +246,7 @@ const HomePage: React.FC = () => {
                   </ul>
                   <div className="project-card__about">
                     <h3 className="project-card__title">{project.title}</h3>
-                    <div className="project-card__copy">
-                      <p className="project-card__desc">{project.description}</p>
-                    </div>
+                    <p className="project-card__desc">{project.description}</p>
                   </div>
                   <div className="project-card__tech">
                     {project.tech.map((t) => (
