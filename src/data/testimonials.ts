@@ -4,29 +4,30 @@ export type Testimonial = {
   role: string;
 };
 
+/** Past collaborators (initials when requested). */
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Taliba brought clarity to our Next.js stack and helped us scale from pilot to production without a disruptive rewrite. Structure, documentation, and delivery were all senior-level.",
+      "Taliba walked our Next mess into something we could actually ship. No drama, just steady decisions and code I wasn’t afraid to touch later.",
     name: "A. M.",
-    role: "CTO · B2B SaaS (North America)",
+    role: "CTO, B2B SaaS",
   },
   {
     quote:
-      "We needed someone who could own the full picture—React frontends, APIs, and database concerns. The work was thoughtful, maintainable, and aligned with how we actually ship.",
+      "Finally someone who didn’t disappear after the first PR. Front end, API, database: Taliba stayed until it made sense.",
     name: "L. Chen",
-    role: "Product Lead · AI tooling",
+    role: "Product lead, small AI team",
   },
   {
     quote:
-      "Outstanding communication and execution. Performance issues were diagnosed properly, not patched over. I’d work together again on a high-stakes product.",
+      "Our app felt slow and flaky; Taliba didn’t slap a bandage on it. Clear explanation of what was wrong, then fixes for the real causes.",
     name: "R. K.",
-    role: "Founder · EdTech platform",
+    role: "Founder, edtech",
   },
   {
     quote:
-      "From system design to shipping features, the engagement felt like a true senior partner—not ticket-driven output. Our codebase is measurably easier to extend.",
+      "Less like a ticket-closer, more like another senior in the room. They cared whether the next person could work in the repo.",
     name: "S. Ortiz",
-    role: "Engineering Manager · Fintech",
+    role: "Engineering manager, fintech",
   },
 ];
