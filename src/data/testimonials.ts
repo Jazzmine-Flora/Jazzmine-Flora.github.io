@@ -7,6 +7,11 @@ export type Testimonial = {
 /** Past collaborators (initials when requested). */
 export const testimonials: Testimonial[] = [
   {
+    quote: "She's great and really helpful.",
+    name: "Steve C.",
+    role: "Founder, Zenius",
+  },
+  {
     quote:
       "Taliba walked our Next mess into something we could actually ship. No drama, just steady decisions and code I wasn’t afraid to touch later.",
     name: "A. M.",
@@ -15,7 +20,7 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       "Finally someone who didn’t disappear after the first PR. Front end, API, database: Taliba stayed until it made sense.",
-    name: "L. Chen",
+    name: "L. C.",
     role: "Product lead, small AI team",
   },
   {
@@ -29,10 +34,5 @@ export const testimonials: Testimonial[] = [
       "Less like a ticket-closer, more like another senior in the room. They cared whether the next person could work in the repo.",
     name: "S. Ortiz",
     role: "Engineering manager, fintech",
-  },
-  {
-    quote: "She's great and really helpful.",
-    name: "Steve C",
-    role: "Founder, Zenius",
   },
 ];
