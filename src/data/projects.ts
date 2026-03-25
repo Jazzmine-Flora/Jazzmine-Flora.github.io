@@ -13,7 +13,6 @@ export type Project = {
   description: string;
   link: string;
   tech: string[];
-  highlights: string[];
   screenshot?: string;
 };
 
@@ -37,12 +36,6 @@ export const projects: Project[] = [
       "Performance",
       "Accessibility",
     ],
-    highlights: [
-      "Guided flows that do not feel like a tax form",
-      "Personas users can choose",
-      "Anonymous-first onboarding",
-      "Copy and UI that match the topic",
-    ],
   },
   {
     title: "News Explorer",
@@ -52,7 +45,6 @@ export const projects: Project[] = [
     link: "https://jazzmine-flora.github.io/news-explorer/",
     screenshot: thumbNewsExplorer,
     tech: ["React", "Node.js", "Express", "MongoDB", "REST", "Auth", "News API"],
-    highlights: ["Sign-in and saved articles", "Search that works", "Clear error handling"],
   },
   {
     title: "TMI Worldwide",
@@ -62,7 +54,6 @@ export const projects: Project[] = [
     link: "https://tmi-world-welcome.lovable.app/",
     screenshot: thumbTmi,
     tech: ["React", "Vite", "SPA", "Responsive UI", "Marketing / brand"],
-    highlights: ["Luxury travel narrative", "Concierge positioning", "Polished responsive layout"],
   },
   {
     title: "Time Keeper",
@@ -72,7 +63,6 @@ export const projects: Project[] = [
     link: "https://time-keeper-crafted.lovable.app/",
     screenshot: thumbTimeKeeper,
     tech: ["React", "Vite", "SPA", "Responsive UI", "Product UI"],
-    highlights: ["Tight product flow", "Consistent UI", "Shipped live"],
   },
   {
     title: "This portfolio",
@@ -82,7 +72,6 @@ export const projects: Project[] = [
     link: "https://jazzmine-flora.github.io",
     screenshot: thumbPortfolio,
     tech: ["React", "TypeScript", "Webpack", "React Router", "CI/CD"],
-    highlights: ["Hand-written content", "Static hosting friendly routing", "Favicon pipeline from my asset"],
   },
   {
     title: "Expense Tracker",
@@ -92,7 +81,6 @@ export const projects: Project[] = [
     link: "https://jazzmine-flora.github.io/expense-tracker/",
     screenshot: thumbExpense,
     tech: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Charts"],
-    highlights: ["Typed models", "Charts match the data", "Clear CRUD"],
   },
   {
     title: "Girls Blog",
@@ -102,6 +90,5 @@ export const projects: Project[] = [
     link: "https://girly-blogspot.vercel.app/",
     screenshot: thumbGirlyBlog,
     tech: ["React", "Node.js", "Express", "MongoDB", "Auth"],
-    highlights: ["Sensible auth", "Repeatable CRUD"],
   },
 ];
