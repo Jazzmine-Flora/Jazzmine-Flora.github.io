@@ -5,9 +5,9 @@
   "description": "Personal portfolio site.",
   "scripts": {
     "dev": "vite",
-    "predev": "npm run generate:favicon && node scripts/copy-static-assets-to-public.js",
+    "predev": "npm run generate:favicon",
     "build": "vite build",
-    "prebuild": "npm run generate:favicon && node scripts/copy-static-assets-to-public.js",
+    "prebuild": "npm run generate:favicon",
     "postbuild": "node scripts/copy-404-html.js",
     "preview": "vite preview",
     "start": "npm run dev",

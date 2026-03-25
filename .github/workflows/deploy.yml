@@ -28,7 +28,7 @@ jobs:
         run: npm run build
 
       # Copy dist/ to repo root for GitHub Pages. Remove assets/ and projects/ first so old
-      # Vite output and stable public copies do not accumulate stale files.
+      # Vite output does not accumulate stale files.
       - name: Copy built site to root
         run: |
           rm -rf assets projects
@@ -42,8 +42,6 @@ jobs:
           git add -A assets/ 2>/dev/null || true
           git add -A projects/ 2>/dev/null || true
           git add favicon.ico favicon.png apple-touch-icon.png .nojekyll 2>/dev/null || true
-          # Stable URLs from public/: hero avatar + project screenshots
-          git add avatar.png 2>/dev/null || true
           # Loose images at repo root (if any); Vite puts hashed files under assets/
           git add *.png *.jpg *.jpeg *.ico *.gif *.svg *.webp 2>/dev/null || true
           git status

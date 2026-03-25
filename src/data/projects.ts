@@ -1,5 +1,10 @@
-/** Stable paths under /projects/ (see scripts/copy-static-assets-to-public.js + public/). */
-const projectScreenshot = (file: string) => `${import.meta.env.BASE_URL}projects/${file}`;
+import expenseTracker from "@/assets/projects/expense-tracker.png";
+import girlyBlog from "@/assets/projects/girly-blog.png";
+import newsExplorer from "@/assets/projects/news-explorer.png";
+import portfolio from "@/assets/projects/portfolio.png";
+import timeKeeper from "@/assets/projects/time-keeper.png";
+import tmiWorldwide from "@/assets/projects/tmi-worldwide.png";
+import zenius from "@/assets/projects/zenius.png";
 
 export type Project = {
   title: string;
@@ -18,7 +23,7 @@ export const projects: Project[] = [
     description:
       "Support by text, voice, or video, with profiles so people can find a fit. Not a generic chatbot wrapper.",
     link: "https://zenius.ia.br",
-    screenshot: projectScreenshot("zenius.png"),
+    screenshot: zenius,
     tech: [
       "React",
       "TypeScript",
@@ -38,7 +43,7 @@ export const projects: Project[] = [
     description:
       "Search news, save articles, sign in so your list follows you. Search, auth, and a third-party API without a mess.",
     link: "https://jazzmine-flora.github.io/news-explorer/",
-    screenshot: projectScreenshot("news-explorer.png"),
+    screenshot: newsExplorer,
     tech: ["React", "Node.js", "Express", "MongoDB", "REST", "Auth", "News API"],
   },
   {
@@ -47,7 +52,7 @@ export const projects: Project[] = [
     description:
       "Luxury travel concierge: premium positioning, clear services, and a marketing site that reads high-end without noisy clutter.",
     link: "https://tmi-world-welcome.lovable.app/",
-    screenshot: projectScreenshot("tmi-worldwide.png"),
+    screenshot: tmiWorldwide,
     tech: ["React", "Vite", "SPA", "Responsive UI", "Marketing / brand"],
   },
   {
@@ -56,7 +61,7 @@ export const projects: Project[] = [
     description:
       "Crafted time and productivity experience: focused flows, clear UI, and a cohesive product feel in the browser.",
     link: "https://time-keeper-crafted.lovable.app/",
-    screenshot: projectScreenshot("time-keeper.png"),
+    screenshot: timeKeeper,
     tech: ["React", "Vite", "SPA", "Responsive UI", "Product UI"],
   },
   {
@@ -65,7 +70,7 @@ export const projects: Project[] = [
     description:
       "Personal portfolio on a single page: intro, services, selected work, toolkit, client feedback, and a contact form.",
     link: "https://jazzmine-flora.github.io",
-    screenshot: projectScreenshot("portfolio.png"),
+    screenshot: portfolio,
     tech: [
       "React",
       "TypeScript",
@@ -83,7 +88,7 @@ export const projects: Project[] = [
     description:
       "Track spending, categorize, chart it. TypeScript when the data shapes get awkward.",
     link: "https://jazzmine-flora.github.io/expense-tracker/",
-    screenshot: projectScreenshot("expense-tracker.png"),
+    screenshot: expenseTracker,
     tech: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Charts"],
   },
   {
@@ -92,7 +97,7 @@ export const projects: Project[] = [
     description:
       "Full-stack blog: accounts, posts, MongoDB. Slugs, soft deletes, the usual lessons.",
     link: "https://girly-blogspot.vercel.app/",
-    screenshot: projectScreenshot("girly-blog.png"),
+    screenshot: girlyBlog,
     tech: ["React", "Node.js", "Express", "MongoDB", "Auth"],
   },
 ];

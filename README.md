@@ -49,6 +49,8 @@ npm run build
 
 Output goes to `dist/` — `index.html`, `404.html`, and hashed assets under `assets/`.
 
+The root `index.html` must load the app with `<script type="module" src="/src/index.tsx"></script>`. If it instead references a committed `assets/index-*.js` bundle from a deploy, Vite will not compile `src/` and imported images will not be emitted.
+
 ### 4. Preview the production build
 
 ```bash
@@ -128,16 +130,13 @@ src/
 
 scripts/
 ├── generate-favicon.js         # Build favicon files from src/assets/favicon.png
-├── copy-static-assets-to-public.js  # Copy avatar + project screenshots to public/ (stable URLs for GitHub Pages)
 ├── copy-404-html.js            # Copy index.html → 404.html after build
 └── capture-project-screenshots.js  # Playwright screenshots of project URLs
 
-public/                         # Static files copied to dist/ as-is
+public/                         # Static files copied to dist/ as-is (favicons, .nojekyll)
 ├── favicon.ico
 ├── favicon.png
 ├── apple-touch-icon.png
-├── avatar.png                  # Generated on predev/prebuild (gitignored)
-├── projects/                   # Project card screenshots (generated from src/assets/projects/, gitignored)
 └── .nojekyll
 ```
 
