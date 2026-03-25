@@ -6,7 +6,8 @@ const Footer: React.FC = () => (
   <footer className="footer">
     <div className="footer__inner container">
       <p className="footer__copy">
-        © {new Date().getFullYear()} Taliba Sadiq. All rights reserved.
+        © {new Date().getFullYear()} Taliba Sadiq · Software architect &amp; senior full stack engineer · React
+        · Next.js · Node
       </p>
       <div className="footer__social" aria-label="Social links">
         <a
