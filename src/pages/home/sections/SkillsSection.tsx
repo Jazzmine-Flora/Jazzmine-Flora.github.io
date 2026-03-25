@@ -1,5 +1,5 @@
 import React from "react";
-import { skills } from "../content/skills";
+import { skills } from "@/pages/home/content/skills";
 
 const SkillsSection: React.FC = () => (
   <section className="section section--skills skills-showcase reveal" id="skills" aria-labelledby="skills-heading">

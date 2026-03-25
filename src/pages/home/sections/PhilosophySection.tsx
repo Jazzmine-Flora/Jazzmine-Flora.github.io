@@ -1,5 +1,5 @@
 import React from "react";
-import { pillars } from "../content/pillars";
+import { pillars } from "@/pages/home/content/pillars";
 
 const PhilosophySection: React.FC = () => (
   <section className="section section--philosophy reveal" id="philosophy" aria-labelledby="philosophy-heading">

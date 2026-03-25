@@ -1,5 +1,5 @@
 import React from "react";
-import { projects } from "../../../data/projects";
+import { projects } from "@/data/projects";
 
 const WorkSection: React.FC = () => (
   <section className="section section--work projects-page projects-page--premium reveal" id="work" aria-labelledby="work-heading">
@@ -46,7 +46,9 @@ const WorkSection: React.FC = () => (
               </div>
               <div className="project-card__tech">
                 {project.tech.map((t) => (
-                  <span key={t} className="project-card__tag">{t}</span>
+                  <span key={t} className="skill-tag">
+                    {t}
+                  </span>
                 ))}
               </div>
             </div>
