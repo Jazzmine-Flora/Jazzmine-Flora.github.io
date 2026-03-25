@@ -72,20 +72,20 @@ const skills = {
 
 const pillars = [
   {
-    title: "Outgrowing the current structure",
-    body: "When a product is starting to outgrow its foundations and needs clearer boundaries and patterns.",
+    title: "Things are getting tangled",
+    body: "The app works, but new features take longer and the code is hard to follow. You want help untangling without a full rewrite.",
   },
   {
-    title: "Fragile or hard-to-maintain code",
-    body: "When the codebase is becoming harder to work with and needs refactoring toward stability.",
+    title: "The codebase feels fragile",
+    body: "People avoid changing certain files, or bugs return. You want clearer patterns and safer refactors.",
   },
   {
-    title: "Prototype → production",
-    body: "When a prototype must become something stable, observable, and ready for real users.",
+    title: "A prototype has to grow up",
+    body: "The demo worked; now it needs to hold up for real users, errors, and the next releases.",
   },
   {
-    title: "Performance & reliability",
-    body: "When performance or reliability issues begin to show up and need systematic resolution.",
+    title: "Something is off with speed or reliability",
+    body: "Slow pages, odd failures, or repeat issues. You want the cause fixed, not hidden.",
   },
 ];
 
@@ -97,31 +97,31 @@ const HomePage: React.FC = () => (
           <img src={profilePic} alt="Taliba Sadiq" className="hero__image" />
         </div>
         <div className="hero__content">
-          <p className="hero__eyebrow">Software architect · Senior full stack</p>
+          <p className="hero__eyebrow">Full stack · React / Next · Node</p>
           <h1 className="hero__title">Taliba Sadiq</h1>
           <p className="hero__role-primary">
-            Software Architect | React, Next.js, AI, Scalable Systems
+            I design and build web software with React, Next.js, and Node. I use AI when it fits the product.
           </p>
           <p className="hero__role-secondary">
-            Senior Full Stack Developer | React, Next.js, Node, Scalable Apps
+            I care about stable APIs, trustworthy data, and code the next reader can follow.
           </p>
           <p className="hero__bio hero__bio--lead">
-            I build software that holds up under real use—systems that don’t just work in demos, but continue
-            to perform as users grow, features expand, and complexity increases.
+            I like work where the product grows: more users, more edge cases, more performance questions. The goal is a
+            calmer system, not a louder one.
           </p>
           <p className="hero__bio hero__bio--detail">
-            Over the past few years I’ve worked on full stack applications across modern web and AI-driven
-            products, with React, Next.js, and backend systems built for real-world usage. I’m often brought in
-            when structure needs improvement, codebases need stabilizing, or a prototype must become production-ready.
-            What I bring is clarity: clear structure, clear decisions, and systems that are easier to build on as
-            they grow.
+            Recent work is full stack apps, React and Next on the front, Node on the back, and AI features when they
+            solve a real problem. I take on careful refactors and prototypes that need to survive production.
+          </p>
+          <p className="hero__bio hero__bio--detail hero__bio--note">
+            This site is built in this repo (handwritten copy, same deploy as the app).
           </p>
           <div className="hero__actions">
             <Link to="/projects" className="btn btn--primary">
-              Selected work
+              See what I’ve built
             </Link>
             <Link to="/contact" className="btn btn--ghost">
-              Start a conversation
+              Say hello
             </Link>
           </div>
           <div className="hero__social">
@@ -153,12 +153,11 @@ const HomePage: React.FC = () => (
     <section className="section section--philosophy">
       <div className="container">
         <div className="philosophy__head">
-          <span className="section__label">Positioning</span>
-          <h2 className="philosophy__title">Systems that behave well over time</h2>
+          <span className="section__label">How I think about the work</span>
+          <h2 className="philosophy__title">Software that still makes sense in six months</h2>
           <p className="philosophy__lead">
-            My focus is on how software behaves over time—not only how it works on day one. I work across the stack:
-            React and Next.js frontends, well-designed APIs, and backend systems structured so everything fits together
-            cleanly.
+            First demos are easy. I focus on what happens after launch: more features, team changes, and someone new
+            opening the repo. Good structure is what keeps you from rewriting everything twice.
           </p>
         </div>
         <div className="pillars__grid">
@@ -175,25 +174,24 @@ const HomePage: React.FC = () => (
 
     <section className="section section--execution">
       <div className="container execution__inner">
-        <span className="section__label">Execution</span>
-        <h2 className="execution__title">Full stack delivery</h2>
+        <span className="section__label">What I actually do</span>
+        <h2 className="execution__title">Building and fixing, end to end</h2>
         <div className="execution__body">
           <p>
-            I build full stack applications that are fast, reliable, and ready for real users—whether you’re
-            starting from scratch or improving an existing codebase. I work primarily with React and Next.js on the
-            frontend and Node.js and modern backend stacks on the server, with an emphasis on code that stays
-            understandable and extensible in production.
+            I ship new products and I fix inherited ones. The usual path: understand how it works today, agree what
+            better means, then change as little code as needed. I spend a lot of time on APIs, data, and the layer
+            between UI and server.
           </p>
           <ul className="execution__list">
-            <li>End-to-end web applications from the ground up</li>
-            <li>High-performance, responsive React and Next.js frontends</li>
-            <li>API design and backend implementation</li>
-            <li>Refactoring messy or hard-to-maintain codebases</li>
-            <li>Performance tuning and stabilizing live applications</li>
+            <li>New web apps from a blank page or a rough sketch</li>
+            <li>React / Next frontends that work on mobile and slow networks</li>
+            <li>Backend work: routes, auth, databases, matched to the product</li>
+            <li>Refactors when “we can’t touch that file” is a real problem</li>
+            <li>Debugging slow or flaky behavior without guessing</li>
           </ul>
           <p className="execution__skills-line">
-            <strong>Core skills:</strong> React, Next.js, Node.js, APIs, databases, authentication, performance
-            optimization—and close attention to how the whole application connects.
+            <strong>Tools I use often:</strong> React, Next.js, Node, HTTP APIs, Postgres or Mongo when it fits, plus
+            tests and deploy. The list below is the full set I have used on real work.
           </p>
         </div>
       </div>
@@ -202,9 +200,9 @@ const HomePage: React.FC = () => (
     <section className="section section--testimonials" id="reviews">
       <div className="container">
         <div className="testimonials__head">
-          <h2 className="testimonials__title">Client &amp; collaborator feedback</h2>
+          <h2 className="testimonials__title">Words from people I’ve worked with</h2>
           <p className="testimonials__lead">
-            A snapshot of how teams describe working together—structure, delivery, and ownership at a senior level.
+            Short notes people agreed to share. Some names are initials only by request.
           </p>
         </div>
         <div className="testimonials__grid">
@@ -220,7 +218,7 @@ const HomePage: React.FC = () => (
         </div>
         <div className="testimonials__cta">
           <Link to="/reviews" className="btn btn--ghost">
-            Reviews &amp; references
+            Same page, bigger type
           </Link>
         </div>
       </div>
@@ -228,9 +226,9 @@ const HomePage: React.FC = () => (
 
     <section className="skills-showcase section">
       <div className="container">
-        <h2 className="skills-showcase__title">Technical depth</h2>
+        <h2 className="skills-showcase__title">Skills &amp; tools</h2>
         <p className="skills-showcase__lead">
-          Architecture, implementation, and operations—aligned for modern full stack and AI-adjacent products.
+          What I have used on shipped work. If something is missing, ask.
         </p>
         <div className="skills-showcase__grid">
           <div className="skill-category">
@@ -274,7 +272,7 @@ const HomePage: React.FC = () => (
             </div>
           </div>
           <div className="skill-category">
-            <h3 className="skill-category__title">Architecture &amp; practice</h3>
+            <h3 className="skill-category__title">How I like to work</h3>
             <div className="skill-category__tags">
               {skills.concepts.map((skill) => (
                 <span key={skill} className="skill-tag">
