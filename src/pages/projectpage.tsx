@@ -13,59 +13,86 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "News Explorer",
-    badge: "Full stack · SaaS-style",
+    title: "Zenius",
+    badge: "Health · AI · Web",
     description:
-      "Production-oriented news aggregation: search, authentication, saved articles, and third-party API integration—built for clarity and long-term maintainability.",
+      "Support by text, voice, or video, with profiles so people can find a fit. Not a generic chatbot wrapper.",
     longDescription:
-      "React and Node/Express with MongoDB; RESTful API design, auth flows, and data modeling suited to evolving product requirements. Suitable as a reference for teams standardizing on a modern MERN-style stack.",
-    link: "https://jazzmine-flora.github.io/news-explorer/",
-    tech: ["React", "Node.js", "Express", "MongoDB", "REST", "Auth", "News API"],
-    highlights: ["Auth & authorization", "Search & saved collections", "API integration", "Responsive UI"],
+      "Focus on fast start, anonymity, and honest marketing. Stack: React, TypeScript, Node, APIs, real-time, privacy and performance work.",
+    link: "https://zenius.ia.br",
+    tech: [
+      "React",
+      "TypeScript",
+      "AI / LLM integration",
+      "Node.js",
+      "REST & real-time APIs",
+      "Voice / video",
+      "Security & privacy",
+      "Responsive UI",
+      "Performance",
+      "Accessibility",
+    ],
+    highlights: [
+      "Guided flows that do not feel like a tax form",
+      "Personas users can choose",
+      "Anonymous-first onboarding",
+      "Copy and UI that match the topic",
+    ],
   },
   {
-    title: "Portfolio (this site)",
-    badge: "Front-end · Brand",
+    title: "News Explorer",
+    badge: "Full stack",
     description:
-      "A performance-minded marketing and portfolio surface: React, TypeScript, webpack, and a design system tuned for credibility and readability.",
+      "Search news, save articles, sign in so your list follows you. Search, auth, and a third-party API without a mess.",
     longDescription:
-      "Component architecture, client-side routing, and deployment automation. Intended to read as a senior engineer’s presence—not a template dump.",
+      "React front, Node/Express and MongoDB back. Rate limits and API boundaries taught a lot.",
+    link: "https://jazzmine-flora.github.io/news-explorer/",
+    tech: ["React", "Node.js", "Express", "MongoDB", "REST", "Auth", "News API"],
+    highlights: ["Sign-in and saved articles", "Search that works", "Clear error handling"],
+  },
+  {
+    title: "This portfolio",
+    badge: "This very site",
+    description:
+      "React, TypeScript, webpack, HashRouter for GitHub Pages. Copy I rewrote until it sounded right.",
+    longDescription:
+      "Custom components and CSS. Deploy is automated.",
     link: "https://jazzmine-flora.github.io",
     tech: ["React", "TypeScript", "Webpack", "React Router", "CI/CD"],
-    highlights: ["Type-safe UI", "Hash routing for static hosting", "Automated deploy"],
+    highlights: ["Hand-written content", "Static hosting friendly routing", "Favicon pipeline from my asset"],
   },
   {
     title: "What to Wear (WTWR)",
-    badge: "Full stack · APIs",
+    badge: "Weather · Full stack",
     description:
-      "Weather-aware recommendations with real-time external data, persistence, and a UX focused on trust and speed.",
+      "Outfits from local weather. External APIs, persistence, UI that does not blame the user when the network fails.",
     longDescription:
-      "Integrates weather APIs end-to-end with a Node/MongoDB backend and a React client—demonstrating reliable integration patterns and operational thinking.",
+      "React client, Node/Express/MongoDB. Good lesson on external APIs and honest loading states.",
     link: "https://www.wat2wear.twilightparadox.com/",
     tech: ["React", "Node.js", "Express", "MongoDB", "Weather API"],
-    highlights: ["External API integration", "Data modeling", "Production-minded UX"],
+    highlights: ["API integration end to end", "Data survives refresh", "Calm UX on errors"],
   },
   {
     title: "Expense Tracker",
-    badge: "Full stack · Data UI",
+    badge: "TypeScript · Data",
     description:
-      "Financial tracking with TypeScript, categorization, and visualization—emphasizing correctness, forms, and maintainable state.",
+      "Track spending, categorize, chart it. TypeScript when the data shapes get awkward.",
     longDescription:
-      "Showcases TypeScript discipline, charting, and CRUD flows suitable for dashboards and internal tools.",
+      "Forms, validation, charts. Straight CRUD and dashboards.",
     link: "https://jazzmine-flora.github.io/expense-tracker/",
     tech: ["React", "TypeScript", "Node.js", "Express", "MongoDB", "Charts"],
-    highlights: ["Strong typing", "Visualization", "Validation & CRUD"],
+    highlights: ["Typed models", "Charts match the data", "Clear CRUD"],
   },
   {
     title: "Girls Blog",
-    badge: "Full stack · CMS",
+    badge: "Blog · Auth",
     description:
-      "Blogging platform with authentication, content management, and a MongoDB-backed API—structured for extension.",
+      "Full-stack blog: accounts, posts, MongoDB. Slugs, soft deletes, the usual lessons.",
     longDescription:
-      "React client with Express/MongoDB server: auth, post lifecycle, and schema decisions aligned with real content products.",
+      "React client, Express and Mongo behind it. Validation, permissions, not losing posts on a bad tab close.",
     link: "https://github.com/Jazzmine-Flora/Girly-Blogspot",
     tech: ["React", "Node.js", "Express", "MongoDB", "Auth"],
-    highlights: ["Full-stack architecture", "Auth & CMS patterns", "Content lifecycle"],
+    highlights: ["Sensible auth", "Repeatable CRUD"],
   },
 ];
 
@@ -73,11 +100,9 @@ const ProjectPage: React.FC = () => (
   <div className="projects-page projects-page--premium page-content">
     <section className="section">
       <div className="container">
-        <h1 className="projects__title">Selected work</h1>
+        <h1 className="projects__title">Work</h1>
         <p className="projects__lead">
-          Representative builds spanning React/Next-style frontends, Node APIs, databases, and integrations. Each
-          project is chosen to reflect how I approach structure, delivery, and production readiness—not weekend demos
-          alone.
+          Real projects under real constraints. I wrote these blurbs myself.
         </p>
         <div className="projects__grid">
           {projects.map((project) => (
@@ -110,9 +135,9 @@ const ProjectPage: React.FC = () => (
                 rel="noopener noreferrer"
                 className="project-card__link"
               >
-                Open project
+                Open it
                 <span className="project-card__arrow" aria-hidden>
-                  →
+                  &gt;
                 </span>
               </a>
             </article>
