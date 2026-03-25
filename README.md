@@ -115,6 +115,7 @@ public/
 | `npm start`      | Dev server at http://localhost:8080 |
 | `npm run build`  | Production build into `dist/`        |
 | `npm run deploy` | Build and push `dist/` to GitHub     |
+| `npm run capture:projects` | Playwright screenshots of project URLs into `src/assets/projects/` (needs `npx playwright install`) |
 | `npm test`       | Run tests (Jest)                     |
 
 ---
