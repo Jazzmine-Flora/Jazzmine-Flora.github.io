@@ -1,37 +1,70 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useScrollSpy } from "../hooks/useScrollSpy";
 import "./Header.css";
 
 const navItems = [
   { path: "/", label: "Home" },
   { path: "/projects", label: "Work" },
-  { path: "/about", label: "About" },
   { path: "/reviews", label: "Reviews" },
   { path: "/contact", label: "Contact" },
 ];
 
 const Header: React.FC = () => {
   const location = useLocation();
+  const scrollActivePath = useScrollSpy();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
 
   return (
     <header className="header">
       <div className="header__inner container">
-        <Link to="/" className="header__brand">
+        <Link
+          to="/"
+          className="header__brand"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
           <span className="header__brand-name">Taliba Sadiq</span>
-          <span className="header__brand-tag">Full stack · hand-built site</span>
+          <span className="header__brand-tag">Software Engineer</span>
         </Link>
-        <nav className="header__nav" aria-label="Main navigation">
+        <button
+          className={`header__burger${menuOpen ? " header__burger--open" : ""}`}
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+        <nav
+          className={`header__nav${menuOpen ? " header__nav--open" : ""}`}
+          aria-label="Main navigation"
+        >
           <ul className="header__list">
-            {navItems.map(({ path, label }) => (
-              <li key={path}>
-                <Link
-                  to={path}
-                  className={`header__link ${location.pathname === path ? "header__link--active" : ""}`}
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
+            {navItems.map(({ path, label }) => {
+              const isActive = scrollActivePath === path;
+              return (
+                <li key={path}>
+                  <Link
+                    to={path}
+                    className={`header__link ${isActive ? "header__link--active" : ""}`}
+                    aria-current={isActive ? "page" : undefined}
+                    onClick={() => {
+                      setMenuOpen(false);
+                      if (path === "/" && location.pathname === "/") {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }
+                    }}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </div>

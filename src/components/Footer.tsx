@@ -5,10 +5,6 @@ import "./Footer.css";
 const Footer: React.FC = () => (
   <footer className="footer">
     <div className="footer__inner container">
-      <p className="footer__copy">
-        © {new Date().getFullYear()} Taliba Sadiq · Built and written by hand · React, Next, Node, and too much time
-        tweaking CSS
-      </p>
       <div className="footer__social" aria-label="Social links">
         <a
           href="https://www.linkedin.com/in/taliba-sadiq"
@@ -31,6 +27,9 @@ const Footer: React.FC = () => (
           <span>GitHub</span>
         </a>
       </div>
+      <p className="footer__copy">
+        &copy; {new Date().getFullYear()} Taliba Sadiq &middot; Designed &amp; built by hand
+      </p>
     </div>
   </footer>
 );
