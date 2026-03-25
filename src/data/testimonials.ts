@@ -30,4 +30,9 @@ export const testimonials: Testimonial[] = [
     name: "S. Ortiz",
     role: "Engineering manager, fintech",
   },
+  {
+    quote: "She's great and really helpful.",
+    name: "Steve C",
+    role: "Founder, Zenius",
+  },
 ];
