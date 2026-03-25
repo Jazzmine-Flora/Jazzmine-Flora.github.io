@@ -324,17 +324,19 @@ const HomePage: React.FC = () => {
               Short notes from people I&apos;ve worked with. Some names are initials only by request.
             </p>
           </div>
-          <div className="testimonials__grid">
+          <ul className="testimonials__list" role="list">
             {testimonials.map((t) => (
-              <blockquote key={t.name} className="testimonial-card">
-                <p className="testimonial-card__quote">{t.quote}</p>
-                <footer className="testimonial-card__meta">
-                  <p className="testimonial-card__name">{t.name}</p>
-                  <p className="testimonial-card__role">{t.role}</p>
+              <li key={`${t.name}-${t.role}`} className="testimonial-item">
+                <blockquote className="testimonial-item__quote">
+                  <p>{t.quote}</p>
+                </blockquote>
+                <footer className="testimonial-item__cite">
+                  <span className="testimonial-item__name">{t.name}</span>
+                  <span className="testimonial-item__role">{t.role}</span>
                 </footer>
-              </blockquote>
+              </li>
             ))}
-          </div>
+          </ul>
           <div className="testimonials__cta">
             <button type="button" className="btn btn--primary" onClick={() => scrollTo("contact", "/contact")}>
               Start a conversation
