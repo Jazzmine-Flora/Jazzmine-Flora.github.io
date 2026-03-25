@@ -213,8 +213,7 @@ const HomePage: React.FC = () => {
             Selected work
           </h2>
           <p className="projects__lead">
-            Full-stack products, AI features, and scalable systems. Thumbnails are live screenshots of each
-            deployed site.
+            Full-stack products, AI features, and scalable systems.
           </p>
           <div className="projects__grid">
             {projects.map((project) => (
