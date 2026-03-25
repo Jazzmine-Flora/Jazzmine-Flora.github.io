@@ -20,7 +20,7 @@ export type Project = {
 export const projects: Project[] = [
   {
     title: "Zenius",
-    badge: "Health · AI · Web",
+    badge: "AI development · Full-stack web",
     description:
       "Support by text, voice, or video, with profiles so people can find a fit. Not a generic chatbot wrapper.",
     longDescription:
@@ -48,7 +48,7 @@ export const projects: Project[] = [
   },
   {
     title: "News Explorer",
-    badge: "Full stack",
+    badge: "Web development · APIs & auth",
     description:
       "Search news, save articles, sign in so your list follows you. Search, auth, and a third-party API without a mess.",
     longDescription:
@@ -60,7 +60,7 @@ export const projects: Project[] = [
   },
   {
     title: "TMI Worldwide",
-    badge: "Travel · Concierge",
+    badge: "Design update · Marketing website",
     description:
       "Luxury travel concierge: premium positioning, clear services, and a marketing site that reads high-end without noisy clutter.",
     longDescription:
@@ -72,7 +72,7 @@ export const projects: Project[] = [
   },
   {
     title: "Time Keeper",
-    badge: "Product · Lovable",
+    badge: "Web app · Mobile-ready UX",
     description:
       "Crafted time and productivity experience: focused flows, clear UI, and a cohesive product feel in the browser.",
     longDescription:
@@ -84,7 +84,7 @@ export const projects: Project[] = [
   },
   {
     title: "This portfolio",
-    badge: "This very site",
+    badge: "Web development · Design & deploy",
     description:
       "React, TypeScript, webpack, HashRouter for GitHub Pages. Copy I rewrote until it sounded right.",
     longDescription: "Custom components and CSS. Deploy is automated.",
@@ -95,7 +95,7 @@ export const projects: Project[] = [
   },
   {
     title: "Expense Tracker",
-    badge: "TypeScript · Data",
+    badge: "Web development · Bug fixes & dashboards",
     description:
       "Track spending, categorize, chart it. TypeScript when the data shapes get awkward.",
     longDescription: "Forms, validation, charts. Straight CRUD and dashboards.",
@@ -106,7 +106,7 @@ export const projects: Project[] = [
   },
   {
     title: "Girls Blog",
-    badge: "Blog · Auth",
+    badge: "Full-stack web · Content platform",
     description:
       "Full-stack blog: accounts, posts, MongoDB. Slugs, soft deletes, the usual lessons.",
     longDescription:
