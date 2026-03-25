@@ -15,6 +15,9 @@ if (!fs.existsSync(faviconSource)) {
 
 const pkg = require("./package.json");
 
+const devServerPort = Number.parseInt(process.env.PORT || "", 10);
+const devPort = Number.isFinite(devServerPort) && devServerPort > 0 ? devServerPort : 8080;
+
 module.exports = (env, argv) => {
   const isProd = argv.mode === "production";
   // Pass faviconV on plugin options (htmlWebpackPlugin.options), not templateParameters.
@@ -111,7 +114,7 @@ module.exports = (env, argv) => {
         middlewares.unshift(servePublicIcons);
         return middlewares;
       },
-      port: 8080,
+      port: devPort,
       open: true,
     },
   };

@@ -9,6 +9,7 @@
     "capture:projects": "node scripts/capture-project-screenshots.js",
     "prestart": "npm run generate:favicon",
     "start": "webpack serve --mode development",
+    "start:8081": "set PORT=8081&& npm run start",
     "prebuild": "npm run generate:favicon",
     "build": "webpack --mode production",
     "test": "jest",
