@@ -1,6 +1,5 @@
 import React from "react";
 import ContactSection from "../../components/ContactSection";
-import "../../styles/main.css";
 import { useHomeNavigation } from "./hooks/useHomeNavigation";
 import {
   HeroSection,

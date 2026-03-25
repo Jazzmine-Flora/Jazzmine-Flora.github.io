@@ -38,7 +38,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git rm -f bundle.js bundle.js.LICENSE.txt 2>/dev/null || true
           git add index.html 404.html
           git add -A assets/ 2>/dev/null || true
           git add favicon.ico favicon.png apple-touch-icon.png .nojekyll 2>/dev/null || true

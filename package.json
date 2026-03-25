@@ -3,20 +3,19 @@
   "homepage": "https://jazzmine-flora.github.io",
   "version": "1.0.2",
   "description": "Personal portfolio site.",
-  "main": "src/index.tsx",
   "scripts": {
+    "dev": "vite",
+    "predev": "npm run generate:favicon",
+    "build": "vite build",
+    "prebuild": "npm run generate:favicon",
+    "postbuild": "node scripts/copy-404-html.js",
+    "preview": "vite preview",
+    "start": "npm run dev",
+    "dev:8081": "npm run dev -- --port 8081",
     "generate:favicon": "node scripts/generate-favicon.js",
     "capture:projects": "node scripts/capture-project-screenshots.js",
-    "predev": "npm run generate:favicon",
-    "dev": "vite",
-    "prestart": "npm run generate:favicon",
-    "start": "vite",
-    "start:8081": "vite --port 8081",
-    "prebuild": "npm run generate:favicon",
-    "build": "vite build && node scripts/copy-404-html.js",
-    "preview": "vite preview --port 4173",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist -r https://github.com/Jazzmine-Flora/Jazzmine-Flora.github.io.git -b main"
+    "deploy": "gh-pages -d dist -r https://github.com/Jazzmine-Flora/Jazzmine-Flora.github.io.git -b main",
+    "predeploy": "npm run build"
   },
   "keywords": [
     "portfolio",
@@ -29,20 +28,18 @@
   "dependencies": {
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-icons": "^5.5.0",
     "react-router-dom": "^7.6.2",
     "three": "^0.183.2"
   },
   "devDependencies": {
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.6",
-    "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^4.4.1",
     "gh-pages": "^6.3.0",
     "playwright": "^1.49.1",
     "png-to-ico": "^3.0.1",
     "sharp": "^0.34.5",
-    "typescript": "^4.9.5",
+    "typescript": "^5.7.3",
     "vite": "^6.2.4"
   }
 }

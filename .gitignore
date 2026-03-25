@@ -1,5 +1,2 @@
 node_modules
-
-# Accidental Webpack-era deploy leftovers at repo root (output lives in dist/; Pages deploy copies from there)
-/bundle.js
-/bundle.js.LICENSE.txt
+dist

@@ -37,8 +37,10 @@ export default defineConfig({
     },
   },
   server: {
+    host: "127.0.0.1",
     port: devPort,
     open: true,
+    strictPort: false,
   },
   preview: {
     port: 4173,
