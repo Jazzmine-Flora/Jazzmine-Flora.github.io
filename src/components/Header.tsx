@@ -18,7 +18,7 @@ const Header: React.FC = () => {
       <div className="header__inner container">
         <Link to="/" className="header__brand">
           <span className="header__brand-name">Taliba Sadiq</span>
-          <span className="header__brand-tag">Software architect · Full stack</span>
+          <span className="header__brand-tag">Full stack · hand-built site</span>
         </Link>
         <nav className="header__nav" aria-label="Main navigation">
           <ul className="header__list">

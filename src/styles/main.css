@@ -726,6 +726,12 @@ p:last-child {
   max-width: 38rem;
 }
 
+.hero__bio--note {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
 /* ===== Philosophy / pillars ===== */
 .section--philosophy {
   background: var(--surface-dark);
