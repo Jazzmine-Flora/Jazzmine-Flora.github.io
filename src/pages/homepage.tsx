@@ -235,30 +235,22 @@ const HomePage: React.FC = () => {
                   </div>
                 )}
                 <div className="project-card__body">
-                  <div className="project-card__types">
-                    <p className="project-card__types-label">Project type</p>
-                    <ul className="project-card__type-list" role="list">
-                      {project.types.map((typeLabel, typeIndex) => (
-                        <li
-                          key={`${project.title}-type-${typeIndex}`}
-                          className={`project-card__type-chip${typeIndex === 0 ? " project-card__type-chip--primary" : ""}`}
-                        >
-                          {typeLabel}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <ul className="project-card__type-list" role="list" aria-label="Project types">
+                    {project.types.map((typeLabel, typeIndex) => (
+                      <li
+                        key={`${project.title}-type-${typeIndex}`}
+                        className={`project-card__type-chip${typeIndex === 0 ? " project-card__type-chip--primary" : ""}`}
+                      >
+                        {typeLabel}
+                      </li>
+                    ))}
+                  </ul>
                   <div className="project-card__about">
                     <h3 className="project-card__title">{project.title}</h3>
                     <div className="project-card__copy">
                       <p className="project-card__desc">{project.description}</p>
                     </div>
                   </div>
-                  <ul className="project-card__highlights" aria-label="Project highlights">
-                    {project.highlights.map((h) => (
-                      <li key={h} className="project-card__highlight">{h}</li>
-                    ))}
-                  </ul>
                   <div className="project-card__tech">
                     {project.tech.map((t) => (
                       <span key={t} className="project-card__tag">{t}</span>
