@@ -1,14 +1,7 @@
 import { useEffect } from "react";
 
-/** True if node is inside an editable field (typing / in-field copy allowed). */
-function isEditableField(target: EventTarget | null): boolean {
-  if (!target || !(target instanceof HTMLElement)) return false;
-  if (target.isContentEditable) return true;
-  return Boolean(target.closest("input, textarea, select"));
-}
-
 /**
- * Deters casual saving, copying, and context menus. Not security (bypassable via devtools, etc.).
+ * Blocks selection, copy/cut, context menu, and image drag. Not real security (devtools, view source, etc.).
  */
 export function useContentProtection() {
   useEffect(() => {
@@ -17,11 +10,11 @@ export function useContentProtection() {
     };
 
     const onCopy = (e: ClipboardEvent) => {
-      if (!isEditableField(e.target)) e.preventDefault();
+      e.preventDefault();
     };
 
     const onCut = (e: ClipboardEvent) => {
-      if (!isEditableField(e.target)) e.preventDefault();
+      e.preventDefault();
     };
 
     const onDragStart = (e: DragEvent) => {
@@ -30,29 +23,16 @@ export function useContentProtection() {
     };
 
     const onSelectStart = (e: Event) => {
-      if (!isEditableField(e.target)) e.preventDefault();
+      e.preventDefault();
     };
 
     const onKeyDown = (e: KeyboardEvent) => {
       const mod = e.ctrlKey || e.metaKey;
-      const ae = document.activeElement;
-      const inField = ae instanceof HTMLElement && isEditableField(ae);
-
-      if (mod && (e.key === "s" || e.key === "S")) {
-        e.preventDefault();
-      }
-      if (mod && !inField && (e.key === "c" || e.key === "C")) {
-        e.preventDefault();
-      }
-      if (mod && !inField && (e.key === "x" || e.key === "X")) {
-        e.preventDefault();
-      }
-      if (mod && !inField && (e.key === "a" || e.key === "A")) {
-        e.preventDefault();
-      }
-      if (mod && !inField && (e.key === "u" || e.key === "U")) {
-        e.preventDefault();
-      }
+      if (mod && (e.key === "s" || e.key === "S")) e.preventDefault();
+      if (mod && (e.key === "c" || e.key === "C")) e.preventDefault();
+      if (mod && (e.key === "x" || e.key === "X")) e.preventDefault();
+      if (mod && (e.key === "a" || e.key === "A")) e.preventDefault();
+      if (mod && (e.key === "u" || e.key === "U")) e.preventDefault();
     };
 
     document.addEventListener("contextmenu", onContextMenu);

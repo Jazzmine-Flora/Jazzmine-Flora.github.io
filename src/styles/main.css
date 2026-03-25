@@ -77,15 +77,19 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
-/* Deter text selection / image drag (JS also blocks copy & context menu; form fields excepted below) */
+/* No text selection site-wide (overrides UA text fields) */
 input,
 textarea,
 select,
 option {
-  -webkit-user-select: text;
-  user-select: text;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 img {
@@ -114,6 +118,7 @@ button.btn {
 body {
   margin: 0;
   -webkit-user-select: none;
+  -moz-user-select: none;
   user-select: none;
   font-family: var(--font-body);
   font-size: var(--text-base);
