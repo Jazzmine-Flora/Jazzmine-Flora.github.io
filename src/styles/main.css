@@ -365,24 +365,24 @@ p:last-child {
 }
 
 .hero__eyebrow--glow {
-  color: #f0eaf2;
-  background: rgba(184, 69, 110, 0.2);
-  border-color: rgba(184, 69, 110, 0.3);
+  color: #fcd7b6;
+  background: rgba(232, 168, 124, 0.14);
+  border-color: rgba(232, 168, 124, 0.28);
 }
 
 .hero__title--3d {
-  color: #f3eff5;
+  color: #ffffff;
   font-size: clamp(2.25rem, 1.5rem + 4.5vw, 4.25rem);
   letter-spacing: -0.04em;
   margin-bottom: var(--space-sm);
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.3);
 }
 
 .hero__typing-wrap {
   font-family: var(--font-body);
   font-size: clamp(1rem, 0.85rem + 0.8vw, 1.35rem);
   font-weight: 600;
-  color: #e898b4;
+  color: #c9a0e2;
   min-height: 1.6em;
   margin: 0 0 var(--space-xl);
 }
@@ -391,7 +391,7 @@ p:last-child {
   display: inline-block;
   width: 2px;
   height: 1.1em;
-  background: #e898b4;
+  background: #c9a0e2;
   margin-left: 2px;
   vertical-align: text-bottom;
   animation: blink 1s step-end infinite;
@@ -403,7 +403,7 @@ p:last-child {
 }
 
 .hero__intro--3d {
-  color: #d8d0de;
+  color: #c8c2ce;
   max-width: 580px;
   margin-left: auto;
   margin-right: auto;
