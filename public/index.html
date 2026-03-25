@@ -9,6 +9,11 @@
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Cache-bust favicon URLs (?v=). -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=<%= htmlWebpackPlugin.options.faviconV %>" />
+    <link rel="icon" href="/favicon.ico?v=<%= htmlWebpackPlugin.options.faviconV %>" sizes="any" />
+    <link rel="shortcut icon" type="image/png" href="/favicon.png?v=<%= htmlWebpackPlugin.options.faviconV %>" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=<%= htmlWebpackPlugin.options.faviconV %>" />
     <!-- Redirect clean URLs to hash routes for GitHub Pages SPA -->
     <script>
       (function () {
@@ -20,9 +25,9 @@
     </script>
     <meta
       name="description"
-      content="Taliba Sadiq — Software architect & senior full stack developer. React, Next.js, Node, AI integration, scalable systems."
+      content="Taliba Sadiq, full stack developer (React, Next.js, Node). Portfolio: projects and contact."
     />
-    <title>Taliba Sadiq — Software Architect &amp; Senior Full Stack Developer</title>
+    <title>Taliba Sadiq | Full stack developer</title>
   </head>
   <body>
     <div id="root"></div>
