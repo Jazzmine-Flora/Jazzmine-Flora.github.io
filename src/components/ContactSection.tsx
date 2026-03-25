@@ -1,28 +1,40 @@
 import React, { useCallback, useState } from "react";
+import emailjs from "@emailjs/browser";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
-import { WEB3FORMS_ACCESS_KEY } from "@/config/contact";
+import {
+  EMAILJS_PUBLIC_KEY,
+  EMAILJS_SERVICE_ID,
+  EMAILJS_TEMPLATE_ID,
+  isEmailJsConfigured,
+} from "@/config/contact";
 import "@/components/ContactSection.css";
 
 type FormStatus = "idle" | "sending" | "success" | "error";
 
-const WEB3FORMS_URL = "https://api.web3forms.com/submit";
+/** Enough for E.164 (+ country code + spaces in international mode). */
+const PHONE_INPUT_MAX_LENGTH = 25;
 
 const ContactSection: React.FC = () => {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [showExtra, setShowExtra] = useState(false);
+  const [phone, setPhone] = useState<string | undefined>();
+  /** Bump to reset PhoneInput country + digits to `defaultCountry` (US). See library `reset` prop. */
+  const [phoneFieldReset, setPhoneFieldReset] = useState(0);
 
   const handleSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setErrorMessage("");
 
-    if (!WEB3FORMS_ACCESS_KEY.trim()) {
+    if (!isEmailJsConfigured()) {
       setStatus("error");
       setErrorMessage(
-        "Email delivery is not configured yet. Add your Web3Forms access key in src/config/contact.ts (see https://web3forms.com)."
+        "Email delivery is not configured. Set VITE_EMAILJS_PUBLIC_KEY, VITE_EMAILJS_SERVICE_ID, and VITE_EMAILJS_TEMPLATE_ID in .env.local (local) or GitHub Actions secrets (production). See README."
       );
       return;
     }
@@ -33,7 +45,7 @@ const ContactSection: React.FC = () => {
     const name = String(fd.get("name") || "").trim();
     const email = String(fd.get("email") || "").trim();
     const company = String(fd.get("company") || "").trim();
-    const phone = String(fd.get("phone") || "").trim();
+    const phoneValue = (phone ?? "").trim();
     const projectType = String(fd.get("project_type") || "").trim();
     const timeline = String(fd.get("timeline") || "").trim();
     const budget = String(fd.get("budget") || "").trim();
@@ -46,54 +58,42 @@ const ContactSection: React.FC = () => {
       return;
     }
 
-    const messageBody = [
-      company && `Company / org: ${company}`,
-      phone && `Phone: ${phone}`,
-      projectType && `Project type: ${projectType}`,
-      timeline && `Timeline: ${timeline}`,
-      budget && `Budget / engagement: ${budget}`,
-      "",
-      "Project details:",
-      details,
-    ]
-      .filter(Boolean)
-      .join("\n");
-
     setStatus("sending");
 
     try {
-      const res = await fetch(WEB3FORMS_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
+      const result = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
           name,
           email,
-          ...(phone ? { phone } : {}),
-          subject: `Portfolio inquiry: ${projectType || "Project"} (${name})`,
-          message: messageBody,
-        }),
-      });
+          phone: phoneValue,
+          company,
+          project_type: projectType,
+          timeline,
+          budget,
+          message: details,
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
 
-      const data = await res.json().catch(() => ({}));
-      if (res.ok && (data as { success?: boolean }).success !== false) {
+      if (result.status === 200) {
         setStatus("success");
+        setPhone(undefined);
+        setPhoneFieldReset((n) => n + 1);
         form.reset();
       } else {
         setStatus("error");
-        setErrorMessage(
-          (data as { message?: string }).message ||
-            "Something went wrong. Please try again in a moment."
-        );
+        setErrorMessage(result.text || "Something went wrong. Please try again in a moment.");
       }
-    } catch {
+    } catch (err: unknown) {
       setStatus("error");
-      setErrorMessage("Network error. Check your connection and try again.");
+      const e = err as { text?: string; message?: string };
+      setErrorMessage(
+        e.text || e.message || "Network error. Check your connection and try again."
+      );
     }
-  }, []);
+  }, [phone]);
 
   return (
     <section id="contact" className="section section--contact contact-section contact-shell reveal" aria-labelledby="contact-heading">
@@ -183,25 +183,35 @@ const ContactSection: React.FC = () => {
               {showExtra && (
                 <>
                   <div className="contact-form__row contact-form__row--2">
-                    <label className="contact-form__field">
-                      <span className="contact-form__label">Company / organization</span>
+                    <label className="contact-form__field" title="Company or organization">
+                      <span className="contact-form__label">Company</span>
                       <Input
                         className={cn("contact-form__input")}
                         name="company"
                         type="text"
                         autoComplete="organization"
-                        placeholder="Optional"
+                        placeholder="Company name"
                       />
                     </label>
-                    <label className="contact-form__field">
-                      <span className="contact-form__label">Phone (optional)</span>
-                      <Input
-                        className={cn("contact-form__input")}
-                        name="phone"
-                        type="tel"
-                        autoComplete="tel"
-                        inputMode="tel"
-                        placeholder="+1 ..."
+                    <label className="contact-form__field" htmlFor="contact-phone">
+                      <span className="contact-form__label">Phone</span>
+                      <PhoneInput
+                        id="contact-phone"
+                        international
+                        countryCallingCodeEditable={false}
+                        addInternationalOption={false}
+                        defaultCountry="US"
+                        reset={phoneFieldReset}
+                        value={phone}
+                        onChange={setPhone}
+                        className={cn("contact-form__phone")}
+                        numberInputProps={{
+                          className: "contact-form__phone-input",
+                          autoComplete: "tel",
+                          inputMode: "tel",
+                          maxLength: PHONE_INPUT_MAX_LENGTH,
+                          "aria-label": "Phone number",
+                        }}
                       />
                     </label>
                   </div>
@@ -225,7 +235,7 @@ const ContactSection: React.FC = () => {
                     <label className="contact-form__field">
                       <span className="contact-form__label">Ideal timeline</span>
                       <select className="contact-form__input contact-form__select" name="timeline" defaultValue="">
-                        <option value="">Optional</option>
+                        <option value="">Select...</option>
                         <option value="Planning phase / TBD">Planning phase / TBD</option>
                         <option value="Rush (under 2 weeks)">Rush (under 2 weeks)</option>
                         <option value="2-4 weeks">2-4 weeks</option>
@@ -237,8 +247,8 @@ const ContactSection: React.FC = () => {
                     </label>
                   </div>
 
-                  <label className="contact-form__field">
-                    <span className="contact-form__label">Budget / engagement (optional)</span>
+                  <label className="contact-form__field" title="Budget or engagement type">
+                    <span className="contact-form__label">Budget</span>
                     <Input
                       className={cn("contact-form__input")}
                       name="budget"
