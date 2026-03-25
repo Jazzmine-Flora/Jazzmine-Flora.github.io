@@ -4,7 +4,7 @@ import ContactSection from "../components/ContactSection";
 import HeroCanvas from "../components/HeroCanvas";
 import TypingText from "../components/TypingText";
 import { useRevealOnScroll } from "../hooks/useRevealOnScroll";
-import heroAvatar from "../assets/avatar1.png";
+import heroAvatar from "../assets/avatar.png";
 import { testimonials } from "../data/testimonials";
 import { projects } from "../data/projects";
 import "../styles/main.css";
