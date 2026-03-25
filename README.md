@@ -73,6 +73,8 @@ A workflow (`.github/workflows/deploy.yml`) runs on every push to `main`:
 
 **One-time setup:** On GitHub, go to **Settings > Pages**. Set **Source** to **Deploy from a branch**, branch to **main**, folder to **/ (root)**.
 
+**EmailJS (contact form):** Add these **repository secrets** (same names as Vite env vars): `VITE_EMAILJS_PUBLIC_KEY`, `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`. The deploy workflow passes them into `npm run build` so they are baked into the client bundle only at publish time—not stored in the repo. For local development, copy `.env.example` to `.env.local` and fill in the values from your [EmailJS](https://www.emailjs.com/) dashboard.
+
 You can also trigger the workflow manually: **Actions > Deploy to GitHub Pages > Run workflow**.
 
 ### Manual (from your machine)
@@ -98,12 +100,11 @@ src/
 │   │   ├── Footer.tsx          # Site footer
 │   │   ├── Footer.css
 │   │   └── ScrollToTop.tsx     # Scroll reset on navigation
-│   ├── ContactSection.tsx      # Contact form (Web3Forms)
+│   ├── ContactSection.tsx      # Contact form (EmailJS)
 │   ├── ContactSection.css
-│   ├── ui/                     # shadcn/ui (Button, Card, Input, Textarea, Badge, …)
+│   ├── ui/                     # shadcn/ui (Button, Input, Textarea)
 │   ├── HeroCanvas.tsx          # Three.js particle animation
-│   ├── TypingText.tsx          # Typing text effect
-│   └── SocialIcons.tsx         # GitHub & LinkedIn SVG icons
+│   └── TypingText.tsx          # Typing text effect
 ├── pages/
 │   └── home/
 │       ├── HomePage.tsx        # Home page orchestrator
@@ -119,13 +120,13 @@ src/
 │   ├── projects.ts             # Portfolio projects list
 │   └── testimonials.ts         # Collaborator reviews
 ├── config/
-│   └── contact.ts              # Web3Forms access key
+│   └── contact.ts              # EmailJS env wiring (VITE_EMAILJS_*)
 ├── assets/                     # Images (hero avatar source, favicon, project screenshots)
 ├── styles/
 │   └── main.css                # Global portfolio styles
 ├── lib/
 │   └── utils.ts                # `cn()` (clsx + tailwind-merge)
-├── index.css                   # Tailwind + shadcn theme (imports from `src/index.tsx`)
+├── index.css                   # Tailwind + shadcn theme (imported in `index.tsx`)
 └── vite-env.d.ts               # Vite client type definitions
 
 scripts/
