@@ -1,5 +1,5 @@
 /**
- * Web3Forms (https://web3forms.com) — free tier, no backend required.
- * Create an access key and paste it here so the contact form can send email.
+ * Web3Forms (https://web3forms.com). Free tier, no backend.
+ * Create an access key and set it here for the contact form.
  */
 export const WEB3FORMS_ACCESS_KEY = "";
