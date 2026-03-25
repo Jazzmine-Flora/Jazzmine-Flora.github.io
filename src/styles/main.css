@@ -50,6 +50,9 @@
   --space-xl: 2rem;
   --space-2xl: 3rem;
   --space-3xl: 4.5rem;
+  /** Top header + bottom footer bar: shared padding and row height */
+  --layout-bar-padding-y: 0.85rem;
+  --layout-bar-min-height: 4.5rem;
   --container: min(1180px, 94vw);
   --section-padding: clamp(4rem, 9vw, 7rem);
 

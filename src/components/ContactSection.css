@@ -116,7 +116,8 @@ section.section.contact-shell {
 }
 
 .contact-form__row--2 {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
 }
 
 @media (max-width: 640px) {
@@ -129,15 +130,20 @@ section.section.contact-shell {
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
+  min-width: 0;
 }
 
 .contact-form__label {
   font-family: var(--font-ui);
   font-size: var(--text-xs);
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-muted);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .contact-form__input,
@@ -150,12 +156,26 @@ section.section.contact-shell {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 0.75rem 1rem;
+  min-height: 3rem;
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease,
     background 0.2s ease;
   width: 100%;
   box-sizing: border-box;
+}
+
+/* shadcn Input/Textarea use compact heights; contact form uses comfortable touch targets */
+.contact-form input[data-slot="input"] {
+  height: auto !important;
+  min-height: 3rem;
+}
+
+.contact-form textarea[data-slot="textarea"] {
+  min-height: 10rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  field-sizing: content;
 }
 
 .contact-form__input::placeholder,
@@ -178,7 +198,82 @@ section.section.contact-shell {
 
 .contact-form__textarea {
   resize: vertical;
-  min-height: 140px;
+  min-height: 10rem;
+}
+
+/* react-phone-number-input: single outer field; inner input has no border/outline
+   (global * { border + outline } from index.css would otherwise double-stack the UI) */
+.contact-form__phone.PhoneInput {
+  --PhoneInput-color--focus: var(--accent);
+  --PhoneInputCountryFlag-borderColor: var(--border);
+  --PhoneInputCountryFlag-borderColor--focus: var(--accent);
+  --PhoneInputCountrySelectArrow-color: var(--text-muted);
+  width: 100%;
+  min-height: 3rem;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.65rem 0.15rem 0.45rem;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.contact-form__phone.PhoneInput:focus-within {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+  background: var(--surface);
+}
+
+.contact-form__phone .PhoneInputCountry {
+  margin-right: 0.15rem;
+}
+
+.contact-form__phone .PhoneInputInput.contact-form__phone-input,
+.contact-form__phone .PhoneInputInput {
+  flex: 1;
+  min-width: 0;
+  min-height: 2.75rem;
+  padding: 0.5rem 0.25rem 0.5rem 0.35rem;
+  margin: 0;
+  /* Undo Tailwind base * { border-border } and outline on the inner field */
+  border: none !important;
+  border-width: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  outline-offset: 0 !important;
+  -webkit-appearance: none;
+  appearance: none;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.4;
+  color: inherit;
+}
+
+.contact-form__phone .PhoneInputInput:focus,
+.contact-form__phone .PhoneInputInput:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.contact-form__phone .PhoneInputInput::placeholder {
+  color: #9a8f88;
+}
+
+.contact-form__select {
+  min-height: 3rem;
 }
 
 .contact-form__select {
