@@ -1,17 +1,17 @@
 /* Studio portfolio — modern neutral base, rose accent, DM Sans + Playfair */
 :root {
-  --bg: #f7f5f8;
-  --bg-elevated: #fdfcfd;
+  --bg: #f8f6f9;
+  --bg-elevated: #fefefe;
   --surface: #ffffff;
-  --surface-hover: #f4f0f3;
+  --surface-hover: #f5f2f4;
   --surface-dark: #141018;
   --surface-dark-elevated: #1e1824;
-  --border: rgba(24, 18, 28, 0.08);
-  --border-strong: rgba(24, 18, 28, 0.14);
-  --text: #181116;
-  --text-muted: #4a444e;
-  --text-on-dark: #faf7f9;
-  --text-muted-on-dark: #cdc4d0;
+  --border: rgba(24, 18, 28, 0.07);
+  --border-strong: rgba(24, 18, 28, 0.12);
+  --text: #2d2630;
+  --text-muted: #5c5462;
+  --text-on-dark: #f5f1f6;
+  --text-muted-on-dark: #d4ccd8;
 
   --accent: #b8456e;
   --accent-deep: #8a3050;
@@ -26,19 +26,19 @@
   --white: #ffffff;
 
   --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
-  --font-body: "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
 
-  --text-xs: clamp(0.6875rem, 0.65rem + 0.15vw, 0.75rem);
-  --text-sm: clamp(0.8125rem, 0.75rem + 0.25vw, 0.9375rem);
-  --text-base: clamp(0.9375rem, 0.875rem + 0.3vw, 1.0625rem);
-  --text-md: clamp(1rem, 0.925rem + 0.35vw, 1.15rem);
-  --text-lg: clamp(1.0625rem, 0.975rem + 0.4vw, 1.25rem);
-  --text-xl: clamp(1.15rem, 1.05rem + 0.5vw, 1.45rem);
-  --text-2xl: clamp(1.5rem, 1.2rem + 1.4vw, 2.25rem);
-  --text-3xl: clamp(2.25rem, 1.5rem + 3.5vw, 3.5rem);
-  --leading-tight: 1.2;
-  --leading-body: 1.62;
-  --leading-relaxed: 1.68;
+  --text-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.8125rem);
+  --text-sm: clamp(0.875rem, 0.82rem + 0.25vw, 1rem);
+  --text-base: clamp(1rem, 0.94rem + 0.3vw, 1.125rem);
+  --text-md: clamp(1.0625rem, 1rem + 0.35vw, 1.2rem);
+  --text-lg: clamp(1.125rem, 1.05rem + 0.4vw, 1.3125rem);
+  --text-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --text-2xl: clamp(1.625rem, 1.3rem + 1.5vw, 2.375rem);
+  --text-3xl: clamp(2.375rem, 1.6rem + 3.5vw, 3.75rem);
+  --leading-tight: 1.25;
+  --leading-body: 1.7;
+  --leading-relaxed: 1.75;
   --label-tracking: 0.14em;
 
   --space-xs: 0.25rem;
@@ -49,7 +49,7 @@
   --space-2xl: 3rem;
   --space-3xl: 4.5rem;
   --container: min(1180px, 94vw);
-  --section-padding: clamp(3.5rem, 8vw, 6rem);
+  --section-padding: clamp(4rem, 9vw, 7rem);
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -107,7 +107,7 @@ body {
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: var(--leading-body);
-  letter-spacing: -0.005em;
+  letter-spacing: 0;
   background-color: var(--bg);
   background-image:
     radial-gradient(ellipse 100% 80% at 50% -30%, rgba(184, 69, 110, 0.09), transparent 55%),
@@ -365,17 +365,17 @@ p:last-child {
 }
 
 .hero__eyebrow--glow {
-  color: #ffffff;
-  background: rgba(184, 69, 110, 0.22);
-  border-color: rgba(184, 69, 110, 0.35);
+  color: #f0eaf2;
+  background: rgba(184, 69, 110, 0.2);
+  border-color: rgba(184, 69, 110, 0.3);
 }
 
 .hero__title--3d {
-  color: #ffffff;
+  color: #f3eff5;
   font-size: clamp(2.25rem, 1.5rem + 4.5vw, 4.25rem);
   letter-spacing: -0.04em;
   margin-bottom: var(--space-sm);
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
 }
 
 .hero__typing-wrap {
@@ -403,8 +403,8 @@ p:last-child {
 }
 
 .hero__intro--3d {
-  color: #e2dce6;
-  max-width: 560px;
+  color: #d8d0de;
+  max-width: 580px;
   margin-left: auto;
   margin-right: auto;
   font-size: var(--text-lg);
@@ -613,7 +613,7 @@ p:last-child {
   line-height: var(--leading-relaxed);
   color: var(--text-muted);
   margin-bottom: var(--space-2xl);
-  max-width: 42rem;
+  max-width: 46rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -629,7 +629,7 @@ p:last-child {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: var(--space-lg);
+  padding: var(--space-xl) var(--space-lg);
   box-shadow: var(--shadow-xs);
   transition: transform var(--duration) var(--ease-out), box-shadow var(--duration), border-color var(--duration);
 }
@@ -913,7 +913,7 @@ p:last-child {
 
 .project-card__body {
   flex: 0 1 auto;
-  padding: var(--space-lg);
+  padding: var(--space-xl) var(--space-lg);
 }
 
 .project-card__title {
@@ -1132,7 +1132,7 @@ p:last-child {
 }
 
 .philosophy__head {
-  max-width: 720px;
+  max-width: 760px;
   margin-bottom: var(--space-2xl);
 }
 
@@ -1164,7 +1164,7 @@ p:last-child {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-lg);
-  padding: var(--space-xl);
+  padding: var(--space-2xl) var(--space-xl);
   backdrop-filter: blur(8px);
   transition: border-color var(--duration), transform var(--duration) var(--ease-out), box-shadow var(--duration);
 }
@@ -1296,7 +1296,7 @@ p:last-child {
   font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
   color: var(--text-muted);
-  max-width: 42rem;
+  max-width: 46rem;
   margin-left: auto;
   margin-right: auto;
 }
@@ -1311,7 +1311,7 @@ p:last-child {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: var(--space-xl);
+  padding: var(--space-2xl) var(--space-xl);
   box-shadow: var(--shadow-sm);
   transition: box-shadow var(--duration), border-color var(--duration), transform var(--duration);
   display: flex;
@@ -1436,7 +1436,7 @@ p:last-child {
   font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
   color: var(--text-muted);
-  max-width: 42rem;
+  max-width: 46rem;
   margin: 0 0 var(--space-2xl);
 }
 
@@ -1455,7 +1455,7 @@ p:last-child {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
-  padding: var(--space-xl);
+  padding: var(--space-2xl) var(--space-xl);
   box-shadow: var(--shadow-xs);
   transition: transform var(--duration) var(--ease-out), box-shadow var(--duration), border-color var(--duration);
 }
@@ -1515,13 +1515,13 @@ p:last-child {
 .philosophy__closing-text {
   font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
-  color: #d0c8d4;
+  color: var(--text-muted-on-dark);
   max-width: 580px;
   margin: 0 auto var(--space-lg);
 }
 
 .philosophy__closing-text strong {
-  color: #ffffff;
+  color: var(--text-on-dark);
 }
 
 .philosophy__traits {
