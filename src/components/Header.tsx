@@ -4,8 +4,9 @@ import "./Header.css";
 
 const navItems = [
   { path: "/", label: "Home" },
-  { path: "/projects", label: "Projects" },
+  { path: "/projects", label: "Work" },
   { path: "/about", label: "About" },
+  { path: "/reviews", label: "Reviews" },
   { path: "/contact", label: "Contact" },
 ];
 
@@ -16,7 +17,8 @@ const Header: React.FC = () => {
     <header className="header">
       <div className="header__inner container">
         <Link to="/" className="header__brand">
-          Taliba Sadiq
+          <span className="header__brand-name">Taliba Sadiq</span>
+          <span className="header__brand-tag">Software architect · Full stack</span>
         </Link>
         <nav className="header__nav" aria-label="Main navigation">
           <ul className="header__list">

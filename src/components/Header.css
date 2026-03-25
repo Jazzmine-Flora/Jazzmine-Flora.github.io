@@ -18,16 +18,39 @@
 }
 
 .header__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: var(--text) !important;
   letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.header__brand-name {
+  display: block;
+}
+
+.header__brand-tag {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted) !important;
+  font-family: var(--font-body);
 }
 
 .header__brand:hover {
   color: var(--accent) !important;
   opacity: 1;
+}
+
+.header__brand:hover .header__brand-tag {
+  color: var(--accent) !important;
 }
 
 .header__nav {
@@ -69,6 +92,10 @@
     flex-direction: column;
     align-items: stretch;
     text-align: center;
+  }
+
+  .header__brand {
+    align-items: center;
   }
 
   .header__list {
