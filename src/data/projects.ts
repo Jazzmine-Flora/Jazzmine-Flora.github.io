@@ -94,17 +94,6 @@ export const projects: Project[] = [
     highlights: ["Hand-written content", "Static hosting friendly routing", "Favicon pipeline from my asset"],
   },
   {
-    title: "What to Wear (WTWR)",
-    badge: "Weather · Full stack",
-    description:
-      "Outfits from local weather. External APIs, persistence, UI that does not blame the user when the network fails.",
-    longDescription:
-      "React client, Node/Express/MongoDB. Good lesson on external APIs and honest loading states.",
-    link: "https://www.wat2wear.twilightparadox.com/",
-    tech: ["React", "Node.js", "Express", "MongoDB", "Weather API"],
-    highlights: ["API integration end to end", "Data survives refresh", "Calm UX on errors"],
-  },
-  {
     title: "Expense Tracker",
     badge: "TypeScript · Data",
     description:
