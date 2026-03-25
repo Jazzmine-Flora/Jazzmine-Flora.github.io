@@ -12,6 +12,7 @@
     "start:8081": "set PORT=8081&& npm run start",
     "prebuild": "npm run generate:favicon",
     "build": "webpack --mode production",
+    "preview": "npx --yes serve dist -l 4173",
     "test": "jest",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist -r https://github.com/Jazzmine-Flora/Jazzmine-Flora.github.io.git -b main"
