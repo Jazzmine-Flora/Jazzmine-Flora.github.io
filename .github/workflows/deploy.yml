@@ -35,9 +35,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add index.html 404.html bundle.js bundle.js.LICENSE.txt
+          git rm -f bundle.js bundle.js.LICENSE.txt 2>/dev/null || true
+          git add index.html 404.html
+          git add assets/ 2>/dev/null || true
           git add favicon.ico favicon.png apple-touch-icon.png .nojekyll 2>/dev/null || true
-          # Webpack emits hashed filenames for project screenshots, etc.
+          # Vite emits hashed assets under assets/ and *.png for imported images at repo root
           git add *.png *.jpg *.jpeg *.ico *.gif *.svg *.webp 2>/dev/null || true
           git status
           if ! git diff --staged --quiet; then

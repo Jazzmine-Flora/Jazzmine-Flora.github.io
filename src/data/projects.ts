@@ -68,13 +68,13 @@ export const projects: Project[] = [
     title: "My Portfolio",
     types: ["Portfolio site", "Design & deploy"],
     description:
-      "Single-page site: React, TypeScript, webpack, and HashRouter for GitHub Pages. Copy and styles hand-tuned.",
+      "Single-page site: React, TypeScript, Vite, and HashRouter for GitHub Pages. Copy and styles hand-tuned.",
     link: "https://jazzmine-flora.github.io",
     screenshot: thumbPortfolio,
     tech: [
       "React",
       "TypeScript",
-      "Webpack",
+      "Vite",
       "React Router",
       "Three.js",
       "React Icons",
