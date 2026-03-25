@@ -323,7 +323,7 @@ const HomePage: React.FC = () => {
               Kind words from collaborators
             </h2>
             <p className="testimonials__lead">
-              Short notes from people I&apos;ve worked with. Some names are initials only by request.
+              Feedback from founders and teams I have shipped with. I appreciate when people share how the collaboration felt on their side.
             </p>
           </div>
           <ul className="testimonials__list" role="list">
