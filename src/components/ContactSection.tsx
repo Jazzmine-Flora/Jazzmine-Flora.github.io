@@ -208,6 +208,8 @@ const ContactSection: React.FC = () => {
                         <option value="">Select...</option>
                         <option value="New build: web app">New build: web app</option>
                         <option value="New build: marketing site">New build: marketing site</option>
+                        <option value="New build: mobile app">New build: mobile app</option>
+                        <option value="New build: mobile & web">New build: mobile & web</option>
                         <option value="Refactor / stabilize codebase">Refactor / stabilize codebase</option>
                         <option value="Performance / reliability">Performance / reliability</option>
                         <option value="Architecture / technical review">Architecture / technical review</option>
