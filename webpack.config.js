@@ -64,6 +64,8 @@ module.exports = (env, argv) => {
       }),
       new CopyWebpackPlugin({
         patterns: [
+          // Stable URL for GitHub Pages (avoid hashed asset missing from deploy git add)
+          { from: "src/assets/avatar.jpg", to: "avatar.jpg" },
           { from: "public/favicon.png", to: "favicon.png" },
           { from: "public/favicon.ico", to: "favicon.ico" },
           { from: "public/apple-touch-icon.png", to: "apple-touch-icon.png" },

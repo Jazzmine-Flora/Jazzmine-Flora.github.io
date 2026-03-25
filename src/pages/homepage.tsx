@@ -4,7 +4,6 @@ import ContactSection from "../components/ContactSection";
 import HeroCanvas from "../components/HeroCanvas";
 import TypingText from "../components/TypingText";
 import { useRevealOnScroll } from "../hooks/useRevealOnScroll";
-import avatarImg from "../assets/avatar.jpg";
 import { testimonials } from "../data/testimonials";
 import { projects } from "../data/projects";
 import "../styles/main.css";
@@ -119,7 +118,7 @@ const HomePage: React.FC = () => {
       <section className="section section--home hero hero--3d" id="home" aria-labelledby="hero-heading">
         <HeroCanvas />
         <div className="container hero__centered">
-          <img src={avatarImg} alt="Taliba Sadiq" className="hero__avatar" draggable={false} />
+          <img src="/avatar.jpg" alt="Taliba Sadiq" className="hero__avatar" draggable={false} />
           <p className="hero__eyebrow hero__eyebrow--glow">Available for projects</p>
           <h1 id="hero-heading" className="hero__title hero__title--3d">
             Taliba Sadiq
@@ -323,7 +322,7 @@ const HomePage: React.FC = () => {
               Kind words from collaborators
             </h2>
             <p className="testimonials__lead">
-              Short notes from people I&apos;ve worked with. Some names are initials only by request.
+              Feedback from founders and teams I have shipped with. I appreciate when people share how the collaboration felt on their side.
             </p>
           </div>
           <ul className="testimonials__list" role="list">
