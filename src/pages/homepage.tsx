@@ -1,6 +1,5 @@
 import React, { useLayoutEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { GitHubIcon, LinkedInIcon } from "../components/SocialIcons";
 import ContactSection from "../components/ContactSection";
 import HeroCanvas from "../components/HeroCanvas";
 import TypingText from "../components/TypingText";
@@ -129,28 +128,6 @@ const HomePage: React.FC = () => {
             <Link to="/contact" className="btn btn--ghost btn--ghost-dark">
               Let&apos;s talk
             </Link>
-          </div>
-          <div className="hero__social hero__social--dark">
-            <a
-              href="https://github.com/Jazzmine-Flora"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero__social-link"
-              aria-label="GitHub"
-            >
-              <GitHubIcon className="hero__social-icon" title="GitHub" />
-              <span>GitHub</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/taliba-sadiq"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hero__social-link"
-              aria-label="LinkedIn"
-            >
-              <LinkedInIcon className="hero__social-icon" title="LinkedIn" />
-              <span>LinkedIn</span>
-            </a>
           </div>
         </div>
       </section>
