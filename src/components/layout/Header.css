@@ -18,8 +18,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.85rem var(--space-lg);
+  min-height: var(--layout-bar-min-height);
+  padding: var(--layout-bar-padding-y) var(--space-lg);
   gap: var(--space-lg);
+  box-sizing: border-box;
 }
 
 .header__brand {
