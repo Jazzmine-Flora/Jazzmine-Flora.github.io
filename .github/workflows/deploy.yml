@@ -36,8 +36,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html 404.html bundle.js bundle.js.LICENSE.txt
-          git add favicon.ico favicon.png apple-touch-icon.png .nojekyll 2>/dev/null || true
-          # Webpack emits hashed filenames for imported assets (e.g. avatar.jpg → *.jpg, project thumbs → *.png)
+          git add favicon.ico favicon.png apple-touch-icon.png avatar.jpg .nojekyll 2>/dev/null || true
+          # Webpack emits hashed filenames for imported assets (project thumbs → *.png, etc.)
           git add *.png *.jpg *.jpeg *.ico *.gif *.svg *.webp 2>/dev/null || true
           git status
           if ! git diff --staged --quiet; then
