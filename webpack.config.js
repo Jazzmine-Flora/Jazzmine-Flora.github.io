@@ -64,8 +64,8 @@ module.exports = (env, argv) => {
       }),
       new CopyWebpackPlugin({
         patterns: [
-          // Stable /avatar.jpg (also served from public/ in dev)
-          { from: "public/avatar.jpg", to: "avatar.jpg" },
+          // Stable /avatar.png from src/assets (deploy + production build)
+          { from: "src/assets/avatar.png", to: "avatar.png" },
           { from: "public/favicon.png", to: "favicon.png" },
           { from: "public/favicon.ico", to: "favicon.ico" },
           { from: "public/apple-touch-icon.png", to: "apple-touch-icon.png" },
@@ -93,6 +93,19 @@ module.exports = (env, argv) => {
         if (!devServer) {
           throw new Error("webpack-dev-server is not defined");
         }
+        const avatarPath = path.join(__dirname, "src", "assets", "avatar.png");
+        const serveAvatar = (req, res, next) => {
+          const pathname = String(req.path || req.url || "").split("?")[0];
+          const base = path.posix.basename(pathname.replace(/\\/g, "/"));
+          if (base !== "avatar.png") {
+            return next();
+          }
+          if (!fs.existsSync(avatarPath)) {
+            return next();
+          }
+          res.setHeader("Cache-Control", "no-cache");
+          return res.sendFile(path.resolve(avatarPath));
+        };
         // Serve tab icons from public/ before SPA fallback (fixes default “globe” on localhost)
         const servePublicIcons = (req, res, next) => {
           // Strip query (e.g. ?v=1.0.1). On Windows, path.basename("/favicon.png?v=1") is "favicon.png?v=1"
@@ -110,6 +123,7 @@ module.exports = (env, argv) => {
           return res.sendFile(path.resolve(filePath));
         };
         middlewares.unshift(servePublicIcons);
+        middlewares.unshift(serveAvatar);
         return middlewares;
       },
       port: 8080,
