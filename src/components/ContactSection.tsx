@@ -1,6 +1,10 @@
 import React, { useCallback, useState } from "react";
-import { WEB3FORMS_ACCESS_KEY } from "../config/contact";
-import "./ContactSection.css";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { cn } from "@/lib/utils";
+import { WEB3FORMS_ACCESS_KEY } from "@/config/contact";
+import "@/components/ContactSection.css";
 
 type FormStatus = "idle" | "sending" | "success" | "error";
 
@@ -118,21 +122,22 @@ const ContactSection: React.FC = () => {
               <p className="contact-form-panel__success-text">
                 Your note is in my inbox. I&apos;ll reply in the same thread.
               </p>
-              <button
+              <Button
                 type="button"
-                className="btn btn--primary contact-form-panel__reset"
+                variant="ghost"
+                className={cn("btn btn--primary contact-form-panel__reset")}
                 onClick={() => setStatus("idle")}
               >
                 Send another message
-              </button>
+              </Button>
             </div>
           ) : (
             <form className="contact-form" onSubmit={handleSubmit} noValidate>
               <div className="contact-form__row contact-form__row--2">
                 <label className="contact-form__field">
                   <span className="contact-form__label">Name *</span>
-                  <input
-                    className="contact-form__input"
+                  <Input
+                    className={cn("contact-form__input")}
                     name="name"
                     type="text"
                     autoComplete="name"
@@ -142,8 +147,8 @@ const ContactSection: React.FC = () => {
                 </label>
                 <label className="contact-form__field">
                   <span className="contact-form__label">Email *</span>
-                  <input
-                    className="contact-form__input"
+                  <Input
+                    className={cn("contact-form__input")}
                     name="email"
                     type="email"
                     autoComplete="email"
@@ -155,8 +160,8 @@ const ContactSection: React.FC = () => {
 
               <label className="contact-form__field">
                 <span className="contact-form__label">What are you working on? *</span>
-                <textarea
-                  className="contact-form__textarea"
+                <Textarea
+                  className={cn("contact-form__textarea")}
                   name="details"
                   required
                   rows={5}
@@ -165,13 +170,14 @@ const ContactSection: React.FC = () => {
               </label>
 
               {!showExtra && (
-                <button
+                <Button
                   type="button"
-                  className="contact-form__toggle"
+                  variant="ghost"
+                  className={cn("contact-form__toggle")}
                   onClick={() => setShowExtra(true)}
                 >
                   + Add more details (company, timeline, budget&hellip;)
-                </button>
+                </Button>
               )}
 
               {showExtra && (
@@ -179,8 +185,8 @@ const ContactSection: React.FC = () => {
                   <div className="contact-form__row contact-form__row--2">
                     <label className="contact-form__field">
                       <span className="contact-form__label">Company / organization</span>
-                      <input
-                        className="contact-form__input"
+                      <Input
+                        className={cn("contact-form__input")}
                         name="company"
                         type="text"
                         autoComplete="organization"
@@ -189,8 +195,8 @@ const ContactSection: React.FC = () => {
                     </label>
                     <label className="contact-form__field">
                       <span className="contact-form__label">Phone (optional)</span>
-                      <input
-                        className="contact-form__input"
+                      <Input
+                        className={cn("contact-form__input")}
                         name="phone"
                         type="tel"
                         autoComplete="tel"
@@ -233,8 +239,8 @@ const ContactSection: React.FC = () => {
 
                   <label className="contact-form__field">
                     <span className="contact-form__label">Budget / engagement (optional)</span>
-                    <input
-                      className="contact-form__input"
+                    <Input
+                      className={cn("contact-form__input")}
                       name="budget"
                       type="text"
                       placeholder="e.g. fixed scope, monthly retainer, TBD"
@@ -254,9 +260,14 @@ const ContactSection: React.FC = () => {
                 </p>
               )}
 
-              <button type="submit" className="btn btn--primary contact-form__submit" disabled={status === "sending"}>
+              <Button
+                type="submit"
+                variant="ghost"
+                className={cn("btn btn--primary contact-form__submit")}
+                disabled={status === "sending"}
+              >
                 {status === "sending" ? "Sending..." : "Send message"}
-              </button>
+              </Button>
             </form>
           )}
         </div>

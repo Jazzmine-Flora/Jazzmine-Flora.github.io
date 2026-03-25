@@ -1,8 +1,8 @@
 import { useCallback, useLayoutEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useRevealOnScroll } from "../../../hooks/useRevealOnScroll";
-import { PATH_TO_SECTION } from "../content/pathToSection";
-import type { ScrollToHandler } from "../types";
+import { useRevealOnScroll } from "@/hooks/useRevealOnScroll";
+import { PATH_TO_SECTION } from "@/pages/home/content/pathToSection";
+import type { ScrollToHandler } from "@/pages/home/types";
 
 export function useHomeNavigation(): { scrollTo: ScrollToHandler } {
   const location = useLocation();

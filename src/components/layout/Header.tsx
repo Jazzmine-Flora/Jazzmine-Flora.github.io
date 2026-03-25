@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useScrollSpy } from "../../hooks/useScrollSpy";
+import { useScrollSpy } from "@/hooks/useScrollSpy";
 import "./Header.css";
 
 const navItems = [

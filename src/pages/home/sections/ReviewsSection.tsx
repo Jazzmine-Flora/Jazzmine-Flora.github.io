@@ -1,6 +1,8 @@
 import React from "react";
-import { testimonials } from "../../../data/testimonials";
-import type { ScrollToHandler } from "../types";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { testimonials } from "@/data/testimonials";
+import type { ScrollToHandler } from "@/pages/home/types";
 
 type Props = {
   scrollTo: ScrollToHandler;
@@ -31,9 +33,14 @@ const ReviewsSection: React.FC<Props> = ({ scrollTo }) => (
         ))}
       </ul>
       <div className="testimonials__cta">
-        <button type="button" className="btn btn--primary" onClick={() => scrollTo("contact", "/contact")}>
+        <Button
+          type="button"
+          variant="ghost"
+          className={cn("btn btn--primary")}
+          onClick={() => scrollTo("contact", "/contact")}
+        >
           Start a conversation
-        </button>
+        </Button>
       </div>
     </div>
   </section>

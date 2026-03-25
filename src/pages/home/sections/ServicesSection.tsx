@@ -1,5 +1,5 @@
 import React from "react";
-import { services } from "../content/services";
+import { services } from "@/pages/home/content/services";
 
 const ServicesSection: React.FC = () => (
   <section className="section section--services reveal" id="services" aria-labelledby="services-heading">

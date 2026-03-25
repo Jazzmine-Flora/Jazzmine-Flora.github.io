@@ -10,9 +10,11 @@ Personal portfolio. React, TypeScript, and Vite — hosted on [GitHub Pages](htt
 
 - **React 19** + **TypeScript 5**
 - **Vite 6** (build + dev server)
+- **Tailwind CSS 4** (`@tailwindcss/vite`)
+- **[shadcn/ui](https://ui.shadcn.com)** (Base UI primitives; components in `src/components/ui/`)
 - **React Router** (HashRouter for GitHub Pages)
 - **Three.js** (hero canvas animation)
-- **CSS** (custom styles, no framework)
+- **CSS** (custom portfolio styles in `src/styles/main.css`, layered with Tailwind)
 
 ---
 
@@ -96,6 +98,7 @@ src/
 │   │   └── ScrollToTop.tsx     # Scroll reset on navigation
 │   ├── ContactSection.tsx      # Contact form (Web3Forms)
 │   ├── ContactSection.css
+│   ├── ui/                     # shadcn/ui (Button, Card, Input, Textarea, Badge, …)
 │   ├── HeroCanvas.tsx          # Three.js particle animation
 │   ├── TypingText.tsx          # Typing text effect
 │   └── SocialIcons.tsx         # GitHub & LinkedIn SVG icons
@@ -117,7 +120,10 @@ src/
 │   └── contact.ts              # Web3Forms access key
 ├── assets/                     # Images (avatar, favicon, project screenshots)
 ├── styles/
-│   └── main.css                # Global styles
+│   └── main.css                # Global portfolio styles
+├── lib/
+│   └── utils.ts                # `cn()` (clsx + tailwind-merge)
+├── index.css                   # Tailwind + shadcn theme (imports from `src/index.tsx`)
 └── vite-env.d.ts               # Vite client type definitions
 
 scripts/
@@ -144,6 +150,14 @@ public/                         # Static files copied to dist/ as-is
 | `npm run deploy` | Build and push `dist/` to GitHub Pages |
 | `npm run generate:favicon` | Generate favicon files from `src/assets/favicon.png` |
 | `npm run capture:projects` | Playwright screenshots of project URLs (needs `npx playwright install`) |
+
+### Adding shadcn components
+
+```bash
+npx shadcn@latest add dialog
+```
+
+Imports use the `@/` alias (see `tsconfig.json` and `vite.config.ts`).
 
 ---
 

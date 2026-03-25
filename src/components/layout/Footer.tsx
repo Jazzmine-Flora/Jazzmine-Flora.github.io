@@ -1,5 +1,5 @@
 import React from "react";
-import { GitHubIcon, LinkedInIcon } from "../SocialIcons";
+import { GitHubIcon, LinkedInIcon } from "@/components/SocialIcons";
 import "./Footer.css";
 
 const Footer: React.FC = () => (
