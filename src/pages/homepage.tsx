@@ -252,7 +252,6 @@ const HomePage: React.FC = () => {
                     <h3 className="project-card__title">{project.title}</h3>
                     <div className="project-card__copy">
                       <p className="project-card__desc">{project.description}</p>
-                      <p className="project-card__long-desc">{project.longDescription}</p>
                     </div>
                   </div>
                   <ul className="project-card__highlights" aria-label="Project highlights">
