@@ -79,7 +79,21 @@ html {
   scroll-behavior: smooth;
 }
 
-img,
+/* Deter text selection / image drag (JS also blocks copy & context menu; form fields excepted below) */
+input,
+textarea,
+select,
+option {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+img {
+  -webkit-user-drag: none;
+  pointer-events: auto;
+  -webkit-touch-callout: none;
+}
+
 a,
 button,
 .btn,
@@ -92,11 +106,6 @@ button,
   user-select: none;
 }
 
-img {
-  pointer-events: auto;
-  -webkit-touch-callout: none;
-}
-
 a.btn,
 button.btn {
   -webkit-touch-callout: none;
@@ -104,6 +113,8 @@ button.btn {
 
 body {
   margin: 0;
+  -webkit-user-select: none;
+  user-select: none;
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: var(--leading-body);

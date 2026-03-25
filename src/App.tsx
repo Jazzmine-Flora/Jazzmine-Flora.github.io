@@ -4,18 +4,23 @@ import ScrollToTop from "./components/ScrollToTop";
 import Header from "./components/Header";
 import HomePage from "./pages/homepage";
 import Footer from "./components/Footer";
+import { useContentProtection } from "./hooks/useContentProtection";
 
-const App = () => (
-  <>
-    <ScrollToTop />
-    <Header />
-    <main>
-      <Routes>
-        <Route path="*" element={<HomePage />} />
-      </Routes>
-    </main>
-    <Footer />
-  </>
-);
+const App = () => {
+  useContentProtection();
+
+  return (
+    <>
+      <ScrollToTop />
+      <Header />
+      <main>
+        <Routes>
+          <Route path="*" element={<HomePage />} />
+        </Routes>
+      </main>
+      <Footer />
+    </>
+  );
+};
 
 export default App;
