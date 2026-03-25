@@ -10,8 +10,8 @@
   --border-strong: rgba(24, 18, 28, 0.12);
   --text: #2d2630;
   --text-muted: #5c5462;
-  --text-on-dark: #f5f1f6;
-  --text-muted-on-dark: #d4ccd8;
+  --text-on-dark: #faf6fc;
+  --text-muted-on-dark: #ddd5e2;
 
   --accent: #b8456e;
   --accent-deep: #8a3050;
@@ -336,8 +336,8 @@ p:last-child {
 .hero__centered::before {
   content: "";
   position: absolute;
-  inset: -20% -10%;
-  background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(10, 8, 18, 0.75) 0%, transparent 70%);
+  inset: -25% -15%;
+  background: radial-gradient(ellipse 75% 65% at 50% 45%, rgba(8, 6, 14, 0.88) 0%, rgba(8, 6, 14, 0.35) 55%, transparent 72%);
   pointer-events: none;
   z-index: -1;
 }
@@ -364,34 +364,39 @@ p:last-child {
   }
 }
 
-.hero__eyebrow--glow {
-  color: #fcd7b6;
-  background: rgba(232, 168, 124, 0.14);
-  border-color: rgba(232, 168, 124, 0.28);
+/* Double-class / .hero--3d scoping beats later .hero__title / .hero__intro / .hero__eyebrow rules */
+.hero--3d .hero__eyebrow.hero__eyebrow--glow {
+  color: #ffe8cf;
+  background: rgba(232, 168, 124, 0.22);
+  border-color: rgba(255, 200, 160, 0.35);
 }
 
-.hero__title--3d {
+.hero--3d .hero__title.hero__title--3d {
   color: #ffffff;
   font-size: clamp(2.25rem, 1.5rem + 4.5vw, 4.25rem);
   letter-spacing: -0.04em;
   margin-bottom: var(--space-sm);
-  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.3);
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.85),
+    0 2px 16px rgba(0, 0, 0, 0.55),
+    0 0 48px rgba(10, 8, 18, 0.9);
 }
 
-.hero__typing-wrap {
+.hero--3d .hero__typing-wrap {
   font-family: var(--font-body);
   font-size: clamp(1rem, 0.85rem + 0.8vw, 1.35rem);
   font-weight: 600;
-  color: #c9a0e2;
+  color: #e4c8ff;
   min-height: 1.6em;
   margin: 0 0 var(--space-xl);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.75);
 }
 
-.typing-cursor {
+.hero--3d .typing-cursor {
   display: inline-block;
   width: 2px;
   height: 1.1em;
-  background: #c9a0e2;
+  background: #e4c8ff;
   margin-left: 2px;
   vertical-align: text-bottom;
   animation: blink 1s step-end infinite;
@@ -402,14 +407,15 @@ p:last-child {
   51%, 100% { opacity: 0; }
 }
 
-.hero__intro--3d {
-  color: #c8c2ce;
+.hero--3d .hero__intro.hero__intro--3d {
+  color: #ebe4f0;
   max-width: 580px;
   margin-left: auto;
   margin-right: auto;
   font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
   margin-bottom: var(--space-xl);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.65);
 }
 
 .hero__actions--center {
@@ -1123,7 +1129,8 @@ p:last-child {
 }
 
 .section--philosophy h2,
-.section--philosophy h3 {
+.section--philosophy h3,
+.section--philosophy h2.philosophy__title {
   color: var(--text-on-dark);
 }
 
@@ -1146,12 +1153,14 @@ p:last-child {
   font-size: var(--text-2xl);
   margin: 0 0 var(--space-md);
   letter-spacing: -0.03em;
+  color: var(--text-on-dark);
 }
 
 .philosophy__lead {
   font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
   margin: 0;
+  color: var(--text-muted-on-dark);
 }
 
 .pillars__grid {
