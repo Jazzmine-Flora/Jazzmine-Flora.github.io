@@ -28,7 +28,7 @@ const Header: React.FC = () => {
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           <span className="header__brand-name">Taliba Sadiq</span>
-          <span className="header__brand-tag">Software Engineer</span>
+          <span className="header__brand-tag">Software Architect &amp; AI Engineer</span>
         </Link>
         <button
           className={`header__burger${menuOpen ? " header__burger--open" : ""}`}

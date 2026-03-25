@@ -98,11 +98,11 @@ const ContactSection: React.FC = () => {
         <header className="contact-shell__intro">
           <p className="contact-shell__eyebrow">Contact</p>
           <h2 id="contact-heading" className="contact-shell__title">
-            Let&apos;s connect
+            Let&apos;s build something together
           </h2>
           <p className="contact-shell__lead">
-            Have a project in mind or just want to say hi? Fill out the form and I&apos;ll get back to you
-            within one business day.
+            Have a product that needs architecture, AI integration, or full-stack development? Tell me what
+            you&apos;re working on &mdash; I&apos;ll reply within one business day.
           </p>
           <ul className="contact-shell__trust">
             <li>Specific questions get faster answers</li>
