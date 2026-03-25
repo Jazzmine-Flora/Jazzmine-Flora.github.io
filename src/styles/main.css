@@ -301,6 +301,25 @@ p:last-child {
   border-color: var(--border-strong);
 }
 
+/*
+ * shadcn <Button> applies fixed heights (h-8, h-9, …) and compact padding.
+ * Portfolio `.btn` is padding-driven; restore height + padding when combined.
+ */
+[data-slot="button"].btn {
+  height: auto !important;
+  min-height: unset !important;
+  padding: clamp(0.65rem, 0.5rem + 0.4vw, 0.85rem) clamp(1.4rem, 1rem + 1vw, 2rem) !important;
+  font-size: var(--text-sm) !important;
+  line-height: 1.35;
+}
+
+[data-slot="button"].btn.contact-form__submit {
+  width: 100%;
+  padding: 0.9rem 1.5rem !important;
+  font-size: var(--text-base) !important;
+  justify-content: center;
+}
+
 /* ===== Hero (Homepage) ===== */
 /* Do not set `padding` shorthand on .hero; it overrides .section’s top/bottom on the same <section> */
 .hero {
@@ -1061,6 +1080,16 @@ p:last-child {
   flex-wrap: wrap;
   gap: var(--space-xs) var(--space-sm);
   margin: 0;
+  min-width: 0;
+}
+
+/* Long tech labels: wrap inside cards (matches toolkit section .skill-tag look) */
+.project-card__tech .skill-tag {
+  white-space: normal;
+  word-break: break-word;
+  max-width: 100%;
+  height: auto;
+  min-height: 0;
 }
 
 .project-card__link {

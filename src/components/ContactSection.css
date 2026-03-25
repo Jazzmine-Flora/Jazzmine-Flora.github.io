@@ -239,6 +239,24 @@ section.section.contact-shell {
   transition: color var(--duration-fast);
 }
 
+/* shadcn Button: drop fixed h-8 / ghost chrome so “Add more details” matches design */
+button[data-slot="button"].contact-form__toggle {
+  height: auto !important;
+  min-height: unset !important;
+  padding: var(--space-sm) 0 !important;
+  background: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+button[data-slot="button"].contact-form__toggle:hover {
+  background: none !important;
+  color: var(--accent-deep);
+}
+
 .contact-form__toggle:hover {
   color: var(--accent-deep);
 }
