@@ -1,23 +1,17 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 import Header from "./components/Header";
 import HomePage from "./pages/homepage";
-import AboutPage from "./pages/about";
-import ContactPage from "./pages/contact";
 import Footer from "./components/Footer";
-import ProjectPage from "./pages/projectpage";
-import ReviewsPage from "./pages/reviews";
 
 const App = () => (
   <>
+    <ScrollToTop />
     <Header />
     <main>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/projects" element={<ProjectPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/reviews" element={<ReviewsPage />} />
-        <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<HomePage />} />
       </Routes>
     </main>
     <Footer />
