@@ -1,6 +1,6 @@
 # Jazzmine-Flora.github.io
 
-A personal portfolio website showcasing projects and skills. Built with React and TypeScript, deployed on [GitHub Pages](https://jazzmine-flora.github.io).
+Personal portfolio. React and TypeScript, hosted on [GitHub Pages](https://jazzmine-flora.github.io).
 
 **Live site:** [https://jazzmine-flora.github.io](https://jazzmine-flora.github.io)
 
@@ -57,10 +57,10 @@ GitHub Pages serves whatever is at the **root** of the branch you publish from. 
 
 This repo deploys from the **main** branch only. A GitHub Actions workflow runs on every push to `main`: it builds the project and copies the built files (`index.html`, `404.html`, `bundle.js`, assets) to the **root** of `main`. Your source code stays in the repo; the built files are added at root so GitHub Pages serves the app.
 
-1. **One-time setup:** On GitHub, go to **Settings** → **Pages**. Under **Build and deployment**, set **Source** to **Deploy from a branch**. Set **Branch** to **main** and **Folder** to **/ (root)**. Save.
+1. **One-time setup:** On GitHub, open **Settings** > **Pages**. Under **Build and deployment**, set **Source** to **Deploy from a branch**. Set **Branch** to **main** and **Folder** to **/ (root)**. Save.
 2. Push your code to `main`. The workflow runs, adds the built site to the root of `main`, and pushes. The live site at **https://jazzmine-flora.github.io** will then serve `index.html` (your app).
 
-You can also run the workflow manually: **Actions** → **Deploy to GitHub Pages** → **Run workflow**.
+You can also run the workflow manually: **Actions** > **Deploy to GitHub Pages** > **Run workflow**.
 
 ### Deploy from your machine (optional)
 
@@ -82,10 +82,10 @@ then the account you’re logged in as (`<username>`) doesn’t have push access
 1. **Push as the repo owner (Jazzmine-Flora)**  
    Sign in to GitHub as the Jazzmine-Flora account on this machine:
    - **HTTPS:** Sign out of GitHub in Git Credential Manager, then run `npm run deploy` again and sign in as Jazzmine-Flora when prompted. Or use a [Personal Access Token](https://github.com/settings/tokens) for Jazzmine-Flora and use it as the password when Git asks.
-   - **SSH:** [Add an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) to the Jazzmine-Flora account and change the deploy remote to SSH (see `package.json` → `scripts.deploy`).
+   - **SSH:** [Add an SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) to the Jazzmine-Flora account and change the deploy remote to SSH (see `package.json`, `scripts.deploy`).
 
 2. **Push as a collaborator**  
-   If you use a different account (e.g. khdev808): on GitHub, go to **Jazzmine-Flora/Jazzmine-Flora.github.io** → **Settings** → **Collaborators** and add that account with write access. Then ensure you’re logged in as that account (HTTPS or SSH) and run `npm run deploy` again.
+   If you use a different account (e.g. khdev808): on GitHub, open **Jazzmine-Flora/Jazzmine-Flora.github.io** > **Settings** > **Collaborators** and add that account with write access. Then ensure you’re logged in as that account (HTTPS or SSH) and run `npm run deploy` again.
 
 3. **Use GitHub Actions**  
    To avoid using your local credentials, use a [GitHub Action](https://github.com/peaceiris/actions-gh-pages) that builds and deploys from the repo; it uses a token that you configure in the repo’s secrets.
