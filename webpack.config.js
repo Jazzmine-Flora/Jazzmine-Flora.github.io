@@ -64,6 +64,7 @@ module.exports = (env, argv) => {
       }),
       new CopyWebpackPlugin({
         patterns: [
+          { from: "src/assets/avatar.png", to: "avatar.png" },
           { from: "public/favicon.png", to: "favicon.png" },
           { from: "public/favicon.ico", to: "favicon.ico" },
           { from: "public/apple-touch-icon.png", to: "apple-touch-icon.png" },
