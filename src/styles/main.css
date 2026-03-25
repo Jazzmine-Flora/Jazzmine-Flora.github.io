@@ -217,7 +217,7 @@ p:last-child {
   padding-bottom: var(--section-padding);
 }
 
-/* Home block includes hero + embedded about (see homepage.tsx) */
+/* Home block includes hero + embedded about (see pages/home/) */
 .section--home .hero__about.about__inner {
   max-width: 800px;
   margin-left: auto;
