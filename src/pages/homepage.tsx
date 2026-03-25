@@ -4,7 +4,6 @@ import ContactSection from "../components/ContactSection";
 import HeroCanvas from "../components/HeroCanvas";
 import TypingText from "../components/TypingText";
 import { useRevealOnScroll } from "../hooks/useRevealOnScroll";
-import heroAvatar from "../assets/avatar.png";
 import { testimonials } from "../data/testimonials";
 import { projects } from "../data/projects";
 import "../styles/main.css";
@@ -119,7 +118,7 @@ const HomePage: React.FC = () => {
       <section className="section section--home hero hero--3d" id="home" aria-labelledby="hero-heading">
         <HeroCanvas />
         <div className="container hero__centered">
-          <img src={heroAvatar} alt="Taliba Sadiq" className="hero__avatar" draggable={false} />
+          <img src="/avatar.png" alt="Taliba Sadiq" className="hero__avatar" draggable={false} />
           <p className="hero__eyebrow hero__eyebrow--glow">Available for projects</p>
           <h1 id="hero-heading" className="hero__title hero__title--3d">
             Taliba Sadiq
