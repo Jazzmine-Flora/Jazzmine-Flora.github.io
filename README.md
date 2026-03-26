@@ -90,7 +90,7 @@ Three safeguards prevent this:
 
 ### Automatic (GitHub Actions)
 
-A workflow (`.github/workflows/deploy.yml`) runs on every push to `main`:
+A workflow (`.github/workflows/deploy.yml`) runs on every push to `main` using **Node.js 22**, `actions/checkout@v6`, and `actions/setup-node@v6` (avoids deprecated Node 20-based action runtimes).
 
 1. Installs dependencies and builds the project.
 2. Copies `dist/` contents to the repo root so GitHub Pages can serve `index.html`.
