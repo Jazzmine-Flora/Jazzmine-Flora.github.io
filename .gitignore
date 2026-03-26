@@ -1,6 +1,12 @@
 node_modules
 dist
 
+# Root-level deploy artifacts (gh-pages pushes dist/ to main separately).
+# These must NOT be tracked on dev branches — merging main back in would
+# overwrite index.html with the built version and break Vite builds.
+/assets/
+/404.html
+
 # Local env (EmailJS keys, etc.) — never commit
 .env
 .env.local

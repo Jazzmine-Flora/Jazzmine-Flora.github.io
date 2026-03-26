@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Prevent merges from main (deploy branch) from overwriting the Vite dev entry.
+# Requires one-time local setup: git config merge.ours.driver true
+index.html merge=ours
