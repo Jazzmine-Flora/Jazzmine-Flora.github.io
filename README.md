@@ -13,7 +13,8 @@ Personal portfolio. React, TypeScript, and Vite — hosted on [GitHub Pages](htt
 - **Tailwind CSS 4** (`@tailwindcss/vite`)
 - **[shadcn/ui](https://ui.shadcn.com)** (Base UI primitives; components in `src/components/ui/`)
 - **React Router** (HashRouter for GitHub Pages)
-- **Three.js** (hero canvas animation)
+- **Three.js** (hero canvas particle animation)
+- **Motion** (Framer Motion — scroll-driven avatar animation in the header)
 - **CSS** (custom portfolio styles in `src/styles/main.css`, layered with Tailwind)
 
 ---
@@ -33,7 +34,15 @@ Personal portfolio. React, TypeScript, and Vite — hosted on [GitHub Pages](htt
 npm install
 ```
 
-### 2. Run locally
+### 2. One-time Git setup
+
+The repo uses a custom merge driver to protect `index.html` from being overwritten during merges from `main`. Run once after cloning:
+
+```bash
+git config merge.ours.driver true
+```
+
+### 3. Run locally
 
 ```bash
 npm run dev
@@ -41,7 +50,7 @@ npm run dev
 
 Starts the Vite dev server (default **http://localhost:8080**, auto-increments if the port is busy). The app hot-reloads when you edit the code.
 
-### 3. Build for production
+### 4. Build for production
 
 ```bash
 npm run build
@@ -49,15 +58,31 @@ npm run build
 
 Output goes to `dist/` — `index.html`, `404.html`, and hashed assets under `assets/`.
 
-The root `index.html` must load the app with `<script type="module" src="/src/index.tsx"></script>`. If it instead references a committed `assets/index-*.js` bundle from a deploy, Vite will not compile `src/` and imported images will not be emitted.
-
-### 4. Preview the production build
+### 5. Preview the production build
 
 ```bash
 npm run preview
 ```
 
 Serves the `dist/` folder at **http://localhost:4173**.
+
+---
+
+## index.html entry point
+
+The root `index.html` is Vite's entry point and must contain:
+
+```html
+<script type="module" src="/src/index.tsx"></script>
+```
+
+When you merge `main` (which holds deployed/built files) back into a development branch, Git may replace this with a reference to a pre-built JS bundle (`/assets/index-*.js`). This breaks builds — Vite processes only 4 modules instead of ~700, and images are not emitted.
+
+Three safeguards prevent this:
+
+1. **`scripts/ensure-dev-entry.js`** — runs automatically before every `dev` and `build` via npm hooks. If the entry is wrong, it auto-repairs it.
+2. **`.gitattributes`** — marks `index.html` with `merge=ours` so Git keeps the dev version during merges.
+3. **`.gitignore`** — root-level `/assets/` and `/404.html` (deploy artifacts) are not tracked on development branches.
 
 ---
 
@@ -73,7 +98,7 @@ A workflow (`.github/workflows/deploy.yml`) runs on every push to `main`:
 
 **One-time setup:** On GitHub, go to **Settings > Pages**. Set **Source** to **Deploy from a branch**, branch to **main**, folder to **/ (root)**.
 
-**EmailJS (contact form):** Add these **repository secrets** (same names as Vite env vars): `VITE_EMAILJS_PUBLIC_KEY`, `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`. The deploy workflow passes them into `npm run build` so they are baked into the client bundle only at publish time—not stored in the repo. For local development, copy `.env.example` to `.env.local` and fill in the values from your [EmailJS](https://www.emailjs.com/) dashboard.
+**EmailJS (contact form):** Add these **repository secrets** (same names as Vite env vars): `VITE_EMAILJS_PUBLIC_KEY`, `VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`. The deploy workflow passes them into `npm run build` so they are baked into the client bundle only at publish time — not stored in the repo. For local development, copy `.env.example` to `.env.local` and fill in the values from your [EmailJS](https://www.emailjs.com/) dashboard.
 
 You can also trigger the workflow manually: **Actions > Deploy to GitHub Pages > Run workflow**.
 
@@ -95,7 +120,7 @@ src/
 ├── App.tsx                     # App shell and routes
 ├── components/
 │   ├── layout/
-│   │   ├── Header.tsx          # Navigation header
+│   │   ├── Header.tsx          # Navigation header + scroll-driven avatar
 │   │   ├── Header.css
 │   │   ├── Footer.tsx          # Site footer
 │   │   ├── Footer.css
@@ -121,15 +146,16 @@ src/
 │   └── testimonials.ts         # Collaborator reviews
 ├── config/
 │   └── contact.ts              # EmailJS env wiring (VITE_EMAILJS_*)
-├── assets/                     # Images (hero avatar source, favicon, project screenshots)
+├── assets/                     # Images (hero avatar, favicon source, project screenshots)
 ├── styles/
 │   └── main.css                # Global portfolio styles
 ├── lib/
-│   └── utils.ts                # `cn()` (clsx + tailwind-merge)
-├── index.css                   # Tailwind + shadcn theme (imported in `index.tsx`)
+│   └── utils.ts                # cn() (clsx + tailwind-merge)
+├── index.css                   # Tailwind + shadcn theme (imported in index.tsx)
 └── vite-env.d.ts               # Vite client type definitions
 
 scripts/
+├── ensure-dev-entry.js         # Auto-fix index.html entry before dev/build
 ├── generate-favicon.js         # Build favicon files from src/assets/favicon.png
 ├── copy-404-html.js            # Copy index.html → 404.html after build
 └── capture-project-screenshots.js  # Playwright screenshots of project URLs
