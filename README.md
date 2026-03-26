@@ -94,7 +94,7 @@ A workflow (`.github/workflows/deploy.yml`) runs on every push to `main` using *
 
 1. Installs dependencies and builds the project.
 2. Copies `dist/` contents to the repo root so GitHub Pages can serve `index.html`.
-3. Commits and pushes the built files with `[skip ci]` to avoid re-triggering.
+3. Commits and pushes the built files with `[skip ci]` to avoid re-triggering. The workflow uses `git add -f` for `404.html` and `assets/` because those paths are listed in `.gitignore` on development branches (to avoid merge-induced Vite breakage); they still need to exist on `main` for GitHub Pages.
 
 **One-time setup:** On GitHub, go to **Settings > Pages**. Set **Source** to **Deploy from a branch**, branch to **main**, folder to **/ (root)**.
 
