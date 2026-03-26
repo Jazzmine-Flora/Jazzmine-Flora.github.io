@@ -2,7 +2,6 @@ import expenseTracker from "@/assets/projects/expense-tracker.png";
 import girlyBlog from "@/assets/projects/girly-blog.png";
 import newsExplorer from "@/assets/projects/news-explorer.png";
 import portfolio from "@/assets/projects/portfolio.png";
-import timeKeeper from "@/assets/projects/time-keeper.png";
 import tmiWorldwide from "@/assets/projects/tmi-worldwide.png";
 import zenius from "@/assets/projects/zenius.png";
 
@@ -38,6 +37,15 @@ export const projects: Project[] = [
     ],
   },
   {
+    title: "TMI Worldwide",
+    types: ["Design refresh", "Marketing site"],
+    description:
+      "Luxury travel concierge: premium positioning, clear services, and a marketing site that reads high-end without noisy clutter.",
+    link: "https://golden-first-impression.lovable.app/",
+    screenshot: tmiWorldwide,
+    tech: ["React", "Vite", "SPA", "Responsive UI", "Marketing / brand"],
+  },
+  {
     title: "News Explorer",
     types: ["Full-stack web", "APIs & auth"],
     description:
@@ -45,24 +53,6 @@ export const projects: Project[] = [
     link: "https://jazzmine-flora.github.io/news-explorer/",
     screenshot: newsExplorer,
     tech: ["React", "Node.js", "Express", "MongoDB", "REST", "Auth", "News API"],
-  },
-  {
-    title: "TMI Worldwide",
-    types: ["Design refresh", "Marketing site"],
-    description:
-      "Luxury travel concierge: premium positioning, clear services, and a marketing site that reads high-end without noisy clutter.",
-    link: "https://tmi-world-welcome.lovable.app/",
-    screenshot: tmiWorldwide,
-    tech: ["React", "Vite", "SPA", "Responsive UI", "Marketing / brand"],
-  },
-  {
-    title: "Time Keeper",
-    types: ["Web app", "Product UX"],
-    description:
-      "Crafted time and productivity experience: focused flows, clear UI, and a cohesive product feel in the browser.",
-    link: "https://time-keeper-crafted.lovable.app/",
-    screenshot: timeKeeper,
-    tech: ["React", "Vite", "SPA", "Responsive UI", "Product UI"],
   },
   {
     title: "My Portfolio",
