@@ -395,12 +395,14 @@ p:last-child {
   border: 3px solid rgba(255, 255, 255, 0.2);
   animation: avatarGlow 4s ease-in-out infinite;
   margin-bottom: var(--space-xl);
+  will-change: opacity, transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .hero__avatar {
     animation: none;
     box-shadow: 0 0 0 5px rgba(184, 69, 110, 0.2), 0 0 30px rgba(184, 69, 110, 0.15), 0 12px 40px rgba(0, 0, 0, 0.4);
+    will-change: auto;
   }
 }
 

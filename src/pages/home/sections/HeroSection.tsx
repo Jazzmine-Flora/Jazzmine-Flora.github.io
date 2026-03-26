@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { motion } from "motion/react";
 import avatar from "@/assets/avatar.png";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -11,19 +12,44 @@ type Props = {
   scrollTo: ScrollToHandler;
 };
 
-const HeroSection: React.FC<Props> = ({ scrollTo }) => (
-  <section className="section section--home hero hero--3d" id="home" aria-labelledby="hero-heading">
-    <HeroCanvas />
-    <div className="container hero__centered">
-      <img
-        src={avatar}
-        alt="Taliba Sadiq"
-        className="hero__avatar"
-        draggable={false}
-        width={150}
-        height={150}
-        decoding="async"
-      />
+const HeroSection: React.FC<Props> = ({ scrollTo }) => {
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const avatarEl = document.getElementById("hero-avatar");
+      if (!avatarEl) return;
+      const rect = avatarEl.getBoundingClientRect();
+      const headerHeight = document.querySelector(".header")?.getBoundingClientRect().height ?? 72;
+      const avatarHeight = rect.height;
+      const distAboveHeader = headerHeight - rect.top;
+      const progress = Math.max(0, Math.min(1, distAboveHeader / avatarHeight));
+      setScrollProgress(progress);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <section className="section section--home hero hero--3d" id="home" aria-labelledby="hero-heading">
+      <HeroCanvas />
+      <div className="container hero__centered">
+        <motion.img
+          id="hero-avatar"
+          src={avatar}
+          alt="Taliba Sadiq"
+          className="hero__avatar"
+          draggable={false}
+          width={150}
+          height={150}
+          decoding="async"
+          style={{
+            opacity: 1 - scrollProgress,
+            scale: 1 - scrollProgress * 0.15,
+            y: scrollProgress * -20,
+          }}
+        />
       <p className="hero__eyebrow hero__eyebrow--glow">Available for projects</p>
       <h1 id="hero-heading" className="hero__title hero__title--3d">
         Taliba Sadiq
@@ -55,6 +81,7 @@ const HeroSection: React.FC<Props> = ({ scrollTo }) => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default HeroSection;

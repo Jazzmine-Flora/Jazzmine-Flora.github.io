@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "motion/react";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
+import avatar from "@/assets/avatar.png";
 import "./Header.css";
 
 const navItems = [
@@ -15,6 +17,7 @@ const Header: React.FC = () => {
   const scrollActivePath = useScrollSpy();
   const [menuOpen, setMenuOpen] = useState(false);
   const [overDark, setOverDark] = useState(true);
+  const [avatarVisible, setAvatarVisible] = useState(false);
 
   useEffect(() => {
     setMenuOpen(false);
@@ -22,11 +25,18 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const hero = document.querySelector<HTMLElement>(".hero--3d");
-    if (!hero) { setOverDark(false); return; }
+    if (!hero) { setOverDark(false); setAvatarVisible(false); return; }
 
     const check = () => {
-      const bottom = hero.getBoundingClientRect().bottom;
-      setOverDark(bottom > 48);
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      setOverDark(heroBottom > 48);
+
+      const heroAvatar = document.getElementById("hero-avatar");
+      if (heroAvatar) {
+        const avatarRect = heroAvatar.getBoundingClientRect();
+        const headerHeight = document.querySelector(".header")?.getBoundingClientRect().height ?? 72;
+        setAvatarVisible(avatarRect.bottom <= headerHeight + 10);
+      }
     };
     check();
     window.addEventListener("scroll", check, { passive: true });
@@ -41,8 +51,27 @@ const Header: React.FC = () => {
           className="header__brand"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          <span className="header__brand-name">Taliba Sadiq</span>
-          <span className="header__brand-tag">Software Architect &amp; AI Engineer</span>
+          <AnimatePresence>
+            {avatarVisible && (
+              <motion.img
+                src={avatar}
+                alt=""
+                className="header__avatar"
+                aria-hidden="true"
+                width={36}
+                height={36}
+                draggable={false}
+                initial={{ opacity: 0, scale: 0.3, width: 0, marginRight: 0 }}
+                animate={{ opacity: 1, scale: 1, width: 36, marginRight: 12 }}
+                exit={{ opacity: 0, scale: 0.3, width: 0, marginRight: 0 }}
+                transition={{ type: "spring", stiffness: 400, damping: 25, mass: 0.8 }}
+              />
+            )}
+          </AnimatePresence>
+          <div className="header__brand-text">
+            <span className="header__brand-name">Taliba Sadiq</span>
+            <span className="header__brand-tag">Software Architect &amp; AI Engineer</span>
+          </div>
         </Link>
         <button
           className={`header__burger${menuOpen ? " header__burger--open" : ""}`}
